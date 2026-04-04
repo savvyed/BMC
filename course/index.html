@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course — BMC Digital Health</title>
+  <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SCREEN 3 — Course Home
+       Lists all six challenges in sequence.
+       Each has a Start button routing to the challenge page.
+       Status dots are visual-only stubs (no progress tracking in prototype).
+       ============================================================ -->
+
+  <header class="site-header" role="banner">
+    <a class="btn-back"
+       data-lang-href="../home.html"
+       href="../home.html"
+       aria-label="Back to home">
+      ← <span class="visually-hidden">Back</span>
+    </a>
+    <span class="header-title" aria-hidden="true">BMC Digital Health</span>
+    <a href="../index.html" class="header-lang-btn" aria-label="Change language">
+      🌐 <span data-string-key="langIndicator">English</span>
+    </a>
+  </header>
+
+  <main class="page-content" id="main" role="main">
+
+    <h1 class="course-heading" data-string-key="courseHeading">
+      Learn MyChart step by step
+    </h1>
+
+    <!-- Six challenge cards in order -->
+    <ol class="challenge-list" aria-label="Course challenges">
+
+      <!-- Challenge 0 — Email Setup -->
+      <li class="challenge-entry">
+        <div class="status-dot" aria-hidden="true" title="Not started"></div>
+        <div class="challenge-info">
+          <div class="challenge-number" data-string-key="ch0Number">Challenge 0</div>
+          <div class="challenge-name" data-string-key="ch0Name">Set up your email</div>
+          <div class="challenge-time" data-string-key="ch0Time">About 5–8 minutes</div>
+        </div>
+        <a class="btn-start"
+           data-lang-href="challenge-0.html"
+           href="challenge-0.html"
+           data-string-key="startBtn"
+           aria-label="Start Challenge 0 — Set up your email">
+          Start
+        </a>
+      </li>
+
+      <!-- Challenge 01 — Account Setup -->
+      <li class="challenge-entry">
+        <div class="status-dot" aria-hidden="true"></div>
+        <div class="challenge-info">
+          <div class="challenge-number" data-string-key="ch01Number">Challenge 01</div>
+          <div class="challenge-name" data-string-key="ch01Name">Set up MyChart</div>
+          <div class="challenge-time" data-string-key="ch01Time">About 8 minutes</div>
+        </div>
+        <a class="btn-start"
+           data-lang-href="challenge-01.html"
+           href="challenge-01.html"
+           data-string-key="startBtn"
+           aria-label="Start Challenge 01 — Set up MyChart">
+          Start
+        </a>
+      </li>
+
+      <!-- Challenge 02 — Telehealth (FULLY BUILT) -->
+      <li class="challenge-entry">
+        <div class="status-dot" aria-hidden="true"></div>
+        <div class="challenge-info">
+          <div class="challenge-number" data-string-key="ch02Number">Challenge 02</div>
+          <div class="challenge-name" data-string-key="ch02Name">Join a video visit</div>
+          <div class="challenge-time" data-string-key="ch02Time">About 10 minutes</div>
+        </div>
+        <a class="btn-start"
+           data-lang-href="challenge-02.html"
+           href="challenge-02.html"
+           data-string-key="startBtn"
+           aria-label="Start Challenge 02 — Join a video visit">
+          Start
+        </a>
+      </li>
+
+      <!-- Challenge 03 — Common Tasks -->
+      <li class="challenge-entry">
+        <div class="status-dot" aria-hidden="true"></div>
+        <div class="challenge-info">
+          <div class="challenge-number" data-string-key="ch03Number">Challenge 03</div>
+          <div class="challenge-name" data-string-key="ch03Name">Common tasks</div>
+          <div class="challenge-time" data-string-key="ch03Time">About 10 minutes</div>
+        </div>
+        <a class="btn-start"
+           data-lang-href="challenge-03.html"
+           href="challenge-03.html"
+           data-string-key="startBtn"
+           aria-label="Start Challenge 03 — Common tasks">
+          Start
+        </a>
+      </li>
+
+      <!-- Challenge 04 — Account Management -->
+      <li class="challenge-entry">
+        <div class="status-dot" aria-hidden="true"></div>
+        <div class="challenge-info">
+          <div class="challenge-number" data-string-key="ch04Number">Challenge 04</div>
+          <div class="challenge-name" data-string-key="ch04Name">Manage your account</div>
+          <div class="challenge-time" data-string-key="ch04Time">About 8 minutes</div>
+        </div>
+        <a class="btn-start"
+           data-lang-href="challenge-04.html"
+           href="challenge-04.html"
+           data-string-key="startBtn"
+           aria-label="Start Challenge 04 — Manage your account">
+          Start
+        </a>
+      </li>
+
+      <!-- Challenge 05 — Community Resources -->
+      <li class="challenge-entry">
+        <div class="status-dot" aria-hidden="true"></div>
+        <div class="challenge-info">
+          <div class="challenge-number" data-string-key="ch05Number">Challenge 05</div>
+          <div class="challenge-name" data-string-key="ch05Name">Find community resources</div>
+          <div class="challenge-time" data-string-key="ch05Time">About 8 minutes</div>
+        </div>
+        <a class="btn-start"
+           data-lang-href="challenge-05.html"
+           href="challenge-05.html"
+           data-string-key="startBtn"
+           aria-label="Start Challenge 05 — Find community resources">
+          Start
+        </a>
+      </li>
+
+    </ol>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <a class="footer-link"
+       data-lang-href="../home.html"
+       href="../home.html"
+       data-string-key="footerHome">🏠 Home</a>
+    <a class="footer-link"
+       data-lang-href="../help/index.html"
+       href="../help/index.html"
+       data-string-key="footerHelp">🔍 Help</a>
+  </footer>
+
+  <script src="../shared/js/main.js"></script>
+</body>
+</html>

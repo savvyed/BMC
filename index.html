@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMC Digital Health Literacy</title>
+  <link rel="stylesheet" href="shared/css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SCREEN 1 — Language Selector
+       First screen every patient sees, every time.
+       No other content competes for attention.
+       ============================================================ -->
+
+  <main class="lang-selector-page" role="main">
+
+    <!-- BMC logo placeholder — replace with real logo asset in production -->
+    <div class="logo-placeholder" aria-label="BMC Logo placeholder">BMC Logo</div>
+
+    <!-- Welcome heading in all five languages — no JS needed here -->
+    <h1 class="welcome-heading">
+      Welcome<br>
+      Bienvenido<br>
+      Bem-vindo<br>
+      Byenveni<br>
+      欢迎
+    </h1>
+
+    <!-- Five language buttons — each navigates to home.html?lang=xx -->
+    <nav class="lang-options" aria-label="Language selection">
+
+      <button class="lang-option" data-lang="en" type="button"
+              aria-label="Select English">
+        English
+      </button>
+
+      <button class="lang-option" data-lang="es" type="button"
+              aria-label="Seleccionar Español">
+        Español
+      </button>
+
+      <button class="lang-option" data-lang="pt" type="button"
+              aria-label="Selecionar Português">
+        Português
+      </button>
+
+      <button class="lang-option" data-lang="ht" type="button"
+              aria-label="Chwazi Kreyòl ayisyen">
+        Kreyòl ayisyen
+      </button>
+
+      <button class="lang-option" data-lang="zh" type="button"
+              aria-label="选择中文">
+        中文
+      </button>
+
+    </nav>
+
+  </main>
+
+  <script src="shared/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 05 — BMC Digital Health</title>
+  <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+<body>
+
+  <!-- STUB — Challenge 05: Find community resources
+       Full content will be built in Phase 2A.
+       Structure mirrors challenge-02.html. -->
+
+  <header class="site-header" role="banner">
+    <button class="btn-back btn-back-step" type="button" aria-label="Back">
+      ← <span data-string-key="backStepBtn" aria-hidden="true">Back</span>
+    </button>
+    <span class="header-title" aria-hidden="true">
+      <span data-string-key="ch05Number">Challenge 05</span> —
+      <span data-string-key="ch05Name">Find community resources</span>
+    </span>
+    <a href="../index.html" class="header-lang-btn" aria-label="Change language">
+      🌐 <span data-string-key="langIndicator">English</span>
+    </a>
+  </header>
+
+  <main class="page-content" id="main" role="main">
+
+    <!-- Step indicator — JS adds .active and .done classes -->
+    <nav class="step-indicator" aria-label="Challenge steps">
+      <div class="step-dot active" aria-label="Step 1: Watch">
+        <div class="step-dot-circle" aria-hidden="true">1</div>
+        <span class="step-dot-label" data-string-key="step1TabLabel">Watch</span>
+      </div>
+      <div class="step-divider" aria-hidden="true"></div>
+      <div class="step-dot" aria-label="Step 2: Practice">
+        <div class="step-dot-circle" aria-hidden="true">2</div>
+        <span class="step-dot-label" data-string-key="step2TabLabel">Practice</span>
+      </div>
+      <div class="step-divider" aria-hidden="true"></div>
+      <div class="step-dot" aria-label="Step 3: Do it">
+        <div class="step-dot-circle" aria-hidden="true">3</div>
+        <span class="step-dot-label" data-string-key="step3TabLabel">Do it</span>
+      </div>
+    </nav>
+
+    <h1 class="step-heading" data-string-key="ch05Name">Find community resources</h1>
+
+    <!-- Stub notice -->
+    <div class="stub-notice" role="note">
+      <p class="stub-notice-label" data-string-key="stubLabel">Coming in Phase 2</p>
+      <p class="stub-notice-text" data-string-key="stubText">
+        This challenge will be fully built during Phase 2A content development.
+      </p>
+    </div>
+
+    <!-- Step 1 placeholder -->
+    <section class="challenge-step" aria-labelledby="step1-heading">
+      <p class="step-label-text" data-string-key="step1TabLabel">Watch</p>
+      <h1 class="step-heading" id="step1-heading" data-string-key="ch05Name">Find community resources</h1>
+
+      <div class="step-media-row">
+        <div class="video-placeholder" role="img"
+             aria-label="Video placeholder — how-to clip will appear here">
+          <span class="video-placeholder-icon" aria-hidden="true">▶</span>
+          <span class="video-placeholder-label" data-string-key="videoPH">How-to clip</span>
+        </div>
+        <div class="text-panel-placeholder" role="complementary"
+             aria-label="Translated text panel placeholder">
+          <span data-string-key="textPanelPH">Text panel — translated steps appear here</span>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-primary btn-next" type="button" data-string-key="nextBtn">Next →</button>
+      </div>
+    </section>
+
+    <!-- Step 2 placeholder -->
+    <section class="challenge-step" hidden aria-labelledby="step2-heading">
+      <p class="step-label-text" data-string-key="step2TabLabel">Practice</p>
+      <h1 class="step-heading" id="step2-heading" data-string-key="ch05Name">Find community resources</h1>
+
+      <div class="interaction-placeholder" data-type="scenario" data-challenge="05"
+           role="region" aria-label="Interactive scenario placeholder">
+        <p class="interaction-placeholder-label">Interactive Scenario</p>
+        <p class="interaction-placeholder-desc" data-string-key="scenarioPH">
+          Character scenario — content coming in Phase 2A
+        </p>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-secondary btn-back-step" type="button" data-string-key="backStepBtn">← Back</button>
+        <button class="btn-primary btn-next" type="button" data-string-key="nextBtn">Next →</button>
+      </div>
+    </section>
+
+    <!-- Step 3 placeholder -->
+    <section class="challenge-step" hidden aria-labelledby="step3-heading">
+      <p class="step-label-text" data-string-key="step3TabLabel">Do it</p>
+      <h1 class="step-heading" id="step3-heading">Try it on your phone</h1>
+
+      <ul class="checklist" aria-label="Placeholder checklist">
+        <li class="checklist-item">
+          <input type="checkbox" id="c05-check1" aria-label="Step 1">
+          <label class="checklist-item-text" for="c05-check1">Step 1 — placeholder</label>
+        </li>
+        <li class="checklist-item">
+          <input type="checkbox" id="c05-check2" aria-label="Step 2">
+          <label class="checklist-item-text" for="c05-check2">Step 2 — placeholder</label>
+        </li>
+        <li class="checklist-item">
+          <input type="checkbox" id="c05-check3" aria-label="Step 3">
+          <label class="checklist-item-text" for="c05-check3">Step 3 — placeholder</label>
+        </li>
+      </ul>
+
+      <div class="step-nav">
+        <button class="btn-secondary btn-back-step" type="button" data-string-key="backStepBtn">← Back</button>
+        <button class="btn-primary btn-done" type="button" data-string-key="doneBtn">Done</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <a class="footer-link" data-lang-href="../home.html" href="../home.html" data-string-key="footerHome">🏠 Home</a>
+    <a class="footer-link" data-lang-href="../help/index.html" href="../help/index.html" data-string-key="footerHelp">🔍 Help</a>
+  </footer>
+
+  <script src="../shared/js/main.js"></script>
+</body>
+</html>

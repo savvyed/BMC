@@ -1,0 +1,1060 @@
+/* ============================================================
+   BMC Digital Health Literacy Site — styles.css
+   All design tokens defined in :root. Do not hardcode colors
+   or font sizes anywhere in this file or in HTML.
+   ============================================================ */
+
+/* ── Design Tokens ── */
+:root {
+  /* Colors */
+  --color-primary:       #1a5276;   /* Deep blue — headers, primary buttons */
+  --color-primary-light: #2e86c1;   /* Medium blue — hover states */
+  --color-accent:        #148f77;   /* Teal — secondary actions, checkmarks */
+  --color-surface:       #ffffff;   /* Card backgrounds */
+  --color-background:    #f4f6f7;   /* Page background */
+  --color-text:          #1c2833;   /* Body text */
+  --color-text-muted:    #717d7e;   /* Secondary text, captions */
+  --color-border:        #d5d8dc;   /* Card borders, dividers */
+  --color-external:      #784212;   /* External link indicator — warm amber */
+  --color-error:         #c0392b;   /* Error / warning states */
+  --color-success:       #1e8449;   /* Completion / checked states */
+
+  /* Typography */
+  --font-family:    system-ui, -apple-system, sans-serif;
+  --font-size-xl:   1.5rem;         /* Page headings */
+  --font-size-lg:   1.25rem;        /* Card labels, section headings */
+  --font-size-md:   1rem;           /* Body text */
+  --font-size-sm:   0.875rem;       /* Captions, secondary text */
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Touch targets */
+  --tap-target-min: 56px;           /* Minimum height for all tappable elements */
+
+  /* Radius */
+  --radius-card:   12px;
+  --radius-button: 8px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Set by JS on each page load to match selected language */
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+  min-height: 100vh;
+}
+
+/* Never suppress focus outlines — required for keyboard accessibility */
+:focus-visible {
+  outline: 3px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: var(--font-family); cursor: pointer; }
+
+/* ── Utility ── */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   SCREEN 1 — Language Selector (index.html)
+   ============================================================ */
+
+/* Full-viewport centered layout */
+.lang-selector-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--color-primary);
+}
+
+/* Gray rectangle standing in for the BMC logo */
+.logo-placeholder {
+  width: 140px;
+  height: 60px;
+  background: rgba(255,255,255,0.2);
+  border: 2px dashed rgba(255,255,255,0.5);
+  border-radius: var(--radius-button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xl);
+  letter-spacing: 0.05em;
+}
+
+.welcome-heading {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  line-height: 1.3;
+}
+
+/* Container that constrains button width on wide screens */
+.lang-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Each language selection button */
+.lang-option {
+  display: block;
+  width: 100%;
+  min-height: var(--tap-target-min);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-button);
+  font-size: 1.25rem;         /* Minimum 20px per brief */
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.lang-option:hover,
+.lang-option:focus-visible {
+  background: #d6eaf8;
+  transform: translateY(-1px);
+}
+
+.lang-option:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   SHARED HEADER (all pages after index.html)
+   ============================================================ */
+
+.site-header {
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+/* Logo placeholder in header */
+.header-logo-placeholder {
+  width: 80px;
+  height: 34px;
+  background: rgba(255,255,255,0.2);
+  border: 1px dashed rgba(255,255,255,0.5);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.7);
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+/* Language indicator button — links back to index.html */
+.header-lang-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #ffffff;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 20px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  min-height: 36px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  transition: background 0.15s;
+}
+
+.header-lang-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.header-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: #ffffff;
+  flex: 1;
+  text-align: center;
+  padding: 0 var(--space-sm);
+}
+
+/* ── Back button (appears in header on sub-pages) ── */
+.btn-back {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  min-height: var(--tap-target-min);
+  min-width: 48px;
+  padding: 0 var(--space-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn-back:hover { opacity: 0.85; }
+
+/* ============================================================
+   SHARED FOOTER (persistent on all post-index pages)
+   ============================================================ */
+
+.site-footer {
+  background: var(--color-surface);
+  border-top: 2px solid var(--color-border);
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  position: sticky;
+  bottom: 0;
+  z-index: 200;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: var(--tap-target-min);
+  padding: 0 var(--space-md);
+  color: var(--color-primary);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-button);
+  transition: background 0.15s;
+}
+
+.footer-link:hover {
+  background: var(--color-background);
+}
+
+/* ============================================================
+   PAGE CONTAINER
+   ============================================================ */
+
+.page-content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+  /* Leave room for sticky footer */
+  padding-bottom: calc(var(--tap-target-min) + var(--space-lg));
+}
+
+/* ============================================================
+   SCREEN 2 — Home Screen (home.html)
+   ============================================================ */
+
+.home-heading {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xl);
+  line-height: 1.3;
+}
+
+/* 2-column grid on tablet+, 1 column on mobile */
+.option-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+/* Option card — large tappable area */
+.option-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  min-height: var(--tap-target-min);
+  text-decoration: none;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.option-card:hover,
+.option-card:focus-visible {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 2px 12px rgba(26,82,118,0.12);
+}
+
+.option-card-icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.option-card-label {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+/* External link indicator — amber color, small text */
+.option-card-external {
+  font-size: var(--font-size-sm);
+  color: var(--color-external);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.option-card-external::before {
+  content: "↗";
+  font-size: 1em;
+}
+
+/* ============================================================
+   SCREEN 3 — Course Home (course/index.html)
+   ============================================================ */
+
+.course-heading {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+  line-height: 1.3;
+}
+
+/* Vertical list of challenge cards */
+.challenge-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.challenge-entry {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  transition: border-color 0.15s;
+}
+
+.challenge-entry:hover {
+  border-color: var(--color-primary-light);
+}
+
+/* Status indicator — non-functional in prototype */
+.status-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-border);
+  flex-shrink: 0;
+  border: 2px solid var(--color-text-muted);
+}
+
+.challenge-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.challenge-number {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.challenge-name {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.challenge-time {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Start button */
+.btn-start {
+  background: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-button);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  min-height: var(--tap-target-min);
+  min-width: 80px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.btn-start:hover {
+  background: var(--color-primary-light);
+}
+
+/* ============================================================
+   SCREEN 4 — Individual Challenge Page
+   ============================================================ */
+
+/* Step indicator bar */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.step-dot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.step-dot-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-dot.active .step-dot-circle {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.step-dot.done .step-dot-circle {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+.step-dot.active .step-dot-label {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.step-divider {
+  flex: 1;
+  height: 2px;
+  background: var(--color-border);
+}
+
+/* Challenge step panels — shown/hidden by JS */
+.challenge-step {
+  display: block;
+}
+
+.challenge-step[hidden] {
+  display: none;
+}
+
+.step-heading {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+  line-height: 1.3;
+}
+
+.step-label-text {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-xs);
+}
+
+/* Video placeholder — 16:9 aspect ratio */
+.video-placeholder {
+  background: #e8ecef;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-card);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.video-placeholder-icon {
+  font-size: 2.5rem;
+  opacity: 0.4;
+}
+
+.video-placeholder-label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+/* Text panel placeholder — bordered box */
+.text-panel-placeholder {
+  border: 2px solid var(--color-primary-light);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  background: #eaf4fb;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* Interaction placeholder — clearly labeled for future H5P */
+.interaction-placeholder {
+  background: #f9f2ff;
+  border: 2px dashed #9b59b6;
+  border-radius: var(--radius-card);
+  padding: var(--space-xl);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.interaction-placeholder-label {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: #7d3c98;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+}
+
+.interaction-placeholder-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Character intro text */
+.character-intro {
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-left: 4px solid var(--color-accent);
+  padding: var(--space-md);
+  border-radius: 0 var(--radius-button) var(--radius-button) 0;
+  margin-bottom: var(--space-md);
+  line-height: 1.5;
+}
+
+/* Character selector — 4 buttons in a row */
+.character-selector {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.char-btn {
+  flex: 1;
+  min-width: 70px;
+  min-height: 44px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-button);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.char-btn:hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.char-btn.selected {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Checklist — Step 3 */
+.checklist-intro {
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  list-style: none;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-button);
+  padding: var(--space-md);
+  cursor: pointer;
+  transition: border-color 0.15s;
+  min-height: var(--tap-target-min);
+}
+
+.checklist-item:hover {
+  border-color: var(--color-primary-light);
+}
+
+.checklist-item.checked {
+  border-color: var(--color-accent);
+  background: #e9f7ef;
+}
+
+.checklist-item input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.checklist-item-text {
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.checklist-item.checked .checklist-item-text {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+/* Navigation buttons at bottom of each step */
+.step-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-button);
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  min-height: var(--tap-target-min);
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-light);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-button);
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  min-height: var(--tap-target-min);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-secondary:hover {
+  background: var(--color-background);
+}
+
+/* Stub badge — marks pages that are not yet fully built */
+.stub-notice {
+  background: #fef9e7;
+  border: 2px solid #f1c40f;
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.stub-notice-label {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: #9a7d0a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-xs);
+}
+
+.stub-notice-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   SCREEN 5 — Knowledge Base Home (help/index.html)
+   ============================================================ */
+
+.help-heading {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+  line-height: 1.3;
+}
+
+/* Category cards — stacked vertically on all screen sizes (mobile-first) */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  min-height: var(--tap-target-min);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.category-card:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 2px 8px rgba(26,82,118,0.1);
+}
+
+.category-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.category-label {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  flex: 1;
+}
+
+.category-chevron {
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   SCREEN 6 — Category Page (help/category.html)
+   ============================================================ */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-primary);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.category-page-heading {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+}
+
+/* Topic list — rows with title, time, chevron */
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  list-style: none;
+}
+
+.topic-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-md) var(--space-lg);
+  min-height: var(--tap-target-min);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.topic-item:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 2px 8px rgba(26,82,118,0.1);
+}
+
+.topic-item-title {
+  flex: 1;
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.topic-item-time {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.topic-item-chevron {
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   SCREEN 7 — Topic Page (help/topic.html)
+   ============================================================ */
+
+.topic-heading {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+  line-height: 1.3;
+}
+
+/* On wider screens, put video and text panel side by side */
+.topic-media-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+/* Steps section */
+.steps-heading {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 2px solid var(--color-border);
+}
+
+.steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.steps-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* "Need more help?" section — always visible at bottom */
+.more-help {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+}
+
+.more-help-heading {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.more-help-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.more-help-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-height: var(--tap-target-min);
+  padding: var(--space-md);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  color: var(--color-primary);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.more-help-link:hover {
+  background: #d6eaf8;
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet and wider (640px+)
+   ============================================================ */
+
+@media (min-width: 640px) {
+
+  /* 2-column option grid on home screen */
+  .option-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Video and text panel side by side on topic page */
+  .topic-media-row {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .topic-media-row .video-placeholder {
+    flex: 3;
+    margin-bottom: 0;
+  }
+
+  .topic-media-row .text-panel-placeholder {
+    flex: 2;
+    margin-bottom: 0;
+    align-self: stretch;
+    min-height: unset;
+  }
+
+  /* Video and text panel side by side on challenge Step 1 */
+  .step-media-row {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .step-media-row .video-placeholder {
+    flex: 3;
+    margin-bottom: 0;
+  }
+
+  .step-media-row .text-panel-placeholder {
+    flex: 2;
+    margin-bottom: 0;
+    align-self: stretch;
+  }
+}

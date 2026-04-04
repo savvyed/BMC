@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video visits — BMC Digital Health</title>
+  <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SCREEN 6 — Category Page
+       "Video visits" is the fully built example.
+       Other categories share this template — JS reads ?cat= to
+       show the right label (stub: all non-video-visits categories
+       show a placeholder list).
+       ============================================================ -->
+
+  <header class="site-header" role="banner">
+    <a class="btn-back"
+       data-lang-href="index.html"
+       href="index.html"
+       aria-label="Back to all topics">
+      ← <span class="visually-hidden">Back</span>
+    </a>
+    <span class="header-title" aria-hidden="true" id="category-title">
+      Video visits
+    </span>
+    <a href="../index.html" class="header-lang-btn" aria-label="Change language">
+      🌐 <span data-string-key="langIndicator">English</span>
+    </a>
+  </header>
+
+  <main class="page-content" id="main" role="main">
+
+    <!-- Back link above heading -->
+    <a class="back-link"
+       data-lang-href="index.html"
+       href="index.html"
+       aria-label="Back to all topics">
+      ← <span data-string-key="backToAllTopics">All topics</span>
+    </a>
+
+    <!-- Category heading — JS updates this from ?cat= slug -->
+    <h1 class="category-page-heading" id="category-heading">Video visits</h1>
+
+    <!-- Topic list for "Video visits" — FULLY BUILT
+         Other categories: JS will show a stub list until Phase 2 content -->
+    <nav class="topic-list" aria-label="Topics in this category" id="topic-list">
+
+      <!-- Topic 1 -->
+      <a class="topic-item"
+         data-lang-href="topic.html?topic=join-video-phone"
+         href="topic.html?topic=join-video-phone"
+         aria-label="Join a video visit on your phone — 2 minutes">
+        <span class="topic-item-title">Join a video visit on your phone</span>
+        <span class="topic-item-time">2 min</span>
+        <span class="topic-item-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Topic 2 -->
+      <a class="topic-item"
+         data-lang-href="topic.html?topic=join-video-computer"
+         href="topic.html?topic=join-video-computer"
+         aria-label="Join a video visit on a computer — 2 minutes">
+        <span class="topic-item-title">Join a video visit on a computer</span>
+        <span class="topic-item-time">2 min</span>
+        <span class="topic-item-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Topic 3 -->
+      <a class="topic-item"
+         data-lang-href="topic.html?topic=camera-mic-setup"
+         href="topic.html?topic=camera-mic-setup"
+         aria-label="Set up your camera and microphone — 2 minutes">
+        <span class="topic-item-title">Set up your camera and microphone</span>
+        <span class="topic-item-time">2 min</span>
+        <span class="topic-item-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Topic 4 -->
+      <a class="topic-item"
+         data-lang-href="topic.html?topic=troubleshoot-camera"
+         href="topic.html?topic=troubleshoot-camera"
+         aria-label="Troubleshoot: camera not working — 2 minutes">
+        <span class="topic-item-title">Troubleshoot: camera not working</span>
+        <span class="topic-item-time">2 min</span>
+        <span class="topic-item-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Topic 5 -->
+      <a class="topic-item"
+         data-lang-href="topic.html?topic=troubleshoot-connection"
+         href="topic.html?topic=troubleshoot-connection"
+         aria-label="Troubleshoot: dropped connection — 2 minutes">
+        <span class="topic-item-title">Troubleshoot: dropped connection</span>
+        <span class="topic-item-time">2 min</span>
+        <span class="topic-item-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Topic 6 -->
+      <a class="topic-item"
+         data-lang-href="topic.html?topic=troubleshoot-waiting-room"
+         href="topic.html?topic=troubleshoot-waiting-room"
+         aria-label="Troubleshoot: wrong waiting room — 2 minutes">
+        <span class="topic-item-title">Troubleshoot: wrong waiting room</span>
+        <span class="topic-item-time">2 min</span>
+        <span class="topic-item-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Topic 7 -->
+      <a class="topic-item"
+         data-lang-href="topic.html?topic=pexip-app"
+         href="topic.html?topic=pexip-app"
+         aria-label="Join using the Pexip app (older phones) — 2 minutes">
+        <span class="topic-item-title">Join using the Pexip app (older phones)</span>
+        <span class="topic-item-time">2 min</span>
+        <span class="topic-item-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Topic 8 -->
+      <a class="topic-item"
+         data-lang-href="topic.html?topic=schedule-video-visit"
+         href="topic.html?topic=schedule-video-visit"
+         aria-label="Schedule a video visit — 2 minutes">
+        <span class="topic-item-title">Schedule a video visit</span>
+        <span class="topic-item-time">2 min</span>
+        <span class="topic-item-chevron" aria-hidden="true">›</span>
+      </a>
+
+    </nav>
+
+    <!-- Stub notice shown for non-video-visits categories -->
+    <div class="stub-notice" id="stub-topic-notice" hidden role="note">
+      <p class="stub-notice-label" data-string-key="stubLabel">Coming in Phase 2</p>
+      <p class="stub-notice-text" data-string-key="stubText">
+        Topics for this category will be added during Phase 2A content development.
+      </p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <a class="footer-link"
+       data-lang-href="../home.html"
+       href="../home.html"
+       data-string-key="footerHome">🏠 Home</a>
+    <a class="footer-link"
+       data-lang-href="index.html"
+       href="index.html"
+       data-string-key="footerHelp">🔍 Help</a>
+  </footer>
+
+  <script src="../shared/js/main.js"></script>
+</body>
+</html>

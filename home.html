@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMC Digital Health</title>
+  <link rel="stylesheet" href="shared/css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SCREEN 2 — Home Screen
+       Four options. No instructional paragraphs.
+       Cards 3 and 4 open external sites in a new tab.
+       ============================================================ -->
+
+  <!-- Persistent header — appears on all pages after language selector -->
+  <header class="site-header" role="banner">
+
+    <!-- Logo links back to language selector -->
+    <a href="index.html" class="header-logo-placeholder" aria-label="BMC — return to language selection">
+      BMC
+    </a>
+
+    <span class="header-title" aria-hidden="true">BMC Digital Health</span>
+
+    <!-- Language indicator — tapping returns to language selector -->
+    <a href="index.html" class="header-lang-btn" aria-label="Change language">
+      🌐 <span data-string-key="langIndicator">English</span>
+    </a>
+
+  </header>
+
+  <!-- Main content -->
+  <main class="page-content" id="main" role="main">
+
+    <h1 class="home-heading" data-string-key="homeHeading">
+      What would you like to do today?
+    </h1>
+
+    <!-- Four option cards in a 2×2 grid (tablet+) or stacked (mobile) -->
+    <div class="option-grid" role="list">
+
+      <!-- Card 1 — Learn MyChart (internal) -->
+      <a class="option-card"
+         role="listitem"
+         data-lang-href="course/index.html"
+         href="course/index.html"
+         aria-label="Learn MyChart step by step">
+        <span class="option-card-icon" aria-hidden="true">📘</span>
+        <span class="option-card-label" data-string-key="card1Label">
+          Learn MyChart step by step
+        </span>
+      </a>
+
+      <!-- Card 2 — Find help (internal) -->
+      <a class="option-card"
+         role="listitem"
+         data-lang-href="help/index.html"
+         href="help/index.html"
+         aria-label="Find help with a specific task">
+        <span class="option-card-icon" aria-hidden="true">🔍</span>
+        <span class="option-card-label" data-string-key="card2Label">
+          Find help with a specific task
+        </span>
+      </a>
+
+      <!-- Card 3 — Open MyChart (EXTERNAL — new tab) -->
+      <a class="option-card"
+         role="listitem"
+         href="https://mychart.bmc.org"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Open MyChart — opens in a new tab">
+        <span class="option-card-icon" aria-hidden="true">🏥</span>
+        <span class="option-card-label" data-string-key="card3Label">
+          Open MyChart
+        </span>
+        <span class="option-card-external" data-string-key="card3Note">
+          Opens in a new tab
+        </span>
+      </a>
+
+      <!-- Card 4 — Open MassThrive (EXTERNAL — new tab) -->
+      <a class="option-card"
+         role="listitem"
+         href="https://www.massthrive.org"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Open MassThrive — opens in a new tab">
+        <span class="option-card-icon" aria-hidden="true">🌐</span>
+        <span class="option-card-label" data-string-key="card4Label">
+          Open MassThrive
+        </span>
+        <span class="option-card-external" data-string-key="card4Note">
+          Opens in a new tab
+        </span>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- Persistent footer — Home + Help links -->
+  <footer class="site-footer" role="contentinfo">
+    <a class="footer-link"
+       data-lang-href="home.html"
+       href="home.html"
+       data-string-key="footerHome"
+       aria-label="Home">
+      🏠 Home
+    </a>
+    <a class="footer-link"
+       data-lang-href="help/index.html"
+       href="help/index.html"
+       data-string-key="footerHelp"
+       aria-label="Help — find help with a specific task">
+      🔍 Help
+    </a>
+  </footer>
+
+  <script src="shared/js/main.js"></script>
+</body>
+</html>

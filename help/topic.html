@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic — BMC Digital Health</title>
+  <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SCREEN 7 — Topic Page
+       Template reused for all ~28 knowledge base topics.
+       JS reads ?topic= from URL to set the heading.
+       Fully built for "Join a video visit on your phone."
+       ============================================================ -->
+
+  <header class="site-header" role="banner">
+    <a class="btn-back"
+       data-lang-href="category.html?cat=video-visits"
+       href="category.html?cat=video-visits"
+       aria-label="Back to Video visits">
+      ← <span class="visually-hidden">Back</span>
+    </a>
+    <span class="header-title" aria-hidden="true">BMC Digital Health</span>
+    <a href="../index.html" class="header-lang-btn" aria-label="Change language">
+      🌐 <span data-string-key="langIndicator">English</span>
+    </a>
+  </header>
+
+  <main class="page-content" id="main" role="main">
+
+    <!-- Back link above heading — label comes from category context -->
+    <a class="back-link"
+       data-lang-href="category.html?cat=video-visits"
+       href="category.html?cat=video-visits">
+      ← <span data-string-key="cat3Label">Video visits</span>
+    </a>
+
+    <!-- Topic heading -->
+    <h1 class="topic-heading" id="topic-heading">
+      How to join a video visit on your phone
+    </h1>
+
+    <!-- Video + translated text panel side by side on tablet+, stacked on mobile -->
+    <div class="step-media-row">
+
+      <!-- 16:9 video placeholder -->
+      <div class="video-placeholder" role="img"
+           aria-label="How-to video — join a video visit on your phone">
+        <span class="video-placeholder-icon" aria-hidden="true">▶</span>
+        <span class="video-placeholder-label" data-string-key="videoPH">
+          How-to clip
+        </span>
+      </div>
+
+      <!-- Translated text panel — shown alongside or below video -->
+      <div class="text-panel-placeholder"
+           role="complementary"
+           aria-label="Translated text panel placeholder">
+        <span data-string-key="textPanelPH">
+          Text panel — translated steps appear here
+        </span>
+      </div>
+
+    </div><!-- /step-media-row -->
+
+    <!-- Written steps — numbered list, 4–8 items -->
+    <section class="topic-steps" aria-labelledby="steps-heading">
+
+      <h2 class="steps-heading" id="steps-heading" data-string-key="stepsHeading">
+        Follow these steps
+      </h2>
+
+      <ol class="steps-list">
+        <li>
+          <span data-string-key="step1Text">Open the MyChart app on your phone.</span>
+        </li>
+        <li>
+          <span data-string-key="step2Text">Tap <strong>Appointments</strong> at the bottom of the screen.</span>
+        </li>
+        <li>
+          <span data-string-key="step3Text">Find your video visit in the list. It will show today's date and time.</span>
+        </li>
+        <li>
+          <span data-string-key="step4Text">Tap <strong>Begin Visit</strong>. This button appears up to 30 minutes before your visit.</span>
+        </li>
+        <li>
+          <span data-string-key="step5Text">Allow MyChart to use your camera and microphone if asked.</span>
+        </li>
+        <li>
+          <span data-string-key="step6Text">Wait in the waiting room. Your provider will join when they are ready.</span>
+        </li>
+      </ol>
+
+    </section>
+
+    <!-- Need more help? — always visible at the bottom, never buried -->
+    <section class="more-help" aria-labelledby="more-help-heading">
+
+      <h2 class="more-help-heading" id="more-help-heading" data-string-key="moreHelpHeading">
+        Need more help?
+      </h2>
+
+      <div class="more-help-links">
+
+        <!-- SMS help — placeholder number, SMS integration is Phase 2+ -->
+        <!-- NOTE: Replace +10000000000 with real navigator SMS number before launch -->
+        <a class="more-help-link"
+           href="sms:+10000000000"
+           aria-label="Text us for help">
+          <span aria-hidden="true">💬</span>
+          <span data-string-key="textUsLabel">Text us for help</span>
+        </a>
+
+        <!-- Back to course — routes to the relevant challenge page -->
+        <a class="more-help-link"
+           data-lang-href="../course/challenge-02.html"
+           href="../course/challenge-02.html"
+           aria-label="Go back to the course — Challenge 02: Join a video visit">
+          <span aria-hidden="true">📘</span>
+          <span data-string-key="backToCourseLabel">Go back to the course</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <a class="footer-link"
+       data-lang-href="../home.html"
+       href="../home.html"
+       data-string-key="footerHome">🏠 Home</a>
+    <a class="footer-link"
+       data-lang-href="index.html"
+       href="index.html"
+       data-string-key="footerHelp">🔍 Help</a>
+  </footer>
+
+  <script src="../shared/js/main.js"></script>
+</body>
+</html>

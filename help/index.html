@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help — BMC Digital Health</title>
+  <link rel="stylesheet" href="../shared/css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SCREEN 5 — Knowledge Base Home
+       Seven category cards, stacked vertically on mobile.
+       Each routes to help/category.html?cat=[slug]
+       ============================================================ -->
+
+  <header class="site-header" role="banner">
+    <a class="btn-back"
+       data-lang-href="../home.html"
+       href="../home.html"
+       aria-label="Back to home">
+      ← <span class="visually-hidden">Back</span>
+    </a>
+    <span class="header-title" aria-hidden="true">BMC Digital Health</span>
+    <a href="../index.html" class="header-lang-btn" aria-label="Change language">
+      🌐 <span data-string-key="langIndicator">English</span>
+    </a>
+  </header>
+
+  <main class="page-content" id="main" role="main">
+
+    <h1 class="help-heading" data-string-key="helpHeading">
+      Find help with a specific task
+    </h1>
+
+    <!-- Seven category cards — stacked vertically on all screen sizes -->
+    <nav class="category-list" aria-label="Help categories">
+
+      <!-- Category 1 — Setting up your email -->
+      <a class="category-card"
+         data-lang-href="category.html?cat=email"
+         href="category.html?cat=email"
+         aria-label="Setting up your email">
+        <span class="category-icon" aria-hidden="true">📧</span>
+        <span class="category-label" data-string-key="cat1Label">Setting up your email</span>
+        <span class="category-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Category 2 — Setting up MyChart -->
+      <a class="category-card"
+         data-lang-href="category.html?cat=mychart-setup"
+         href="category.html?cat=mychart-setup"
+         aria-label="Setting up MyChart">
+        <span class="category-icon" aria-hidden="true">🏥</span>
+        <span class="category-label" data-string-key="cat2Label">Setting up MyChart</span>
+        <span class="category-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Category 3 — Video visits (FULLY BUILT example) -->
+      <a class="category-card"
+         data-lang-href="category.html?cat=video-visits"
+         href="category.html?cat=video-visits"
+         aria-label="Video visits">
+        <span class="category-icon" aria-hidden="true">📹</span>
+        <span class="category-label" data-string-key="cat3Label">Video visits</span>
+        <span class="category-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Category 4 — Medications & refills -->
+      <a class="category-card"
+         data-lang-href="category.html?cat=medications"
+         href="category.html?cat=medications"
+         aria-label="Medications and refills">
+        <span class="category-icon" aria-hidden="true">💊</span>
+        <span class="category-label" data-string-key="cat4Label">Medications &amp; refills</span>
+        <span class="category-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Category 5 — Appointments -->
+      <a class="category-card"
+         data-lang-href="category.html?cat=appointments"
+         href="category.html?cat=appointments"
+         aria-label="Appointments">
+        <span class="category-icon" aria-hidden="true">📅</span>
+        <span class="category-label" data-string-key="cat5Label">Appointments</span>
+        <span class="category-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Category 6 — Messages & your records -->
+      <a class="category-card"
+         data-lang-href="category.html?cat=messages"
+         href="category.html?cat=messages"
+         aria-label="Messages and your records">
+        <span class="category-icon" aria-hidden="true">✉️</span>
+        <span class="category-label" data-string-key="cat6Label">Messages &amp; your records</span>
+        <span class="category-chevron" aria-hidden="true">›</span>
+      </a>
+
+      <!-- Category 7 — Community resources -->
+      <a class="category-card"
+         data-lang-href="category.html?cat=community"
+         href="category.html?cat=community"
+         aria-label="Community resources">
+        <span class="category-icon" aria-hidden="true">🔍</span>
+        <span class="category-label" data-string-key="cat7Label">Community resources</span>
+        <span class="category-chevron" aria-hidden="true">›</span>
+      </a>
+
+    </nav>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <a class="footer-link"
+       data-lang-href="../home.html"
+       href="../home.html"
+       data-string-key="footerHome">🏠 Home</a>
+    <a class="footer-link"
+       data-lang-href="index.html"
+       href="index.html"
+       data-string-key="footerHelp">🔍 Help</a>
+  </footer>
+
+  <script src="../shared/js/main.js"></script>
+</body>
+</html>
