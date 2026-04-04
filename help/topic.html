@@ -17,9 +17,10 @@
 
   <header class="site-header" role="banner">
     <a class="btn-back"
+       data-back-cat
        data-lang-href="category.html?cat=video-visits"
        href="category.html?cat=video-visits"
-       aria-label="Back to Video visits">
+       aria-label="Back">
       ← <span class="visually-hidden">Back</span>
     </a>
     <span class="header-title" aria-hidden="true">BMC Digital Health</span>
@@ -30,14 +31,15 @@
 
   <main class="page-content" id="main" role="main">
 
-    <!-- Back link above heading — label comes from category context -->
+    <!-- Back link above heading — JS updates href and label via data-back-cat -->
     <a class="back-link"
+       data-back-cat
        data-lang-href="category.html?cat=video-visits"
        href="category.html?cat=video-visits">
-      ← <span data-string-key="cat3Label">Video visits</span>
+      ← <span data-back-cat-label>Video visits</span>
     </a>
 
-    <!-- Topic heading -->
+    <!-- Topic heading — JS sets text via id="topic-heading" -->
     <h1 class="topic-heading" id="topic-heading">
       How to join a video visit on your phone
     </h1>
@@ -72,7 +74,7 @@
         Follow these steps
       </h2>
 
-      <ol class="steps-list">
+      <ol class="steps-list" id="steps-list">
         <li>
           <span data-string-key="step1Text">Open the MyChart app on your phone.</span>
         </li>
@@ -113,11 +115,12 @@
           <span data-string-key="textUsLabel">Text us for help</span>
         </a>
 
-        <!-- Back to course — routes to the relevant challenge page -->
+        <!-- Back to course — JS updates href via data-course-link -->
         <a class="more-help-link"
+           data-course-link
            data-lang-href="../course/challenge-02.html"
            href="../course/challenge-02.html"
-           aria-label="Go back to the course — Challenge 02: Join a video visit">
+           aria-label="Go back to the course">
           <span aria-hidden="true">📘</span>
           <span data-string-key="backToCourseLabel">Go back to the course</span>
         </a>

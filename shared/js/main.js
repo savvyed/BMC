@@ -520,6 +520,464 @@ const strings = {
 }; /* end strings */
 
 /* ============================================================
+   TOPIC CATALOG — knowledge base content for all 7 categories
+   Each topic has a slug (used in ?topic= URL param), a title,
+   and an array of step strings rendered by initTopic().
+   ============================================================ */
+var topicCatalog = {
+
+  'email': {
+    titleKey: 'cat1Label',
+    topics: [
+      {
+        slug: 'gmail-create-account',
+        title: 'Create a Gmail account',
+        steps: [
+          'Open a web browser on your phone.',
+          'Go to the Gmail website.',
+          'Tap "Create account."',
+          'Enter your first name. Enter your last name.',
+          'Choose a new email address.',
+          'Tap "Next."'
+        ]
+      },
+      {
+        slug: 'gmail-password',
+        title: 'Create and confirm your password',
+        steps: [
+          'Type your chosen password.',
+          'Type your password again to confirm.',
+          'Tap "Next."'
+        ]
+      },
+      {
+        slug: 'gmail-phone-verify',
+        title: 'Complete phone verification',
+        steps: [
+          'Enter your phone number.',
+          'Tap "Next."',
+          'Type the code you received in a text message.',
+          'Tap "Verify."'
+        ]
+      },
+      {
+        slug: 'gmail-record-info',
+        title: 'Write down your email and password',
+        steps: [
+          'Write your email address on your card.',
+          'Write your password on your card.',
+          'Keep your card in a safe place.'
+        ]
+      }
+    ]
+  },
+
+  'mychart-setup': {
+    titleKey: 'cat2Label',
+    topics: [
+      {
+        slug: 'mychart-download',
+        title: 'Download the MyChart app',
+        steps: [
+          'Open the App Store (iPhone) or Play Store (Android).',
+          'Search for "MyChart."',
+          'Tap "Get" or "Install."',
+          'Wait for the app to finish downloading.',
+          'Tap "Open" to launch MyChart.'
+        ]
+      },
+      {
+        slug: 'mychart-register',
+        title: 'Register with your personal information',
+        steps: [
+          'Open the MyChart app or go to the BMC MyChart website.',
+          'Tap "Sign Up" or "Create Account."',
+          'Enter your full name.',
+          'Enter your birth date.',
+          'Enter your email address.',
+          'Tap "Next."'
+        ]
+      },
+      {
+        slug: 'mychart-activation-code',
+        title: 'Enter your activation code',
+        steps: [
+          'Find your activation code in the email or letter from BMC.',
+          'Type the code into the box.',
+          'Tap "Submit."'
+        ]
+      },
+      {
+        slug: 'mychart-username-password',
+        title: 'Create your username and password',
+        steps: [
+          'Type your chosen username.',
+          'Type your chosen password.',
+          'Type your password again to confirm.',
+          'Tap "Submit."'
+        ]
+      },
+      {
+        slug: 'mychart-2fa',
+        title: 'Set up two-factor authentication (2FA)',
+        steps: [
+          'Enter your phone number.',
+          'Tap "Send Code."',
+          'Type the code you received in a text message.',
+          'Tap "Verify."'
+        ]
+      },
+      {
+        slug: 'mychart-login',
+        title: 'Log in to MyChart',
+        steps: [
+          'Open the MyChart app.',
+          'Enter your username.',
+          'Enter your password.',
+          'Tap the "Sign In" button.'
+        ]
+      },
+      {
+        slug: 'mychart-language',
+        title: 'Set your language preference',
+        steps: [
+          'Tap the Menu icon.',
+          'Tap "Settings."',
+          'Tap "Language."',
+          'Select your preferred language.'
+        ]
+      },
+      {
+        slug: 'mychart-notifications',
+        title: 'Set your notification preferences',
+        steps: [
+          'Tap the Menu icon.',
+          'Tap "Settings."',
+          'Tap "Notifications."',
+          'Turn on or off the notification options.'
+        ]
+      },
+      {
+        slug: 'mychart-proxy',
+        title: 'Set up access for a family member',
+        steps: [
+          'Tap the Menu icon.',
+          'Tap "Sharing Hub."',
+          'Tap "Invite Someone."',
+          'Enter the caregiver\'s email address.',
+          'Tap "Confirm" to send the invitation.'
+        ]
+      },
+      {
+        slug: 'mychart-switch-accounts',
+        title: 'Switch between linked accounts',
+        steps: [
+          'Tap your name or the Account icon at the top of the screen.',
+          'Select the linked family member\'s name.'
+        ]
+      }
+    ]
+  },
+
+  'video-visits': {
+    titleKey: 'cat3Label',
+    topics: [
+      {
+        slug: 'join-video-phone',
+        title: 'Join a video visit on your phone',
+        steps: [
+          'Open the MyChart app on your phone.',
+          'Tap Appointments.',
+          'Find your video visit in the list.',
+          'Tap Begin Visit.',
+          'Allow the app to use your camera and microphone if asked.',
+          'Wait in the waiting room. Your provider will join you soon.'
+        ]
+      },
+      {
+        slug: 'join-video-computer',
+        title: 'Join a video visit on a computer',
+        steps: [
+          'Open a recommended web browser (Chrome for Windows or Android; Safari for iPhone or iPad).',
+          'Navigate to the MyChart website.',
+          'Find your visit under "Appointments."',
+          'Click "Begin Visit."'
+        ]
+      },
+      {
+        slug: 'camera-mic-setup',
+        title: 'Set up your camera and microphone',
+        steps: [
+          'When MyChart asks to use your camera, tap "Allow."',
+          'When MyChart asks to use your microphone, tap "Allow."',
+          'If you do not see the prompt, go to your phone\'s Settings.',
+          'Find MyChart in your list of apps.',
+          'Tap "Permissions" and make sure Camera and Microphone are turned on.'
+        ]
+      },
+      {
+        slug: 'troubleshoot-camera',
+        title: 'Troubleshoot: camera not working',
+        steps: [
+          'Close the MyChart app.',
+          'Go to your phone\'s Settings.',
+          'Find MyChart in your list of apps.',
+          'Tap "Permissions."',
+          'Make sure the Camera toggle is turned On.',
+          'Re-open MyChart and try again.'
+        ]
+      },
+      {
+        slug: 'troubleshoot-connection',
+        title: 'Troubleshoot: dropped connection',
+        steps: [
+          'Close the MyChart app.',
+          'Check your Wi-Fi or cellular connection.',
+          'Re-open MyChart.',
+          'Go to the "Appointments" tile.',
+          'Find your visit and tap to re-enter the waiting room.'
+        ]
+      },
+      {
+        slug: 'troubleshoot-waiting-room',
+        title: 'Troubleshoot: wrong waiting room',
+        steps: [
+          'Check the name and time of your appointment.',
+          'Go to the "Appointments" tile.',
+          'Find the correct appointment.',
+          'Tap "Begin Visit."'
+        ]
+      },
+      {
+        slug: 'pexip-app',
+        title: 'Join using the Pexip app (older phones)',
+        steps: [
+          'Open the App Store or Play Store.',
+          'Search for "Pexip" and install the app.',
+          'Go to the "Appointments" tile in MyChart.',
+          'Find your visit and tap the link to open Pexip.',
+          'Tap "Join" to enter your visit.'
+        ]
+      },
+      {
+        slug: 'schedule-video-visit',
+        title: 'Schedule a video visit',
+        steps: [
+          'Tap "Appointments."',
+          'Tap "Schedule a New Appointment."',
+          'Select a provider.',
+          'Select "Video Visit" as the type.',
+          'Choose a date and time.',
+          'Tap "Confirm."'
+        ]
+      }
+    ]
+  },
+
+  'medications': {
+    titleKey: 'cat4Label',
+    topics: [
+      {
+        slug: 'request-refill',
+        title: 'Request a medication refill',
+        steps: [
+          'Tap the "Medications" tile.',
+          'Select the medication you need.',
+          'Tap "Request Refill."',
+          'Tap "Confirm."'
+        ]
+      }
+    ]
+  },
+
+  'appointments': {
+    titleKey: 'cat5Label',
+    topics: [
+      {
+        slug: 'schedule-telehealth',
+        title: 'Schedule a telehealth appointment',
+        steps: [
+          'Tap "Appointments."',
+          'Tap "Schedule a New Appointment."',
+          'Select a provider.',
+          'Select "Video Visit" as the type.',
+          'Choose a date and time.',
+          'Tap "Confirm."'
+        ]
+      },
+      {
+        slug: 'schedule-follow-up',
+        title: 'Schedule a follow-up appointment',
+        steps: [
+          'Tap "Appointments."',
+          'Tap "Schedule a New Appointment."',
+          'Select your provider.',
+          'Select the reason for the visit.',
+          'Choose a date and time.',
+          'Tap "Confirm."'
+        ]
+      },
+      {
+        slug: 'schedule-new-provider',
+        title: 'Schedule with a new provider',
+        steps: [
+          'Tap "Appointments."',
+          'Tap "Schedule a New Appointment."',
+          'Search for a provider by name or specialty.',
+          'Select the new provider.',
+          'Continue the scheduling steps.'
+        ]
+      },
+      {
+        slug: 'choose-appointment-type',
+        title: 'Choose your appointment type',
+        steps: [
+          'During the scheduling process, look for the appointment type screen.',
+          'Select "Video" for a video visit.',
+          'Select "Phone" for a phone call.',
+          'Select "In-Person" for an office visit.',
+          'Tap "Next" to continue.'
+        ]
+      }
+    ]
+  },
+
+  'messages': {
+    titleKey: 'cat6Label',
+    topics: [
+      {
+        slug: 'send-secure-message',
+        title: 'Send a secure message',
+        steps: [
+          'Tap the "Messages" tile.',
+          'Tap "New Message."',
+          'Select your care team member.',
+          'Type your message in the box.',
+          'Tap "Send."'
+        ]
+      },
+      {
+        slug: 'view-visit-summary',
+        title: 'View a past visit summary',
+        steps: [
+          'Tap the "Visits" tile.',
+          'Select the date of the past visit.',
+          'Scroll down to see the summary or notes.'
+        ]
+      },
+      {
+        slug: 'view-after-visit-summary',
+        title: 'Download your After Visit Summary',
+        steps: [
+          'Tap the "Visits" tile.',
+          'Select the date of the past visit.',
+          'Scroll to the "After Visit Summary" section.',
+          'Tap to open or download the file.'
+        ]
+      },
+      {
+        slug: 'view-test-results',
+        title: 'View your test results',
+        steps: [
+          'Tap the "Test Results" tile.',
+          'Select the name of the test result you want to see.',
+          'Read the detail screen.'
+        ]
+      },
+      {
+        slug: 'check-billing',
+        title: 'Check your billing balance',
+        steps: [
+          'Tap the "Billing" tile.',
+          'Read the balance shown on the screen.'
+        ]
+      },
+      {
+        slug: 'pay-bill',
+        title: 'Pay a bill online',
+        steps: [
+          'Tap the "Billing" tile.',
+          'Tap "Pay Now."',
+          'Enter your payment method information.',
+          'Tap "Confirm Payment."'
+        ]
+      }
+    ]
+  },
+
+  'community': {
+    titleKey: 'cat7Label',
+    topics: [
+      {
+        slug: 'find-massthrive',
+        title: 'Find MassThrive through MyChart',
+        steps: [
+          'Tap the Menu icon.',
+          'Tap "Community" or "Find Resources."',
+          'Tap the MassThrive link.'
+        ]
+      },
+      {
+        slug: 'massthrive-language',
+        title: 'Change language on MassThrive',
+        steps: [
+          'Look for the language toggle in the header of the MassThrive website.',
+          'Tap the toggle.',
+          'Select your preferred language.'
+        ]
+      },
+      {
+        slug: 'massthrive-search',
+        title: 'Search for resources by ZIP code',
+        steps: [
+          'Type your ZIP code into the search bar.',
+          'Select a category from the dropdown menu (for example, Food or Housing).',
+          'Tap "Search" or press Enter to see results.'
+        ]
+      },
+      {
+        slug: 'massthrive-program-card',
+        title: 'Read a program card',
+        steps: [
+          'Tap on the program card.',
+          'Scroll down to the "Contact" section.',
+          'Read the organization\'s name, address, and phone number.'
+        ]
+      },
+      {
+        slug: 'massthrive-contact',
+        title: 'Contact an organization',
+        steps: [
+          'Find the program card for the organization you want to contact.',
+          'Tap the phone number on the card.',
+          'Your phone will open the dialer automatically.',
+          'Tap "Call" to connect.'
+        ]
+      },
+      {
+        slug: 'massthrive-share',
+        title: 'Share a program card',
+        steps: [
+          'Tap on the program card.',
+          'Tap the "Share" icon.',
+          'Choose how you want to share the card (email, text message, etc.).'
+        ]
+      },
+      {
+        slug: 'call-211',
+        title: 'Use 2-1-1 for more resources',
+        steps: [
+          'Dial 2-1-1 on your phone.',
+          'Wait for a person to answer.',
+          'Ask for help finding resources in your area.'
+        ]
+      }
+    ]
+  }
+
+}; /* end topicCatalog */
+
+/* ============================================================
    LANGUAGE HELPERS
    ============================================================ */
 
@@ -730,8 +1188,8 @@ function initCharSelector() {
    ============================================================ */
 
 /**
- * Reads the ?cat= URL parameter and updates the category page accordingly.
- * The "video-visits" category is fully built — all others show a stub notice.
+ * Reads the ?cat= URL parameter and dynamically renders the topic list
+ * for that category using topicCatalog data.
  */
 function initCategory() {
   var topicList = document.getElementById('topic-list');
@@ -742,27 +1200,91 @@ function initCategory() {
   var headerTitle = document.getElementById('category-title');
   var stubNotice = document.getElementById('stub-topic-notice');
 
-  /* Map category slugs to their string key for the heading */
-  var catHeadingKeys = {
-    'email':           'cat1Label',
-    'mychart-setup':   'cat2Label',
-    'video-visits':    'cat3Label',
-    'medications':     'cat4Label',
-    'appointments':    'cat5Label',
-    'messages':        'cat6Label',
-    'community':       'cat7Label'
-  };
-
-  var headingKey = catHeadingKeys[cat] || 'cat3Label';
-  var headingText = t(headingKey);
+  var catData = topicCatalog[cat] || topicCatalog['video-visits'];
+  var headingText = t(catData.titleKey);
 
   if (heading)     heading.textContent = headingText;
   if (headerTitle) headerTitle.textContent = headingText;
+  if (stubNotice)  stubNotice.hidden = true;
 
-  /* Only video-visits has a built-out topic list — hide list for all others */
-  if (cat !== 'video-visits') {
-    if (topicList)  topicList.hidden = true;
-    if (stubNotice) stubNotice.hidden = false;
+  /* Clear static HTML and render topics dynamically from topicCatalog */
+  topicList.innerHTML = '';
+  topicList.hidden = false;
+
+  catData.topics.forEach(function(topic) {
+    var a = document.createElement('a');
+    a.className = 'topic-item';
+    a.href = withLang('topic.html?cat=' + cat + '&topic=' + topic.slug);
+    a.setAttribute('aria-label', topic.title + ' — 2 min');
+    a.innerHTML =
+      '<span class="topic-item-title">' + topic.title + '</span>' +
+      '<span class="topic-item-time">2 min</span>' +
+      '<span class="topic-item-chevron" aria-hidden="true">\u203a</span>';
+    topicList.appendChild(a);
+  });
+}
+
+/* ============================================================
+   TOPIC PAGE (help/topic.html)
+   ============================================================ */
+
+/**
+ * Reads the ?cat= and ?topic= URL parameters and renders the topic page.
+ * Updates the heading, back links, steps list, and course link.
+ */
+function initTopic() {
+  var stepsList = document.getElementById('steps-list');
+  if (!stepsList) return; /* Not the topic page */
+
+  var params = new URLSearchParams(window.location.search);
+  var cat = params.get('cat') || 'video-visits';
+  var topicSlug = params.get('topic') || 'join-video-phone';
+
+  var catData = topicCatalog[cat] || topicCatalog['video-visits'];
+
+  /* Find the matching topic */
+  var topicItem = catData.topics[0];
+  for (var i = 0; i < catData.topics.length; i++) {
+    if (catData.topics[i].slug === topicSlug) { topicItem = catData.topics[i]; break; }
+  }
+
+  /* Update page heading and document title */
+  var heading = document.getElementById('topic-heading');
+  if (heading) heading.textContent = topicItem.title;
+  document.title = topicItem.title + ' — BMC Digital Health';
+
+  /* Update all back links to point to the correct category */
+  var catHref = 'category.html?cat=' + cat;
+  document.querySelectorAll('[data-back-cat]').forEach(function(link) {
+    link.href = withLang(catHref);
+    link.setAttribute('data-lang-href', catHref);
+    var label = link.querySelector('[data-back-cat-label]');
+    if (label) label.textContent = t(catData.titleKey);
+  });
+
+  /* Render steps */
+  stepsList.innerHTML = '';
+  topicItem.steps.forEach(function(step) {
+    var li = document.createElement('li');
+    li.textContent = step;
+    stepsList.appendChild(li);
+  });
+
+  /* Update "Go back to course" link */
+  var catChallengeMap = {
+    'email':         '../course/challenge-0.html',
+    'mychart-setup': '../course/challenge-01.html',
+    'video-visits':  '../course/challenge-02.html',
+    'medications':   '../course/challenge-03.html',
+    'appointments':  '../course/challenge-03.html',
+    'messages':      '../course/challenge-03.html',
+    'community':     '../course/challenge-05.html'
+  };
+  var courseLink = document.querySelector('.more-help-link[data-course-link]');
+  if (courseLink && catChallengeMap[cat]) {
+    var chHref = catChallengeMap[cat];
+    courseLink.href = withLang(chHref);
+    courseLink.setAttribute('data-lang-href', chHref);
   }
 }
 
@@ -777,4 +1299,5 @@ document.addEventListener('DOMContentLoaded', function() {
   initChecklist();     /* no-op if .checklist-item elements are not present */
   initCharSelector();  /* no-op if .char-btn buttons are not present */
   initCategory();      /* no-op if #topic-list is not present */
+  initTopic();         /* no-op if #steps-list is not present */
 });
