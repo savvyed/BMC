@@ -1025,6 +1025,28 @@ const strings = {
 }; /* end strings */
 
 /* ============================================================
+   CMS CONTENT OVERRIDES
+   Loads /content/challenges.json (edited via Decap CMS) and
+   merges any updated strings into the active language's strings
+   object. Falls back silently if the file is unavailable.
+   ============================================================ */
+(function applyCmsOverrides() {
+  try {
+    var lang = (new URLSearchParams(window.location.search).get('lang') || 'en');
+    /* Synchronous XHR so strings are ready before applyStrings() runs */
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/content/challenges.json', false);
+    xhr.send();
+    if (xhr.status === 200) {
+      var data = JSON.parse(xhr.responseText);
+      /* Merge English base layer first, then requested language */
+      if (data['en']) Object.assign(strings['en'], data['en']);
+      if (lang !== 'en' && data[lang]) Object.assign(strings[lang], data[lang]);
+    }
+  } catch (e) { /* local dev without a server — no-op */ }
+})();
+
+/* ============================================================
    TOPIC CATALOG — knowledge base content for all 7 categories
    Each topic has a slug (used in ?topic= URL param), a title,
    and an array of step strings rendered by initTopic().
