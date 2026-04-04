@@ -1101,21 +1101,5 @@ button { font-family: var(--font-family); cursor: pointer; }
     min-height: unset;
   }
 
-  /* Video and text panel side by side on challenge Step 1 */
-  .step-media-row {
-    display: flex;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-  }
 
-  .step-media-row .video-placeholder {
-    flex: 3;
-    margin-bottom: 0;
-  }
-
-  .step-media-row .text-panel-placeholder {
-    flex: 2;
-    margin-bottom: 0;
-    align-self: stretch;
-  }
 }
