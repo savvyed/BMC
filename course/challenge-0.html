@@ -8,15 +8,16 @@
 </head>
 <body>
 
-  <!-- STUB — Challenge 0: Set up your email
-       Full content will be built in Phase 2A.
-       Structure mirrors challenge-02.html. -->
+  <!-- SCREEN 4 — Challenge 0: Set up your email
+       Three steps: Watch → Practice → Do it yourself
+       Step navigation managed by JS in main.js (initSteps). -->
 
   <header class="site-header" role="banner">
-    <button class="btn-back btn-back-step" type="button" aria-label="Back">←</button>
-    <span class="header-title" aria-hidden="true">
-      <span data-string-key="ch0Number">Challenge 0</span> —
-      <span data-string-key="ch0Name">Set up your email</span>
+    <button class="btn-back btn-back-step" type="button" aria-label="Back">
+      ← <span data-string-key="backStepBtn" aria-hidden="true">Back</span>
+    </button>
+    <span class="header-title" data-string-key="ch0PageTitle" aria-hidden="true">
+      Challenge 0 — Set up your email
     </span>
     <a href="../index.html" class="header-lang-btn" aria-label="Change language">
       🌐 <span data-string-key="langIndicator">English</span>
@@ -25,101 +26,193 @@
 
   <main class="page-content" id="main" role="main">
 
-    <!-- Step indicator (visual only on stub pages) -->
+    <!-- Step indicator — JS adds .active and .done classes -->
     <nav class="step-indicator" aria-label="Challenge steps">
-      <div class="step-dot active">
+
+      <div class="step-dot active" aria-label="Step 1: Watch">
         <div class="step-dot-circle" aria-hidden="true">1</div>
         <span class="step-dot-label" data-string-key="step1TabLabel">Watch</span>
       </div>
+
       <div class="step-divider" aria-hidden="true"></div>
-      <div class="step-dot">
+
+      <div class="step-dot" aria-label="Step 2: Practice">
         <div class="step-dot-circle" aria-hidden="true">2</div>
         <span class="step-dot-label" data-string-key="step2TabLabel">Practice</span>
       </div>
+
       <div class="step-divider" aria-hidden="true"></div>
-      <div class="step-dot">
+
+      <div class="step-dot" aria-label="Step 3: Do it">
         <div class="step-dot-circle" aria-hidden="true">3</div>
         <span class="step-dot-label" data-string-key="step3TabLabel">Do it</span>
       </div>
+
     </nav>
 
-    <h1 class="step-heading" data-string-key="ch0Name">Set up your email</h1>
+    <!-- ── STEP 1: Watch ── -->
+    <section class="challenge-step" aria-labelledby="step1-heading">
 
-    <!-- Stub notice -->
-    <div class="stub-notice" role="note">
-      <p class="stub-notice-label" data-string-key="stubLabel">Coming in Phase 2</p>
-      <p class="stub-notice-text" data-string-key="stubText">
-        This challenge will be fully built during Phase 2A content development.
+      <p class="step-label-text" data-string-key="ch0Step1Label">
+        Step 1 of 3 — Watch
       </p>
-    </div>
 
-    <!-- Step 1 placeholder -->
-    <section class="challenge-step" aria-label="Step 1 placeholder">
-      <p class="step-label-text" data-string-key="step1TabLabel">Watch</p>
+      <h1 class="step-heading" id="step1-heading" data-string-key="ch0Step1Heading">
+        How to set up your Gmail account
+      </h1>
 
-      <div class="video-placeholder" role="img" aria-label="Video placeholder">
-        <span class="video-placeholder-icon" aria-hidden="true">▶</span>
-        <span class="video-placeholder-label" data-string-key="videoPH">How-to clip</span>
-      </div>
+      <div class="step-media-row">
 
-      <div class="text-panel-placeholder" role="complementary">
-        <span data-string-key="textPanelPH">Text panel — translated steps appear here</span>
+        <div class="video-placeholder" role="img"
+             aria-label="Video placeholder — how-to clip will appear here">
+          <span class="video-placeholder-icon" aria-hidden="true">▶</span>
+          <span class="video-placeholder-label" data-string-key="ch0Step1VideoPH">
+            How-to clips — Create a Gmail account, set up a password, and complete phone verification
+          </span>
+        </div>
+
+        <div class="text-panel-placeholder"
+             role="complementary"
+             aria-label="Translated text panel placeholder">
+          <span data-string-key="textPanelPH">
+            Text panel — translated steps appear here
+          </span>
+        </div>
+
       </div>
 
       <div class="step-nav">
-        <button class="btn-primary btn-next" type="button" data-string-key="nextBtn">Next →</button>
+        <button class="btn-primary btn-next" type="button" data-string-key="nextBtn">
+          Next →
+        </button>
       </div>
-    </section>
 
-    <!-- Step 2 placeholder -->
-    <section class="challenge-step" hidden aria-label="Step 2 placeholder">
-      <p class="step-label-text" data-string-key="step2TabLabel">Practice</p>
+    </section><!-- /step 1 -->
 
-      <div class="interaction-placeholder" data-type="scenario" data-challenge="0"
-           role="region" aria-label="Interactive scenario placeholder">
+
+    <!-- ── STEP 2: Practice ── -->
+    <section class="challenge-step" hidden aria-labelledby="step2-heading">
+
+      <p class="step-label-text" data-string-key="ch0Step2Label">
+        Step 2 of 3 — Practice
+      </p>
+
+      <h1 class="step-heading" id="step2-heading" data-string-key="ch0Step2Heading">
+        Practice setting up an email account
+      </h1>
+
+      <p class="checklist-intro" data-string-key="charSelectorLabel">
+        Choose a character:
+      </p>
+      <div class="character-selector" role="group" aria-label="Choose a character">
+        <button class="char-btn" type="button" data-string-key="char1" aria-label="Choose Elena">Elena</button>
+        <button class="char-btn" type="button" data-string-key="char2" aria-label="Choose Marcus">Marcus</button>
+        <button class="char-btn" type="button" data-string-key="char3" aria-label="Choose Rosa">Rosa</button>
+        <button class="char-btn" type="button" data-string-key="char4" aria-label="Choose Victor">Victor</button>
+      </div>
+
+      <div class="character-intro" role="note">
+        <span data-string-key="ch0Step2Intro">
+          Rosa needs to create a Gmail account so she can register for MyChart.
+        </span>
+        <br>
+        <span data-string-key="ch0Step2Intro2">
+          Help her choose an email address, create a password, and verify her phone number.
+        </span>
+      </div>
+
+      <div class="interaction-placeholder"
+           data-type="scenario"
+           data-challenge="0"
+           role="region"
+           aria-label="Interactive scenario placeholder">
         <p class="interaction-placeholder-label">Interactive Scenario</p>
         <p class="interaction-placeholder-desc" data-string-key="scenarioPH">
-          Character scenario — content coming in Phase 2A
+          Character scenario — H5P interaction or custom interaction goes here
         </p>
       </div>
 
       <div class="step-nav">
-        <button class="btn-secondary btn-back-step" type="button" data-string-key="backStepBtn">← Back</button>
-        <button class="btn-primary btn-next" type="button" data-string-key="nextBtn">Next →</button>
+        <button class="btn-secondary btn-back-step" type="button" data-string-key="backStepBtn">
+          ← Back
+        </button>
+        <button class="btn-primary btn-next" type="button" data-string-key="nextBtn">
+          Next →
+        </button>
       </div>
-    </section>
 
-    <!-- Step 3 placeholder -->
-    <section class="challenge-step" hidden aria-label="Step 3 placeholder">
-      <p class="step-label-text" data-string-key="step3TabLabel">Do it</p>
-      <h2 class="step-heading">Try it on your phone</h2>
+    </section><!-- /step 2 -->
 
-      <ul class="checklist" aria-label="Placeholder checklist">
+
+    <!-- ── STEP 3: Do it yourself ── -->
+    <section class="challenge-step" hidden aria-labelledby="step3-heading">
+
+      <p class="step-label-text" data-string-key="ch0Step3Label">
+        Step 3 of 3 — Do it on your phone
+      </p>
+
+      <h1 class="step-heading" id="step3-heading" data-string-key="ch0Step3Heading">
+        Now set up your own email account
+      </h1>
+
+      <p class="checklist-intro" data-string-key="ch0Step3Intro">
+        Open a web browser on your phone and follow these steps:
+      </p>
+
+      <ul class="checklist" aria-label="Checklist steps">
+
         <li class="checklist-item">
           <input type="checkbox" id="c0-check1" aria-label="Step 1">
-          <label class="checklist-item-text" for="c0-check1">Step 1 — placeholder</label>
+          <label class="checklist-item-text" for="c0-check1">
+            <span data-string-key="ch0Check1">Open a web browser. Go to the Gmail website. Tap "Create account." Enter your first and last name. Choose a new email address. Tap "Next."</span>
+          </label>
         </li>
+
         <li class="checklist-item">
           <input type="checkbox" id="c0-check2" aria-label="Step 2">
-          <label class="checklist-item-text" for="c0-check2">Step 2 — placeholder</label>
+          <label class="checklist-item-text" for="c0-check2">
+            <span data-string-key="ch0Check2">Type your chosen password. Type your password again to confirm. Tap "Next."</span>
+          </label>
         </li>
+
         <li class="checklist-item">
           <input type="checkbox" id="c0-check3" aria-label="Step 3">
-          <label class="checklist-item-text" for="c0-check3">Step 3 — placeholder</label>
+          <label class="checklist-item-text" for="c0-check3">
+            <span data-string-key="ch0Check3">Enter your phone number. Tap "Next." Type the code you received in a text message. Tap "Verify."</span>
+          </label>
         </li>
+
+        <li class="checklist-item">
+          <input type="checkbox" id="c0-check4" aria-label="Step 4">
+          <label class="checklist-item-text" for="c0-check4">
+            <span data-string-key="ch0Check4">Write your email address on your card. Write your password on your card.</span>
+          </label>
+        </li>
+
       </ul>
 
       <div class="step-nav">
-        <button class="btn-secondary btn-back-step" type="button" data-string-key="backStepBtn">← Back</button>
-        <button class="btn-primary btn-done" type="button" data-string-key="doneBtn">Done</button>
+        <button class="btn-secondary btn-back-step" type="button" data-string-key="backStepBtn">
+          ← Back
+        </button>
+        <button class="btn-primary btn-done" type="button" data-string-key="doneBtn">
+          Done — I finished
+        </button>
       </div>
-    </section>
+
+    </section><!-- /step 3 -->
 
   </main>
 
   <footer class="site-footer" role="contentinfo">
-    <a class="footer-link" data-lang-href="../home.html" href="../home.html" data-string-key="footerHome">🏠 Home</a>
-    <a class="footer-link" data-lang-href="../help/index.html" href="../help/index.html" data-string-key="footerHelp">🔍 Help</a>
+    <a class="footer-link"
+       data-lang-href="../home.html"
+       href="../home.html"
+       data-string-key="footerHome">🏠 Home</a>
+    <a class="footer-link"
+       data-lang-href="../help/index.html"
+       href="../help/index.html"
+       data-string-key="footerHelp">🔍 Help</a>
   </footer>
 
   <!-- GTranslate widget -->
