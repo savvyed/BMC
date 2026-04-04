@@ -28,6 +28,18 @@
       欢迎
     </h1>
 
+    <!-- Instruction prompt in all five languages -->
+    <p class="lang-prompt" aria-label="Please select your language to continue">
+      Please select your language<br>
+      Por favor, seleccione su idioma<br>
+      Por favor, selecione seu idioma<br>
+      Tanpri chwazi lang ou<br>
+      请选择您的语言
+    </p>
+
+    <!-- Arrow pointing down to the buttons -->
+    <div class="lang-prompt-arrow" aria-hidden="true">▼</div>
+
     <!-- Five language buttons — each navigates to home.html?lang=xx -->
     <nav class="lang-options" aria-label="Language selection">
 
@@ -59,6 +71,11 @@
     </nav>
 
   </main>
+
+  <!-- GTranslate widget -->
+  <div class="gtranslate_wrapper"></div>
+  <script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+  <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
   <script src="shared/js/main.js"></script>
 </body>
