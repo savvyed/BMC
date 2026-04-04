@@ -1,0 +1,391 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://tiny-hamster-9bcc46.netlify.app
+display_url: https://tiny-hamster-9bcc46.netlify.app
+
+media_folder: media
+public_folder: /media
+
+# ─── COLLECTIONS ───────────────────────────────────────────────
+collections:
+
+  # ── Challenge content (all 5 languages) ──────────────────────
+  - name: challenge_content
+    label: "Challenge Content"
+    files:
+
+      - name: english
+        label: "English (en)"
+        file: content/challenges.json
+        fields:
+          - label: "Language"
+            name: en
+            widget: object
+            fields:
+
+              # Shared
+              - {label: "Character 1 name", name: char1, widget: string}
+              - {label: "Character 2 name", name: char2, widget: string}
+              - {label: "Character 3 name", name: char3, widget: string}
+              - {label: "Character 4 name", name: char4, widget: string}
+
+              # Challenge 0
+              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
+              - {label: "Ch0 — Step 1 label", name: ch0Step1Label, widget: string}
+              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
+              - {label: "Ch0 — Step 1 video description", name: ch0Step1VideoPH, widget: string}
+              - {label: "Ch0 — Step 2 label", name: ch0Step2Label, widget: string}
+              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
+              - {label: "Ch0 — Step 3 label", name: ch0Step3Label, widget: string}
+              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
+              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
+              - {label: "Ch0 — Checklist item 1", name: ch0Check1, widget: text}
+              - {label: "Ch0 — Checklist item 2", name: ch0Check2, widget: text}
+              - {label: "Ch0 — Checklist item 3", name: ch0Check3, widget: text}
+              - {label: "Ch0 — Checklist item 4", name: ch0Check4, widget: text}
+
+              # Challenge 01
+              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
+              - {label: "Ch01 — Step 1 label", name: ch01Step1Label, widget: string}
+              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
+              - {label: "Ch01 — Step 1 video description", name: ch01Step1VideoPH, widget: string}
+              - {label: "Ch01 — Step 2 label", name: ch01Step2Label, widget: string}
+              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
+              - {label: "Ch01 — Step 3 label", name: ch01Step3Label, widget: string}
+              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
+              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
+              - {label: "Ch01 — Checklist item 1", name: ch01Check1, widget: text}
+              - {label: "Ch01 — Checklist item 2", name: ch01Check2, widget: text}
+              - {label: "Ch01 — Checklist item 3", name: ch01Check3, widget: text}
+              - {label: "Ch01 — Checklist item 4", name: ch01Check4, widget: text}
+              - {label: "Ch01 — Checklist item 5", name: ch01Check5, widget: text}
+              - {label: "Ch01 — Checklist item 6", name: ch01Check6, widget: text}
+              - {label: "Ch01 — Checklist item 7", name: ch01Check7, widget: text}
+              - {label: "Ch01 — Checklist item 8", name: ch01Check8, widget: text}
+
+              # Challenge 02
+              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
+              - {label: "Ch02 — Step 1 label", name: ch02Step1Label, widget: string}
+              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
+              - {label: "Ch02 — Step 1 video description", name: ch02Step1VideoPH, widget: string}
+              - {label: "Ch02 — Step 2 label", name: ch02Step2Label, widget: string}
+              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
+              - {label: "Ch02 — Step 3 label", name: ch02Step3Label, widget: string}
+              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
+              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
+              - {label: "Ch02 — Checklist item 1", name: ch02Check1, widget: text}
+              - {label: "Ch02 — Checklist item 2", name: ch02Check2, widget: text}
+              - {label: "Ch02 — Checklist item 3", name: ch02Check3, widget: text}
+              - {label: "Ch02 — Checklist item 4", name: ch02Check4, widget: text}
+              - {label: "Ch02 — Checklist item 5", name: ch02Check5, widget: text}
+
+              # Challenge 03
+              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
+              - {label: "Ch03 — Step 1 label", name: ch03Step1Label, widget: string}
+              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
+              - {label: "Ch03 — Step 1 video description", name: ch03Step1VideoPH, widget: string}
+              - {label: "Ch03 — Step 2 label", name: ch03Step2Label, widget: string}
+              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
+              - {label: "Ch03 — Step 3 label", name: ch03Step3Label, widget: string}
+              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
+              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
+              - {label: "Ch03 — Checklist item 1", name: ch03Check1, widget: text}
+              - {label: "Ch03 — Checklist item 2", name: ch03Check2, widget: text}
+              - {label: "Ch03 — Checklist item 3", name: ch03Check3, widget: text}
+              - {label: "Ch03 — Checklist item 4", name: ch03Check4, widget: text}
+              - {label: "Ch03 — Checklist item 5", name: ch03Check5, widget: text}
+
+              # Challenge 04
+              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
+              - {label: "Ch04 — Step 1 label", name: ch04Step1Label, widget: string}
+              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
+              - {label: "Ch04 — Step 1 video description", name: ch04Step1VideoPH, widget: string}
+              - {label: "Ch04 — Step 2 label", name: ch04Step2Label, widget: string}
+              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
+              - {label: "Ch04 — Step 3 label", name: ch04Step3Label, widget: string}
+              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
+              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
+              - {label: "Ch04 — Checklist item 1", name: ch04Check1, widget: text}
+              - {label: "Ch04 — Checklist item 2", name: ch04Check2, widget: text}
+              - {label: "Ch04 — Checklist item 3", name: ch04Check3, widget: text}
+              - {label: "Ch04 — Checklist item 4", name: ch04Check4, widget: text}
+              - {label: "Ch04 — Checklist item 5", name: ch04Check5, widget: text}
+              - {label: "Ch04 — Checklist item 6", name: ch04Check6, widget: text}
+
+              # Challenge 05
+              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
+              - {label: "Ch05 — Step 1 label", name: ch05Step1Label, widget: string}
+              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
+              - {label: "Ch05 — Step 1 video description", name: ch05Step1VideoPH, widget: string}
+              - {label: "Ch05 — Step 2 label", name: ch05Step2Label, widget: string}
+              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
+              - {label: "Ch05 — Step 3 label", name: ch05Step3Label, widget: string}
+              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
+              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
+              - {label: "Ch05 — Checklist item 1", name: ch05Check1, widget: text}
+              - {label: "Ch05 — Checklist item 2", name: ch05Check2, widget: text}
+              - {label: "Ch05 — Checklist item 3", name: ch05Check3, widget: text}
+              - {label: "Ch05 — Checklist item 4", name: ch05Check4, widget: text}
+              - {label: "Ch05 — Checklist item 5", name: ch05Check5, widget: text}
+              - {label: "Ch05 — Checklist item 6", name: ch05Check6, widget: text}
+              - {label: "Ch05 — Checklist item 7", name: ch05Check7, widget: text}
+
+      - name: spanish
+        label: "Spanish (es)"
+        file: content/challenges-es.json
+        fields:
+          - label: "Language"
+            name: es
+            widget: object
+            fields:
+              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
+              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
+              - {label: "Ch0 — Step 1 video description", name: ch0Step1VideoPH, widget: string}
+              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
+              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
+              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
+              - {label: "Ch0 — Checklist item 1", name: ch0Check1, widget: text}
+              - {label: "Ch0 — Checklist item 2", name: ch0Check2, widget: text}
+              - {label: "Ch0 — Checklist item 3", name: ch0Check3, widget: text}
+              - {label: "Ch0 — Checklist item 4", name: ch0Check4, widget: text}
+              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
+              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
+              - {label: "Ch01 — Step 1 video description", name: ch01Step1VideoPH, widget: string}
+              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
+              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
+              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
+              - {label: "Ch01 — Checklist item 1", name: ch01Check1, widget: text}
+              - {label: "Ch01 — Checklist item 2", name: ch01Check2, widget: text}
+              - {label: "Ch01 — Checklist item 3", name: ch01Check3, widget: text}
+              - {label: "Ch01 — Checklist item 4", name: ch01Check4, widget: text}
+              - {label: "Ch01 — Checklist item 5", name: ch01Check5, widget: text}
+              - {label: "Ch01 — Checklist item 6", name: ch01Check6, widget: text}
+              - {label: "Ch01 — Checklist item 7", name: ch01Check7, widget: text}
+              - {label: "Ch01 — Checklist item 8", name: ch01Check8, widget: text}
+              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
+              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
+              - {label: "Ch02 — Step 1 video description", name: ch02Step1VideoPH, widget: string}
+              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
+              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
+              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
+              - {label: "Ch02 — Checklist item 1", name: ch02Check1, widget: text}
+              - {label: "Ch02 — Checklist item 2", name: ch02Check2, widget: text}
+              - {label: "Ch02 — Checklist item 3", name: ch02Check3, widget: text}
+              - {label: "Ch02 — Checklist item 4", name: ch02Check4, widget: text}
+              - {label: "Ch02 — Checklist item 5", name: ch02Check5, widget: text}
+              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
+              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
+              - {label: "Ch03 — Step 1 video description", name: ch03Step1VideoPH, widget: string}
+              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
+              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
+              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
+              - {label: "Ch03 — Checklist item 1", name: ch03Check1, widget: text}
+              - {label: "Ch03 — Checklist item 2", name: ch03Check2, widget: text}
+              - {label: "Ch03 — Checklist item 3", name: ch03Check3, widget: text}
+              - {label: "Ch03 — Checklist item 4", name: ch03Check4, widget: text}
+              - {label: "Ch03 — Checklist item 5", name: ch03Check5, widget: text}
+              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
+              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
+              - {label: "Ch04 — Step 1 video description", name: ch04Step1VideoPH, widget: string}
+              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
+              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
+              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
+              - {label: "Ch04 — Checklist item 1", name: ch04Check1, widget: text}
+              - {label: "Ch04 — Checklist item 2", name: ch04Check2, widget: text}
+              - {label: "Ch04 — Checklist item 3", name: ch04Check3, widget: text}
+              - {label: "Ch04 — Checklist item 4", name: ch04Check4, widget: text}
+              - {label: "Ch04 — Checklist item 5", name: ch04Check5, widget: text}
+              - {label: "Ch04 — Checklist item 6", name: ch04Check6, widget: text}
+              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
+              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
+              - {label: "Ch05 — Step 1 video description", name: ch05Step1VideoPH, widget: string}
+              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
+              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
+              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
+              - {label: "Ch05 — Checklist item 1", name: ch05Check1, widget: text}
+              - {label: "Ch05 — Checklist item 2", name: ch05Check2, widget: text}
+              - {label: "Ch05 — Checklist item 3", name: ch05Check3, widget: text}
+              - {label: "Ch05 — Checklist item 4", name: ch05Check4, widget: text}
+              - {label: "Ch05 — Checklist item 5", name: ch05Check5, widget: text}
+              - {label: "Ch05 — Checklist item 6", name: ch05Check6, widget: text}
+              - {label: "Ch05 — Checklist item 7", name: ch05Check7, widget: text}
+
+      - name: portuguese
+        label: "Portuguese (pt)"
+        file: content/challenges-pt.json
+        fields:
+          - label: "Language"
+            name: pt
+            widget: object
+            fields:
+              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
+              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
+              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
+              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
+              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
+              - {label: "Ch0 — Checklist items (1–4)", name: ch0Check1, widget: text}
+              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
+              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
+              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
+              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
+              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
+              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
+              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
+              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
+              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
+              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
+              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
+              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
+              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
+              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
+              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
+              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
+              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
+              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
+              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
+              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
+              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
+              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
+              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
+              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
+              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
+
+      - name: haitian_creole
+        label: "Haitian Creole (ht)"
+        file: content/challenges-ht.json
+        fields:
+          - label: "Language"
+            name: ht
+            widget: object
+            fields:
+              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
+              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
+              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
+              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
+              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
+              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
+              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
+              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
+              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
+              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
+              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
+              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
+              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
+              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
+              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
+              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
+              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
+              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
+              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
+              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
+              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
+              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
+              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
+              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
+              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
+              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
+              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
+              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
+              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
+              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
+
+      - name: chinese
+        label: "Chinese (zh)"
+        file: content/challenges-zh.json
+        fields:
+          - label: "Language"
+            name: zh
+            widget: object
+            fields:
+              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
+              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
+              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
+              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
+              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
+              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
+              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
+              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
+              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
+              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
+              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
+              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
+              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
+              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
+              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
+              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
+              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
+              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
+              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
+              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
+              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
+              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
+              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
+              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
+              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
+              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
+              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
+              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
+              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
+              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
+              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
+              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
+              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
+              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
+              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
+              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
