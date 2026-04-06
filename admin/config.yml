@@ -389,3 +389,168 @@ collections:
               - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
               - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
               - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
+
+  # ── How-To Topics (shared content pool) ──────────────────────
+  # These are the how-to videos and step-by-step text that appear
+  # in both the Knowledge Base AND inside challenge pages (Step 1).
+  # Edit here once — the change shows up in both places automatically.
+  - name: topics
+    label: "How-To Topics"
+    files:
+      - name: topics
+        label: "Topic catalog + challenge topic refs"
+        file: content/topics.json
+        fields:
+
+          # Which topics appear in each challenge's Step 1
+          - label: "Challenge topic refs"
+            name: challengeTopicRefs
+            widget: object
+            fields:
+              - label: "Challenge 0 — Email setup"
+                name: ch0
+                widget: list
+                fields:
+                  - {label: "Category slug", name: cat, widget: string}
+                  - {label: "Topic slug",    name: slug, widget: string}
+              - label: "Challenge 01 — MyChart setup"
+                name: ch01
+                widget: list
+                fields:
+                  - {label: "Category slug", name: cat, widget: string}
+                  - {label: "Topic slug",    name: slug, widget: string}
+              - label: "Challenge 02 — Video visits"
+                name: ch02
+                widget: list
+                fields:
+                  - {label: "Category slug", name: cat, widget: string}
+                  - {label: "Topic slug",    name: slug, widget: string}
+              - label: "Challenge 03 — Common tasks"
+                name: ch03
+                widget: list
+                fields:
+                  - {label: "Category slug", name: cat, widget: string}
+                  - {label: "Topic slug",    name: slug, widget: string}
+              - label: "Challenge 04 — Account management"
+                name: ch04
+                widget: list
+                fields:
+                  - {label: "Category slug", name: cat, widget: string}
+                  - {label: "Topic slug",    name: slug, widget: string}
+              - label: "Challenge 05 — Community resources"
+                name: ch05
+                widget: list
+                fields:
+                  - {label: "Category slug", name: cat, widget: string}
+                  - {label: "Topic slug",    name: slug, widget: string}
+
+          # The topic catalog — all categories and their topics
+          - label: "Topic catalog"
+            name: catalog
+            widget: object
+            fields:
+              - label: "Email (cat: email)"
+                name: email
+                widget: object
+                fields:
+                  - {label: "Category title key", name: titleKey, widget: string}
+                  - label: "Topics"
+                    name: topics
+                    widget: list
+                    fields:
+                      - {label: "Slug",  name: slug,  widget: string}
+                      - {label: "Title", name: title, widget: string}
+                      - label: "Steps"
+                        name: steps
+                        widget: list
+                        field: {label: "Step", name: step, widget: string}
+              - label: "MyChart setup (cat: mychart-setup)"
+                name: mychart-setup
+                widget: object
+                fields:
+                  - {label: "Category title key", name: titleKey, widget: string}
+                  - label: "Topics"
+                    name: topics
+                    widget: list
+                    fields:
+                      - {label: "Slug",  name: slug,  widget: string}
+                      - {label: "Title", name: title, widget: string}
+                      - label: "Steps"
+                        name: steps
+                        widget: list
+                        field: {label: "Step", name: step, widget: string}
+              - label: "Video visits (cat: video-visits)"
+                name: video-visits
+                widget: object
+                fields:
+                  - {label: "Category title key", name: titleKey, widget: string}
+                  - label: "Topics"
+                    name: topics
+                    widget: list
+                    fields:
+                      - {label: "Slug",  name: slug,  widget: string}
+                      - {label: "Title", name: title, widget: string}
+                      - label: "Steps"
+                        name: steps
+                        widget: list
+                        field: {label: "Step", name: step, widget: string}
+              - label: "Medications (cat: medications)"
+                name: medications
+                widget: object
+                fields:
+                  - {label: "Category title key", name: titleKey, widget: string}
+                  - label: "Topics"
+                    name: topics
+                    widget: list
+                    fields:
+                      - {label: "Slug",  name: slug,  widget: string}
+                      - {label: "Title", name: title, widget: string}
+                      - label: "Steps"
+                        name: steps
+                        widget: list
+                        field: {label: "Step", name: step, widget: string}
+              - label: "Appointments (cat: appointments)"
+                name: appointments
+                widget: object
+                fields:
+                  - {label: "Category title key", name: titleKey, widget: string}
+                  - label: "Topics"
+                    name: topics
+                    widget: list
+                    fields:
+                      - {label: "Slug",  name: slug,  widget: string}
+                      - {label: "Title", name: title, widget: string}
+                      - label: "Steps"
+                        name: steps
+                        widget: list
+                        field: {label: "Step", name: step, widget: string}
+              - label: "Messages and records (cat: messages)"
+                name: messages
+                widget: object
+                fields:
+                  - {label: "Category title key", name: titleKey, widget: string}
+                  - label: "Topics"
+                    name: topics
+                    widget: list
+                    fields:
+                      - {label: "Slug",  name: slug,  widget: string}
+                      - {label: "Title", name: title, widget: string}
+                      - label: "Steps"
+                        name: steps
+                        widget: list
+                        field: {label: "Step", name: step, widget: string}
+              - label: "Community resources (cat: community)"
+                name: community
+                widget: object
+                fields:
+                  - {label: "Category title key", name: titleKey, widget: string}
+                  - label: "Topics"
+                    name: topics
+                    widget: list
+                    fields:
+                      - {label: "Slug",  name: slug,  widget: string}
+                      - {label: "Title", name: title, widget: string}
+                      - label: "Steps"
+                        name: steps
+                        widget: list
+                        field: {label: "Step", name: step, widget: string}

@@ -1505,6 +1505,82 @@ var topicCatalog = {
 }; /* end topicCatalog */
 
 /* ============================================================
+   CHALLENGE TOPIC REFS — maps each challenge to the topic atoms
+   that appear in its Step 1 how-to section. Each entry is an
+   array of {cat, slug} objects referencing topicCatalog above.
+   The CMS can override this via content/topics.json.
+   ============================================================ */
+var challengeTopicRefs = {
+  'ch0':  [
+    {cat: 'email', slug: 'gmail-create-account'},
+    {cat: 'email', slug: 'gmail-password'},
+    {cat: 'email', slug: 'gmail-phone-verify'},
+    {cat: 'email', slug: 'gmail-record-info'}
+  ],
+  'ch01': [
+    {cat: 'mychart-setup', slug: 'mychart-download'},
+    {cat: 'mychart-setup', slug: 'mychart-register'},
+    {cat: 'mychart-setup', slug: 'mychart-activation-code'},
+    {cat: 'mychart-setup', slug: 'mychart-username-password'},
+    {cat: 'mychart-setup', slug: 'mychart-2fa'},
+    {cat: 'mychart-setup', slug: 'mychart-login'},
+    {cat: 'mychart-setup', slug: 'mychart-language'}
+  ],
+  'ch02': [
+    {cat: 'video-visits', slug: 'join-video-phone'},
+    {cat: 'video-visits', slug: 'camera-mic-setup'}
+  ],
+  'ch03': [
+    {cat: 'medications',  slug: 'request-refill'},
+    {cat: 'appointments', slug: 'schedule-telehealth'},
+    {cat: 'messages',     slug: 'send-secure-message'},
+    {cat: 'messages',     slug: 'view-test-results'}
+  ],
+  'ch04': [
+    {cat: 'mychart-setup', slug: 'mychart-proxy'},
+    {cat: 'mychart-setup', slug: 'mychart-switch-accounts'},
+    {cat: 'mychart-setup', slug: 'mychart-notifications'}
+  ],
+  'ch05': [
+    {cat: 'community', slug: 'find-massthrive'},
+    {cat: 'community', slug: 'massthrive-language'},
+    {cat: 'community', slug: 'massthrive-search'},
+    {cat: 'community', slug: 'massthrive-program-card'},
+    {cat: 'community', slug: 'massthrive-contact'}
+  ]
+};
+
+/* ============================================================
+   CMS TOPICS OVERRIDE
+   Fetches content/topics.json (edited via Decap CMS) and merges
+   it over the JS fallback topicCatalog and challengeTopicRefs.
+   Runs synchronously so data is ready before initChallengeTopic().
+   Falls back silently when running from the local file system.
+   ============================================================ */
+(function applyCmsTopicsOverrides() {
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/content/topics.json', false); /* synchronous */
+    xhr.send();
+    if (xhr.status === 200) {
+      var data = JSON.parse(xhr.responseText);
+      /* Replace individual catalog categories with CMS versions */
+      if (data.catalog) {
+        Object.keys(data.catalog).forEach(function(cat) {
+          topicCatalog[cat] = data.catalog[cat];
+        });
+      }
+      /* Replace challenge topic ref lists with CMS versions */
+      if (data.challengeTopicRefs) {
+        Object.keys(data.challengeTopicRefs).forEach(function(ch) {
+          challengeTopicRefs[ch] = data.challengeTopicRefs[ch];
+        });
+      }
+    }
+  } catch (e) { /* local file:// dev — no-op */ }
+})();
+
+/* ============================================================
    LANGUAGE HELPERS
    ============================================================ */
 
@@ -1711,6 +1787,85 @@ function initCharSelector() {
 }
 
 /* ============================================================
+   CHALLENGE TOPIC EMBED (course/challenge-*.html — Step 1)
+   ============================================================ */
+
+/**
+ * Reads the data-challenge-id attribute from <main> to find which
+ * challenge this page is, then looks up its topic refs and injects
+ * each how-to atom (video placeholder + numbered steps) into the
+ * #topic-embed container in Step 1.
+ *
+ * This is what makes challenge pages pull from the shared content pool
+ * instead of duplicating content from the Knowledge Base.
+ */
+function initChallengeTopic() {
+  var embed = document.getElementById('topic-embed');
+  if (!embed) return; /* Not a challenge page, or embed slot missing */
+
+  /* Read which challenge this page is from the <main> element */
+  var main = document.getElementById('main');
+  var challengeId = main ? main.getAttribute('data-challenge-id') : null;
+  if (!challengeId) return;
+
+  var refs = challengeTopicRefs[challengeId];
+  if (!refs || !refs.length) return;
+
+  embed.innerHTML = ''; /* Clear any placeholder content */
+
+  refs.forEach(function(ref) {
+    /* Look up the category and find the matching topic by slug */
+    var catData = topicCatalog[ref.cat];
+    if (!catData) return;
+
+    var topicItem = null;
+    for (var i = 0; i < catData.topics.length; i++) {
+      if (catData.topics[i].slug === ref.slug) {
+        topicItem = catData.topics[i];
+        break;
+      }
+    }
+    if (!topicItem) return;
+
+    /* Build the topic atom: video placeholder + step list */
+    var atom = document.createElement('div');
+    atom.className = 'topic-atom';
+
+    /* Video placeholder — will be replaced with real embed in Phase 2 */
+    var videoDiv = document.createElement('div');
+    videoDiv.className = 'video-placeholder';
+    videoDiv.setAttribute('role', 'img');
+    videoDiv.setAttribute('aria-label', 'Video placeholder — ' + topicItem.title);
+    videoDiv.innerHTML =
+      '<span class="video-placeholder-icon" aria-hidden="true">\u25B6</span>' +
+      '<span class="video-placeholder-label">' + topicItem.title + '</span>';
+
+    /* Step-by-step text panel */
+    var stepsDiv = document.createElement('div');
+    stepsDiv.className = 'topic-steps-panel';
+    stepsDiv.setAttribute('aria-label', topicItem.title + ' \u2014 step-by-step instructions');
+
+    var groupTitle = document.createElement('p');
+    groupTitle.className = 'task-group-title';
+    groupTitle.textContent = topicItem.title;
+
+    var ol = document.createElement('ol');
+    ol.className = 'task-steps-inline';
+    topicItem.steps.forEach(function(step) {
+      var li = document.createElement('li');
+      li.textContent = step;
+      ol.appendChild(li);
+    });
+
+    stepsDiv.appendChild(groupTitle);
+    stepsDiv.appendChild(ol);
+    atom.appendChild(videoDiv);
+    atom.appendChild(stepsDiv);
+    embed.appendChild(atom);
+  });
+}
+
+/* ============================================================
    CATEGORY PAGE (help/category.html)
    ============================================================ */
 
@@ -1821,10 +1976,11 @@ function initTopic() {
 
 document.addEventListener('DOMContentLoaded', function() {
   applyStrings();
-  initLangSelector();  /* no-op if .lang-option buttons are not present */
-  initSteps();         /* no-op if .challenge-step panels are not present */
-  initChecklist();     /* no-op if .checklist-item elements are not present */
-  initCharSelector();  /* no-op if .char-btn buttons are not present */
-  initCategory();      /* no-op if #topic-list is not present */
-  initTopic();         /* no-op if #steps-list is not present */
+  initLangSelector();    /* no-op if .lang-option buttons are not present */
+  initSteps();           /* no-op if .challenge-step panels are not present */
+  initChecklist();       /* no-op if .checklist-item elements are not present */
+  initCharSelector();    /* no-op if .char-btn buttons are not present */
+  initChallengeTopic();  /* no-op if #topic-embed is not present */
+  initCategory();        /* no-op if #topic-list is not present */
+  initTopic();           /* no-op if #steps-list is not present */
 });

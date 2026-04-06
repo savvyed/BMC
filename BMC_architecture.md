@@ -32,7 +32,7 @@ flowchart TD
     subgraph ContentPool["🗂️  Shared Content Pool  (single source of truth)"]
         direction TB
         HowToTopics["How-To Topics\n─────────────\n7 categories · ~28 topics\nEach topic:\n  • How-to video\n  • Step-by-step text\n  • Category tag\nEdited ONCE · used in both\nKnowledge Base AND Challenges"]
-        H5P["H5P Interactions\n─────────────\nCharacter scenario per challenge\n(Elena / Marcus / Rosa / Victor)\nEmbedded via iframe or JS\nHosted externally or in /media/"]
+        H5P["H5P Interactions\n─────────────\nCharacter scenario per challenge\n(Elena / Marcus / Rosa / Victor)\nAuthored in Lumi Desktop\nExported as HTML5 bundle\nStored in /media/interactions/\nLoaded inline by JS — no iframe"]
         ChallengeText["Challenge Connecting Text\n─────────────\ncontent/challenges.json\nIntro text · scenario framing\nChecklist items · UI labels\n5 languages · CMS-editable"]
     end
 
@@ -88,7 +88,9 @@ flowchart TD
 
     GitHub -..->|"contains"| HowToTopics
     GitHub -..->|"contains"| ChallengeText
-    GitHub -..->|"contains or references"| H5P
+    Lumi["🖊️ Lumi Desktop\n─────────────\nWYSIWYG H5P editor\nRuns on staff machine\nExports HTML5 bundle\n(.h5p → HTML + JS + CSS)"]
+    Lumi -->|"staff exports bundle,\ncommits to /media/interactions/"| GitHub
+    GitHub -..->|"contains"| H5P
 
     HowToTopics -->|"rendered as standalone topic"| KBTopic
     HowToTopics -->|"embedded as step ② in challenge"| Challenge
@@ -121,6 +123,7 @@ flowchart TD
 
     class Editor,Navigator,Patient person
     class DecapCMS,GitHub cms
+    class Lumi cms
     class HowToTopics,H5P,ChallengeText pool
     class CI,CDN,Identity hosting
     class LangSelector,Home,Challenge,KBTopic site
@@ -229,7 +232,7 @@ An editor updates the video or steps once, and the change appears in both places
 | Type | What it is | Edited by | Exists in 5 languages? |
 |---|---|---|---|
 | **How-to topics** | Video + numbered steps for a specific task | Content editor via CMS | Yes (target) |
-| **H5P interactions** | Character scenario — interactive practice activity | Course designer in H5P tool | Yes (H5P handles internally) |
+| **H5P interactions** | Character scenario — interactive practice activity | Course designer in **Lumi Desktop** (exports HTML5) | Yes (H5P handles internally) |
 | **Connecting text** | Intro framing, scenario setup, checklist items | Content editor via CMS | Yes |
 
 ### What a Challenge Page Actually Contains
@@ -250,6 +253,20 @@ A challenge is a **sequence of containers**, not a wall of content:
 │    Self checklist      [connecting] │
 └─────────────────────────────────────┘
 ```
+
+### How H5P Interactions Are Authored and Delivered
+
+H5P interactions are built in **[Lumi Desktop](https://lumi.education/)** — a free WYSIWYG editor that runs on a staff machine (no account needed). The workflow:
+
+1. Course designer opens Lumi, builds the character scenario interaction
+2. Lumi exports a self-contained **HTML5 bundle** (folder with `index.html`, JS, CSS, and content data)
+3. Staff commits that folder to `/media/interactions/ch0X-scenario/` in the GitHub repo
+4. On the challenge page, a JS function (`loadInteraction()`) **fetches the bundle's HTML and injects it inline** into the `#interaction-XX` container — no iframe needed
+5. Netlify deploys, and the interaction is live
+
+> **Why no iframe?** Iframes create focus-management and accessibility issues on mobile, and can cause scroll-jail on older Android browsers — both problems for this patient population. Loading the bundle inline avoids both.
+
+> **Lumi note:** Lumi saves `.lumi` project files (keep these in a separate `/lumi-source/` folder in the repo so interactions can be re-edited later). Only the exported HTML5 folder needs to go in `/media/interactions/`.
 
 ### Current State vs. Target State
 

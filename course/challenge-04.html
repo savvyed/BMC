@@ -24,7 +24,7 @@
     </a>
   </header>
 
-  <main class="page-content" id="main" role="main">
+  <main class="page-content" id="main" role="main" data-challenge-id="ch04">
 
     <!-- Step indicator — JS adds .active and .done classes -->
     <nav class="step-indicator" aria-label="Challenge steps">
@@ -69,38 +69,8 @@
           </span>
         </div>
 
-        <section class="task-steps-panel" aria-label="Step-by-step instructions">
-
-          <div class="task-group">
-            <p class="task-group-title">Set up access for a family member</p>
-            <ol class="task-steps-inline">
-              <li>Tap the Menu icon.</li>
-              <li>Tap "Sharing Hub."</li>
-              <li>Tap "Invite Someone."</li>
-              <li>Enter the caregiver's email address.</li>
-              <li>Tap "Confirm" to send the invitation.</li>
-            </ol>
-          </div>
-
-          <div class="task-group">
-            <p class="task-group-title">Switch between linked accounts</p>
-            <ol class="task-steps-inline">
-              <li>Tap your name or the Account icon at the top.</li>
-              <li>Select the linked family member's name.</li>
-            </ol>
-          </div>
-
-          <div class="task-group">
-            <p class="task-group-title">Review your notification preferences</p>
-            <ol class="task-steps-inline">
-              <li>Tap the Menu icon.</li>
-              <li>Tap "Settings."</li>
-              <li>Tap "Notifications."</li>
-              <li>Review and change the notification options.</li>
-            </ol>
-          </div>
-
-        </section>
+      <!-- Topic atoms (video + steps) are injected here by initChallengeTopic() in main.js -->
+      <div id="topic-embed" class="topic-embed" aria-label="Step-by-step instructions"></div>
 
       <div class="step-nav">
         <button class="btn-primary btn-next" type="button" data-string-key="nextBtn">
