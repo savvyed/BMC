@@ -1609,6 +1609,9 @@ var challengeTopicRefs = {
  * Falls back to 'en' if the param is missing or unrecognized.
  */
 function getLang() {
+  /* In GTranslate mode the widget handles language — always serve English
+     source text and let GTranslate do the translation. */
+  if (window.BMC_TRANSLATION_MODE === 'gtranslate') return 'en';
   const param = new URLSearchParams(window.location.search).get('lang');
   return (param && strings[param]) ? param : 'en';
 }
@@ -1630,6 +1633,9 @@ function t(key) {
  * Example: withLang('../home.html') → '../home.html?lang=es'
  */
 function withLang(url) {
+  /* In GTranslate mode links carry no lang param — GTranslate persists
+     the chosen language automatically via cookie. */
+  if (window.BMC_TRANSLATION_MODE === 'gtranslate') return url;
   const lang = getLang();
   if (lang === 'en') return url; /* en is default, no param needed */
   const sep = url.includes('?') ? '&' : '?';
@@ -1684,7 +1690,13 @@ function initLangSelector() {
   document.querySelectorAll('.lang-option').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var lang = btn.getAttribute('data-lang');
-      window.location.href = 'home.html?lang=' + lang;
+      if (window.BMC_TRANSLATION_MODE === 'gtranslate') {
+        /* GTranslate mode: all buttons go straight to home — the widget
+           picks up the patient's chosen language automatically. */
+        window.location.href = 'home.html';
+      } else {
+        window.location.href = 'home.html?lang=' + lang;
+      }
     });
   });
 }
