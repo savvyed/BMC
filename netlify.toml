@@ -1,0 +1,31 @@
+# ─────────────────────────────────────────────────────────────
+# Netlify configuration — BMC Digital Health Navigator
+# ─────────────────────────────────────────────────────────────
+
+[build]
+  # No build command — this is a static site; Netlify just uploads files.
+  publish = "."
+
+# ── Production (main branch) ──────────────────────────────────
+[context.production]
+  publish = "."
+
+# ── Branch deploys — ON ───────────────────────────────────────
+# Every branch gets its own preview URL automatically:
+#   https://<branch-name>--tiny-hamster-9bcc46.netlify.app
+# This lets the team review dev work without touching production.
+[context.branch-deploy]
+  publish = "."
+
+# ── Deploy previews (pull requests) — disabled ───────────────
+# PR previews are redundant given branch deploys — disabling
+# them avoids doubling up on build minutes for every PR.
+[context.deploy-preview]
+  ignore = "exit 0"
+
+# ── Redirects ────────────────────────────────────────────────
+# Serve the language-selector screen at the root
+[[redirects]]
+  from = "/"
+  to   = "/index.html"
+  status = 200
