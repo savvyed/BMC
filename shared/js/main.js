@@ -1033,17 +1033,37 @@ const strings = {
 (function applyCmsOverrides() {
   try {
     var lang = (new URLSearchParams(window.location.search).get('lang') || 'en');
+
+    /* Only fetch on challenge pages — each challenge has its own content file.
+       Which file to fetch is determined by data-challenge-id on the <main> element.
+       Non-challenge pages (home, course index, help) use JS fallback strings only. */
+    var mainEl = document.getElementById('main');
+    var challengeId = mainEl ? mainEl.getAttribute('data-challenge-id') : null;
+    if (!challengeId) return;
+
+    /* Map data-challenge-id values to their content file paths */
+    var fileMap = {
+      'ch0':  '/content/challenge-0.json',
+      'ch01': '/content/challenge-01.json',
+      'ch02': '/content/challenge-02.json',
+      'ch03': '/content/challenge-03.json',
+      'ch04': '/content/challenge-04.json',
+      'ch05': '/content/challenge-05.json'
+    };
+    var challengeFile = fileMap[challengeId];
+    if (!challengeFile) return;
+
     /* Synchronous XHR so strings are ready before applyStrings() runs */
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/content/challenges.json', false);
+    xhr.open('GET', challengeFile, false);
     xhr.send();
     if (xhr.status === 200) {
       var data = JSON.parse(xhr.responseText);
-      /* Merge English base layer first, then requested language */
+      /* Merge English base layer first, then the requested language on top */
       if (data['en']) Object.assign(strings['en'], data['en']);
       if (lang !== 'en' && data[lang]) Object.assign(strings[lang], data[lang]);
     }
-  } catch (e) { /* local dev without a server — no-op */ }
+  } catch (e) { /* local file:// dev — no-op */ }
 })();
 
 /* ============================================================

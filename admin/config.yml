@@ -8,549 +8,2928 @@ display_url: https://tiny-hamster-9bcc46.netlify.app
 media_folder: media
 public_folder: /media
 
-# ─── COLLECTIONS ───────────────────────────────────────────────
+# ── COLLECTIONS ─────────────────────────────────────────────────────────────
 collections:
 
-  # ── Challenge content (all 5 languages) ──────────────────────
-  - name: challenge_content
-    label: "Challenge Content"
+  # ── Course Challenges ──────────────────────────────────────────────────────
+  # One file per challenge. All five languages are in each file.
+  # To translate: open the challenge, find your language section,
+  # and fill in each field. Leave a field blank to fall back to English.
+  - name: challenges
+    label: "Course Challenges"
     files:
 
-      - name: english
-        label: "English (en)"
-        file: content/challenges.json
+      - name: "challenge_0"
+        label: "Challenge 0: Set up your email"
+        file: content/challenge-0.json
         fields:
-          - label: "Language"
+
+          - label: "English"
             name: en
             widget: object
+            collapsed: false
             fields:
+              - label: "Page title"
+                name: ch0PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch0Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch0Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch0Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch0Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch0Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch0Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch0Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch0Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch0Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch0Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch0Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch0Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch0Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch0Check4
+                widget: text
 
-              # Shared
-              - {label: "Character 1 name", name: char1, widget: string}
-              - {label: "Character 2 name", name: char2, widget: string}
-              - {label: "Character 3 name", name: char3, widget: string}
-              - {label: "Character 4 name", name: char4, widget: string}
-
-              # Challenge 0
-              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
-              - {label: "Ch0 — Step 1 label", name: ch0Step1Label, widget: string}
-              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
-              - {label: "Ch0 — Step 1 video description", name: ch0Step1VideoPH, widget: string}
-              - {label: "Ch0 — Step 2 label", name: ch0Step2Label, widget: string}
-              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
-              - {label: "Ch0 — Step 3 label", name: ch0Step3Label, widget: string}
-              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
-              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
-              - {label: "Ch0 — Checklist item 1", name: ch0Check1, widget: text}
-              - {label: "Ch0 — Checklist item 2", name: ch0Check2, widget: text}
-              - {label: "Ch0 — Checklist item 3", name: ch0Check3, widget: text}
-              - {label: "Ch0 — Checklist item 4", name: ch0Check4, widget: text}
-
-              # Challenge 01
-              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
-              - {label: "Ch01 — Step 1 label", name: ch01Step1Label, widget: string}
-              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
-              - {label: "Ch01 — Step 1 video description", name: ch01Step1VideoPH, widget: string}
-              - {label: "Ch01 — Step 2 label", name: ch01Step2Label, widget: string}
-              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
-              - {label: "Ch01 — Step 3 label", name: ch01Step3Label, widget: string}
-              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
-              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
-              - {label: "Ch01 — Checklist item 1", name: ch01Check1, widget: text}
-              - {label: "Ch01 — Checklist item 2", name: ch01Check2, widget: text}
-              - {label: "Ch01 — Checklist item 3", name: ch01Check3, widget: text}
-              - {label: "Ch01 — Checklist item 4", name: ch01Check4, widget: text}
-              - {label: "Ch01 — Checklist item 5", name: ch01Check5, widget: text}
-              - {label: "Ch01 — Checklist item 6", name: ch01Check6, widget: text}
-              - {label: "Ch01 — Checklist item 7", name: ch01Check7, widget: text}
-              - {label: "Ch01 — Checklist item 8", name: ch01Check8, widget: text}
-
-              # Challenge 02
-              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
-              - {label: "Ch02 — Step 1 label", name: ch02Step1Label, widget: string}
-              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
-              - {label: "Ch02 — Step 1 video description", name: ch02Step1VideoPH, widget: string}
-              - {label: "Ch02 — Step 2 label", name: ch02Step2Label, widget: string}
-              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
-              - {label: "Ch02 — Step 3 label", name: ch02Step3Label, widget: string}
-              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
-              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
-              - {label: "Ch02 — Checklist item 1", name: ch02Check1, widget: text}
-              - {label: "Ch02 — Checklist item 2", name: ch02Check2, widget: text}
-              - {label: "Ch02 — Checklist item 3", name: ch02Check3, widget: text}
-              - {label: "Ch02 — Checklist item 4", name: ch02Check4, widget: text}
-              - {label: "Ch02 — Checklist item 5", name: ch02Check5, widget: text}
-
-              # Challenge 03
-              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
-              - {label: "Ch03 — Step 1 label", name: ch03Step1Label, widget: string}
-              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
-              - {label: "Ch03 — Step 1 video description", name: ch03Step1VideoPH, widget: string}
-              - {label: "Ch03 — Step 2 label", name: ch03Step2Label, widget: string}
-              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
-              - {label: "Ch03 — Step 3 label", name: ch03Step3Label, widget: string}
-              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
-              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
-              - {label: "Ch03 — Checklist item 1", name: ch03Check1, widget: text}
-              - {label: "Ch03 — Checklist item 2", name: ch03Check2, widget: text}
-              - {label: "Ch03 — Checklist item 3", name: ch03Check3, widget: text}
-              - {label: "Ch03 — Checklist item 4", name: ch03Check4, widget: text}
-              - {label: "Ch03 — Checklist item 5", name: ch03Check5, widget: text}
-
-              # Challenge 04
-              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
-              - {label: "Ch04 — Step 1 label", name: ch04Step1Label, widget: string}
-              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
-              - {label: "Ch04 — Step 1 video description", name: ch04Step1VideoPH, widget: string}
-              - {label: "Ch04 — Step 2 label", name: ch04Step2Label, widget: string}
-              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
-              - {label: "Ch04 — Step 3 label", name: ch04Step3Label, widget: string}
-              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
-              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
-              - {label: "Ch04 — Checklist item 1", name: ch04Check1, widget: text}
-              - {label: "Ch04 — Checklist item 2", name: ch04Check2, widget: text}
-              - {label: "Ch04 — Checklist item 3", name: ch04Check3, widget: text}
-              - {label: "Ch04 — Checklist item 4", name: ch04Check4, widget: text}
-              - {label: "Ch04 — Checklist item 5", name: ch04Check5, widget: text}
-              - {label: "Ch04 — Checklist item 6", name: ch04Check6, widget: text}
-
-              # Challenge 05
-              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
-              - {label: "Ch05 — Step 1 label", name: ch05Step1Label, widget: string}
-              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
-              - {label: "Ch05 — Step 1 video description", name: ch05Step1VideoPH, widget: string}
-              - {label: "Ch05 — Step 2 label", name: ch05Step2Label, widget: string}
-              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
-              - {label: "Ch05 — Step 3 label", name: ch05Step3Label, widget: string}
-              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
-              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
-              - {label: "Ch05 — Checklist item 1", name: ch05Check1, widget: text}
-              - {label: "Ch05 — Checklist item 2", name: ch05Check2, widget: text}
-              - {label: "Ch05 — Checklist item 3", name: ch05Check3, widget: text}
-              - {label: "Ch05 — Checklist item 4", name: ch05Check4, widget: text}
-              - {label: "Ch05 — Checklist item 5", name: ch05Check5, widget: text}
-              - {label: "Ch05 — Checklist item 6", name: ch05Check6, widget: text}
-              - {label: "Ch05 — Checklist item 7", name: ch05Check7, widget: text}
-
-      - name: spanish
-        label: "Spanish (es)"
-        file: content/challenges-es.json
-        fields:
-          - label: "Language"
+          - label: "Espanol"
             name: es
             widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
             fields:
-              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
-              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
-              - {label: "Ch0 — Step 1 video description", name: ch0Step1VideoPH, widget: string}
-              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
-              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
-              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
-              - {label: "Ch0 — Checklist item 1", name: ch0Check1, widget: text}
-              - {label: "Ch0 — Checklist item 2", name: ch0Check2, widget: text}
-              - {label: "Ch0 — Checklist item 3", name: ch0Check3, widget: text}
-              - {label: "Ch0 — Checklist item 4", name: ch0Check4, widget: text}
-              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
-              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
-              - {label: "Ch01 — Step 1 video description", name: ch01Step1VideoPH, widget: string}
-              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
-              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
-              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
-              - {label: "Ch01 — Checklist item 1", name: ch01Check1, widget: text}
-              - {label: "Ch01 — Checklist item 2", name: ch01Check2, widget: text}
-              - {label: "Ch01 — Checklist item 3", name: ch01Check3, widget: text}
-              - {label: "Ch01 — Checklist item 4", name: ch01Check4, widget: text}
-              - {label: "Ch01 — Checklist item 5", name: ch01Check5, widget: text}
-              - {label: "Ch01 — Checklist item 6", name: ch01Check6, widget: text}
-              - {label: "Ch01 — Checklist item 7", name: ch01Check7, widget: text}
-              - {label: "Ch01 — Checklist item 8", name: ch01Check8, widget: text}
-              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
-              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
-              - {label: "Ch02 — Step 1 video description", name: ch02Step1VideoPH, widget: string}
-              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
-              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
-              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
-              - {label: "Ch02 — Checklist item 1", name: ch02Check1, widget: text}
-              - {label: "Ch02 — Checklist item 2", name: ch02Check2, widget: text}
-              - {label: "Ch02 — Checklist item 3", name: ch02Check3, widget: text}
-              - {label: "Ch02 — Checklist item 4", name: ch02Check4, widget: text}
-              - {label: "Ch02 — Checklist item 5", name: ch02Check5, widget: text}
-              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
-              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
-              - {label: "Ch03 — Step 1 video description", name: ch03Step1VideoPH, widget: string}
-              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
-              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
-              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
-              - {label: "Ch03 — Checklist item 1", name: ch03Check1, widget: text}
-              - {label: "Ch03 — Checklist item 2", name: ch03Check2, widget: text}
-              - {label: "Ch03 — Checklist item 3", name: ch03Check3, widget: text}
-              - {label: "Ch03 — Checklist item 4", name: ch03Check4, widget: text}
-              - {label: "Ch03 — Checklist item 5", name: ch03Check5, widget: text}
-              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
-              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
-              - {label: "Ch04 — Step 1 video description", name: ch04Step1VideoPH, widget: string}
-              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
-              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
-              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
-              - {label: "Ch04 — Checklist item 1", name: ch04Check1, widget: text}
-              - {label: "Ch04 — Checklist item 2", name: ch04Check2, widget: text}
-              - {label: "Ch04 — Checklist item 3", name: ch04Check3, widget: text}
-              - {label: "Ch04 — Checklist item 4", name: ch04Check4, widget: text}
-              - {label: "Ch04 — Checklist item 5", name: ch04Check5, widget: text}
-              - {label: "Ch04 — Checklist item 6", name: ch04Check6, widget: text}
-              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
-              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
-              - {label: "Ch05 — Step 1 video description", name: ch05Step1VideoPH, widget: string}
-              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
-              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
-              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
-              - {label: "Ch05 — Checklist item 1", name: ch05Check1, widget: text}
-              - {label: "Ch05 — Checklist item 2", name: ch05Check2, widget: text}
-              - {label: "Ch05 — Checklist item 3", name: ch05Check3, widget: text}
-              - {label: "Ch05 — Checklist item 4", name: ch05Check4, widget: text}
-              - {label: "Ch05 — Checklist item 5", name: ch05Check5, widget: text}
-              - {label: "Ch05 — Checklist item 6", name: ch05Check6, widget: text}
-              - {label: "Ch05 — Checklist item 7", name: ch05Check7, widget: text}
+              - label: "Page title"
+                name: ch0PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch0Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch0Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch0Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch0Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch0Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch0Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch0Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch0Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch0Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch0Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch0Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch0Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch0Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch0Check4
+                widget: text
 
-      - name: portuguese
-        label: "Portuguese (pt)"
-        file: content/challenges-pt.json
-        fields:
-          - label: "Language"
+          - label: "Portugues"
             name: pt
             widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
             fields:
-              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
-              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
-              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
-              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
-              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
-              - {label: "Ch0 — Checklist items (1–4)", name: ch0Check1, widget: text}
-              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
-              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
-              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
-              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
-              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
-              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
-              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
-              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
-              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
-              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
-              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
-              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
-              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
-              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
-              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
-              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
-              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
-              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
-              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
-              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
-              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
-              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
-              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
-              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
-              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
+              - label: "Page title"
+                name: ch0PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch0Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch0Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch0Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch0Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch0Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch0Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch0Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch0Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch0Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch0Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch0Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch0Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch0Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch0Check4
+                widget: text
 
-      - name: haitian_creole
-        label: "Haitian Creole (ht)"
-        file: content/challenges-ht.json
-        fields:
-          - label: "Language"
+          - label: "Kreyol ayisyen"
             name: ht
             widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
             fields:
-              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
-              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
-              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
-              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
-              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
-              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
-              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
-              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
-              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
-              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
-              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
-              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
-              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
-              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
-              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
-              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
-              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
-              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
-              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
-              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
-              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
-              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
-              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
-              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
-              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
-              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
-              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
-              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
-              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
-              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
+              - label: "Page title"
+                name: ch0PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch0Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch0Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch0Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch0Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch0Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch0Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch0Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch0Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch0Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch0Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch0Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch0Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch0Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch0Check4
+                widget: text
 
-      - name: chinese
-        label: "Chinese (zh)"
-        file: content/challenges-zh.json
-        fields:
-          - label: "Language"
+          - label: "Zhongwen"
             name: zh
             widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
             fields:
-              - {label: "Ch0 — Page title", name: ch0PageTitle, widget: string}
-              - {label: "Ch0 — Step 1 heading", name: ch0Step1Heading, widget: string}
-              - {label: "Ch0 — Step 2 heading", name: ch0Step2Heading, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 1)", name: ch0Step2Intro, widget: string}
-              - {label: "Ch0 — Step 2 character intro (line 2)", name: ch0Step2Intro2, widget: string}
-              - {label: "Ch0 — Step 3 heading", name: ch0Step3Heading, widget: string}
-              - {label: "Ch0 — Step 3 intro", name: ch0Step3Intro, widget: string}
-              - {label: "Ch01 — Page title", name: ch01PageTitle, widget: string}
-              - {label: "Ch01 — Step 1 heading", name: ch01Step1Heading, widget: string}
-              - {label: "Ch01 — Step 2 heading", name: ch01Step2Heading, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 1)", name: ch01Step2Intro, widget: string}
-              - {label: "Ch01 — Step 2 character intro (line 2)", name: ch01Step2Intro2, widget: string}
-              - {label: "Ch01 — Step 3 heading", name: ch01Step3Heading, widget: string}
-              - {label: "Ch01 — Step 3 intro", name: ch01Step3Intro, widget: string}
-              - {label: "Ch02 — Page title", name: ch02PageTitle, widget: string}
-              - {label: "Ch02 — Step 1 heading", name: ch02Step1Heading, widget: string}
-              - {label: "Ch02 — Step 2 heading", name: ch02Step2Heading, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 1)", name: ch02Step2Intro, widget: string}
-              - {label: "Ch02 — Step 2 character intro (line 2)", name: ch02Step2Intro2, widget: string}
-              - {label: "Ch02 — Step 3 heading", name: ch02Step3Heading, widget: string}
-              - {label: "Ch02 — Step 3 intro", name: ch02Step3Intro, widget: string}
-              - {label: "Ch03 — Page title", name: ch03PageTitle, widget: string}
-              - {label: "Ch03 — Step 1 heading", name: ch03Step1Heading, widget: string}
-              - {label: "Ch03 — Step 2 heading", name: ch03Step2Heading, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 1)", name: ch03Step2Intro, widget: string}
-              - {label: "Ch03 — Step 2 character intro (line 2)", name: ch03Step2Intro2, widget: string}
-              - {label: "Ch03 — Step 3 heading", name: ch03Step3Heading, widget: string}
-              - {label: "Ch03 — Step 3 intro", name: ch03Step3Intro, widget: string}
-              - {label: "Ch04 — Page title", name: ch04PageTitle, widget: string}
-              - {label: "Ch04 — Step 1 heading", name: ch04Step1Heading, widget: string}
-              - {label: "Ch04 — Step 2 heading", name: ch04Step2Heading, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 1)", name: ch04Step2Intro, widget: string}
-              - {label: "Ch04 — Step 2 character intro (line 2)", name: ch04Step2Intro2, widget: string}
-              - {label: "Ch04 — Step 3 heading", name: ch04Step3Heading, widget: string}
-              - {label: "Ch04 — Step 3 intro", name: ch04Step3Intro, widget: string}
-              - {label: "Ch05 — Page title", name: ch05PageTitle, widget: string}
-              - {label: "Ch05 — Step 1 heading", name: ch05Step1Heading, widget: string}
-              - {label: "Ch05 — Step 2 heading", name: ch05Step2Heading, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 1)", name: ch05Step2Intro, widget: string}
-              - {label: "Ch05 — Step 2 character intro (line 2)", name: ch05Step2Intro2, widget: string}
-              - {label: "Ch05 — Step 3 heading", name: ch05Step3Heading, widget: string}
-              - {label: "Ch05 — Step 3 intro", name: ch05Step3Intro, widget: string}
+              - label: "Page title"
+                name: ch0PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch0Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch0Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch0Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch0Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch0Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch0Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch0Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch0Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch0Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch0Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch0Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch0Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch0Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch0Check4
+                widget: text
 
-  # ── How-To Topics (shared content pool) ──────────────────────
-  # These are the how-to videos and step-by-step text that appear
-  # in both the Knowledge Base AND inside challenge pages (Step 1).
-  # Edit here once — the change shows up in both places automatically.
+      - name: "challenge_01"
+        label: "Challenge 1: Set up MyChart"
+        file: content/challenge-01.json
+        fields:
+
+          - label: "English"
+            name: en
+            widget: object
+            collapsed: false
+            fields:
+              - label: "Page title"
+                name: ch01PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch01Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch01Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch01Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch01Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch01Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch01Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch01Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch01Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch01Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch01Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch01Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch01Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch01Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch01Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch01Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch01Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch01Check7
+                widget: text
+              
+              - label: "Checklist — item 8"
+                name: ch01Check8
+                widget: text
+
+          - label: "Espanol"
+            name: es
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch01PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch01Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch01Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch01Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch01Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch01Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch01Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch01Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch01Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch01Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch01Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch01Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch01Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch01Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch01Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch01Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch01Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch01Check7
+                widget: text
+              
+              - label: "Checklist — item 8"
+                name: ch01Check8
+                widget: text
+
+          - label: "Portugues"
+            name: pt
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch01PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch01Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch01Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch01Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch01Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch01Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch01Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch01Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch01Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch01Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch01Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch01Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch01Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch01Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch01Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch01Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch01Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch01Check7
+                widget: text
+              
+              - label: "Checklist — item 8"
+                name: ch01Check8
+                widget: text
+
+          - label: "Kreyol ayisyen"
+            name: ht
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch01PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch01Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch01Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch01Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch01Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch01Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch01Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch01Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch01Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch01Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch01Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch01Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch01Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch01Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch01Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch01Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch01Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch01Check7
+                widget: text
+              
+              - label: "Checklist — item 8"
+                name: ch01Check8
+                widget: text
+
+          - label: "Zhongwen"
+            name: zh
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch01PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch01Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch01Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch01Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch01Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch01Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch01Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch01Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch01Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch01Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch01Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch01Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch01Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch01Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch01Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch01Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch01Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch01Check7
+                widget: text
+              
+              - label: "Checklist — item 8"
+                name: ch01Check8
+                widget: text
+
+      - name: "challenge_02"
+        label: "Challenge 2: Join a video visit"
+        file: content/challenge-02.json
+        fields:
+
+          - label: "English"
+            name: en
+            widget: object
+            collapsed: false
+            fields:
+              - label: "Page title"
+                name: ch02PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch02Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch02Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch02Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch02Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch02Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch02Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch02Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch02Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch02Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch02Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch02Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch02Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch02Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch02Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch02Check5
+                widget: text
+
+          - label: "Espanol"
+            name: es
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch02PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch02Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch02Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch02Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch02Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch02Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch02Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch02Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch02Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch02Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch02Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch02Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch02Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch02Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch02Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch02Check5
+                widget: text
+
+          - label: "Portugues"
+            name: pt
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch02PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch02Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch02Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch02Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch02Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch02Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch02Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch02Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch02Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch02Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch02Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch02Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch02Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch02Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch02Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch02Check5
+                widget: text
+
+          - label: "Kreyol ayisyen"
+            name: ht
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch02PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch02Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch02Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch02Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch02Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch02Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch02Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch02Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch02Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch02Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch02Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch02Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch02Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch02Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch02Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch02Check5
+                widget: text
+
+          - label: "Zhongwen"
+            name: zh
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch02PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch02Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch02Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch02Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch02Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch02Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch02Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch02Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch02Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch02Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch02Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch02Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch02Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch02Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch02Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch02Check5
+                widget: text
+
+      - name: "challenge_03"
+        label: "Challenge 3: Common tasks"
+        file: content/challenge-03.json
+        fields:
+
+          - label: "English"
+            name: en
+            widget: object
+            collapsed: false
+            fields:
+              - label: "Page title"
+                name: ch03PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch03Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch03Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch03Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch03Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch03Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch03Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch03Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch03Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch03Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch03Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch03Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch03Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch03Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch03Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch03Check5
+                widget: text
+
+          - label: "Espanol"
+            name: es
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch03PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch03Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch03Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch03Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch03Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch03Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch03Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch03Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch03Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch03Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch03Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch03Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch03Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch03Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch03Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch03Check5
+                widget: text
+
+          - label: "Portugues"
+            name: pt
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch03PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch03Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch03Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch03Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch03Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch03Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch03Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch03Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch03Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch03Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch03Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch03Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch03Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch03Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch03Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch03Check5
+                widget: text
+
+          - label: "Kreyol ayisyen"
+            name: ht
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch03PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch03Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch03Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch03Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch03Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch03Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch03Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch03Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch03Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch03Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch03Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch03Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch03Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch03Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch03Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch03Check5
+                widget: text
+
+          - label: "Zhongwen"
+            name: zh
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch03PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch03Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch03Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch03Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch03Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch03Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch03Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch03Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch03Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch03Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch03Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch03Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch03Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch03Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch03Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch03Check5
+                widget: text
+
+      - name: "challenge_04"
+        label: "Challenge 4: Family account access"
+        file: content/challenge-04.json
+        fields:
+
+          - label: "English"
+            name: en
+            widget: object
+            collapsed: false
+            fields:
+              - label: "Page title"
+                name: ch04PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch04Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch04Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch04Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch04Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch04Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch04Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch04Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch04Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch04Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch04Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch04Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch04Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch04Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch04Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch04Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch04Check6
+                widget: text
+
+          - label: "Espanol"
+            name: es
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch04PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch04Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch04Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch04Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch04Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch04Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch04Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch04Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch04Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch04Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch04Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch04Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch04Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch04Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch04Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch04Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch04Check6
+                widget: text
+
+          - label: "Portugues"
+            name: pt
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch04PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch04Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch04Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch04Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch04Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch04Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch04Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch04Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch04Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch04Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch04Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch04Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch04Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch04Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch04Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch04Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch04Check6
+                widget: text
+
+          - label: "Kreyol ayisyen"
+            name: ht
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch04PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch04Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch04Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch04Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch04Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch04Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch04Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch04Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch04Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch04Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch04Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch04Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch04Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch04Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch04Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch04Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch04Check6
+                widget: text
+
+          - label: "Zhongwen"
+            name: zh
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch04PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch04Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch04Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch04Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch04Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch04Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch04Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch04Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch04Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch04Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch04Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch04Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch04Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch04Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch04Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch04Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch04Check6
+                widget: text
+
+      - name: "challenge_05"
+        label: "Challenge 5: Find community resources"
+        file: content/challenge-05.json
+        fields:
+
+          - label: "English"
+            name: en
+            widget: object
+            collapsed: false
+            fields:
+              - label: "Page title"
+                name: ch05PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch05Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch05Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch05Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch05Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch05Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch05Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch05Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch05Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch05Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch05Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch05Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch05Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch05Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch05Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch05Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch05Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch05Check7
+                widget: text
+
+          - label: "Espanol"
+            name: es
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch05PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch05Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch05Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch05Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch05Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch05Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch05Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch05Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch05Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch05Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch05Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch05Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch05Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch05Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch05Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch05Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch05Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch05Check7
+                widget: text
+
+          - label: "Portugues"
+            name: pt
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch05PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch05Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch05Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch05Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch05Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch05Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch05Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch05Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch05Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch05Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch05Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch05Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch05Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch05Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch05Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch05Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch05Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch05Check7
+                widget: text
+
+          - label: "Kreyol ayisyen"
+            name: ht
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch05PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch05Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch05Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch05Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch05Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch05Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch05Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch05Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch05Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch05Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch05Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch05Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch05Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch05Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch05Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch05Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch05Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch05Check7
+                widget: text
+
+          - label: "Zhongwen"
+            name: zh
+            widget: object
+            collapsed: true
+            hint: "Leave any field blank to fall back to the English text."
+            fields:
+              - label: "Page title"
+                name: ch05PageTitle
+                widget: string
+                hint: "Shown in the browser tab and header. Example: Challenge 02 — Join a video visit"
+              
+              # Watch step (Step 1)
+              - label: "Watch — progress label"
+                name: ch05Step1Label
+                widget: string
+                hint: "Small label above the heading. Example: Step 1 of 3 — Watch"
+              
+              - label: "Watch — main heading"
+                name: ch05Step1Heading
+                widget: string
+                hint: "Large heading above the video. Example: How to join a video visit on your phone"
+              
+              - label: "Watch — video caption"
+                name: ch05Step1VideoPH
+                widget: string
+                hint: "Text on the video placeholder until the real video is added. Briefly describes what the video covers."
+              
+              # Practice step (Step 2)
+              - label: "Practice — progress label"
+                name: ch05Step2Label
+                widget: string
+                hint: "Example: Step 2 of 3 — Practice"
+              
+              - label: "Practice — main heading"
+                name: ch05Step2Heading
+                widget: string
+                hint: "Names the character and the task. Example: Help Marcus join his visit"
+              
+              - label: "Practice — scenario, sentence 1"
+                name: ch05Step2Intro
+                widget: string
+                hint: "Introduces the character and their situation. Example: Marcus needs to join a video visit from his phone during his lunch break."
+              
+              - label: "Practice — scenario, sentence 2"
+                name: ch05Step2Intro2
+                widget: string
+                hint: "What the patient needs to help the character do. Example: Help him find his appointment and tap Begin Visit."
+              
+              # Do it step (Step 3)
+              - label: "Do it — progress label"
+                name: ch05Step3Label
+                widget: string
+                hint: "Example: Step 3 of 3 — Do it on your phone"
+              
+              - label: "Do it — main heading"
+                name: ch05Step3Heading
+                widget: string
+                hint: "Example: Now try it on your own MyChart"
+              
+              - label: "Do it — intro text"
+                name: ch05Step3Intro
+                widget: string
+                hint: "Shown above the checklist. Example: Open MyChart on your phone and follow these steps:"
+              
+              # Checklist items
+              - label: "Checklist — item 1"
+                name: ch05Check1
+                widget: text
+                hint: "Steps the patient checks off. Start with a verb: Tap, Open, Enter, Find... Keep them short."
+              
+              - label: "Checklist — item 2"
+                name: ch05Check2
+                widget: text
+              
+              - label: "Checklist — item 3"
+                name: ch05Check3
+                widget: text
+              
+              - label: "Checklist — item 4"
+                name: ch05Check4
+                widget: text
+              
+              - label: "Checklist — item 5"
+                name: ch05Check5
+                widget: text
+              
+              - label: "Checklist — item 6"
+                name: ch05Check6
+                widget: text
+              
+              - label: "Checklist — item 7"
+                name: ch05Check7
+                widget: text
+
+  # ── How-To Topics and Knowledge Base ────────────────────────────────────────
+  # Step-by-step instructions shown in the Knowledge Base AND in challenge pages.
+  # Edit here once — changes appear in both places automatically.
+  #
+  # IMPORTANT: Do not change the URL identifier on any topic.
+  # It is used in page links throughout the site. Changing it will break links.
   - name: topics
     label: "How-To Topics"
     files:
+
       - name: topics
-        label: "Topic catalog + challenge topic refs"
+        label: "All Topics"
         file: content/topics.json
         fields:
 
-          # Which topics appear in each challenge's Step 1
-          - label: "Challenge topic refs"
-            name: challengeTopicRefs
-            widget: object
-            fields:
-              - label: "Challenge 0 — Email setup"
-                name: ch0
-                widget: list
-                fields:
-                  - {label: "Category slug", name: cat, widget: string}
-                  - {label: "Topic slug",    name: slug, widget: string}
-              - label: "Challenge 01 — MyChart setup"
-                name: ch01
-                widget: list
-                fields:
-                  - {label: "Category slug", name: cat, widget: string}
-                  - {label: "Topic slug",    name: slug, widget: string}
-              - label: "Challenge 02 — Video visits"
-                name: ch02
-                widget: list
-                fields:
-                  - {label: "Category slug", name: cat, widget: string}
-                  - {label: "Topic slug",    name: slug, widget: string}
-              - label: "Challenge 03 — Common tasks"
-                name: ch03
-                widget: list
-                fields:
-                  - {label: "Category slug", name: cat, widget: string}
-                  - {label: "Topic slug",    name: slug, widget: string}
-              - label: "Challenge 04 — Account management"
-                name: ch04
-                widget: list
-                fields:
-                  - {label: "Category slug", name: cat, widget: string}
-                  - {label: "Topic slug",    name: slug, widget: string}
-              - label: "Challenge 05 — Community resources"
-                name: ch05
-                widget: list
-                fields:
-                  - {label: "Category slug", name: cat, widget: string}
-                  - {label: "Topic slug",    name: slug, widget: string}
-
-          # The topic catalog — all categories and their topics
+          # challengeTopicRefs is intentionally not shown here.
+          # It controls which topics appear in each challenge and is developer-managed.
           - label: "Topic catalog"
             name: catalog
             widget: object
             fields:
-              - label: "Email (cat: email)"
-                name: email
+
+              - label: "Setting up your email"
+                name: "email"
                 widget: object
                 fields:
-                  - {label: "Category title key", name: titleKey, widget: string}
-                  - label: "Topics"
+                  - label: "Topics in this category"
                     name: topics
                     widget: list
+                    label_singular: "Topic"
                     fields:
-                      - {label: "Slug",  name: slug,  widget: string}
-                      - {label: "Title", name: title, widget: string}
-                      - label: "Steps"
+                      - label: "Title"
+                        name: title
+                        widget: string
+                        hint: "Plain-language title shown on the topic page and in the challenge Watch step."
+                      - label: "URL identifier"
+                        name: slug
+                        widget: string
+                        hint: "Do not change — this value is used in page links throughout the site."
+                      - label: "Step-by-step instructions"
                         name: steps
                         widget: list
-                        field: {label: "Step", name: step, widget: string}
-              - label: "MyChart setup (cat: mychart-setup)"
-                name: mychart-setup
+                        label_singular: "Step"
+                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
+                        field:
+                          label: "Step"
+                          name: step
+                          widget: string
+
+              - label: "Setting up MyChart"
+                name: "mychart-setup"
                 widget: object
                 fields:
-                  - {label: "Category title key", name: titleKey, widget: string}
-                  - label: "Topics"
+                  - label: "Topics in this category"
                     name: topics
                     widget: list
+                    label_singular: "Topic"
                     fields:
-                      - {label: "Slug",  name: slug,  widget: string}
-                      - {label: "Title", name: title, widget: string}
-                      - label: "Steps"
+                      - label: "Title"
+                        name: title
+                        widget: string
+                        hint: "Plain-language title shown on the topic page and in the challenge Watch step."
+                      - label: "URL identifier"
+                        name: slug
+                        widget: string
+                        hint: "Do not change — this value is used in page links throughout the site."
+                      - label: "Step-by-step instructions"
                         name: steps
                         widget: list
-                        field: {label: "Step", name: step, widget: string}
-              - label: "Video visits (cat: video-visits)"
-                name: video-visits
+                        label_singular: "Step"
+                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
+                        field:
+                          label: "Step"
+                          name: step
+                          widget: string
+
+              - label: "Video visits"
+                name: "video-visits"
                 widget: object
                 fields:
-                  - {label: "Category title key", name: titleKey, widget: string}
-                  - label: "Topics"
+                  - label: "Topics in this category"
                     name: topics
                     widget: list
+                    label_singular: "Topic"
                     fields:
-                      - {label: "Slug",  name: slug,  widget: string}
-                      - {label: "Title", name: title, widget: string}
-                      - label: "Steps"
+                      - label: "Title"
+                        name: title
+                        widget: string
+                        hint: "Plain-language title shown on the topic page and in the challenge Watch step."
+                      - label: "URL identifier"
+                        name: slug
+                        widget: string
+                        hint: "Do not change — this value is used in page links throughout the site."
+                      - label: "Step-by-step instructions"
                         name: steps
                         widget: list
-                        field: {label: "Step", name: step, widget: string}
-              - label: "Medications (cat: medications)"
-                name: medications
+                        label_singular: "Step"
+                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
+                        field:
+                          label: "Step"
+                          name: step
+                          widget: string
+
+              - label: "Medications and refills"
+                name: "medications"
                 widget: object
                 fields:
-                  - {label: "Category title key", name: titleKey, widget: string}
-                  - label: "Topics"
+                  - label: "Topics in this category"
                     name: topics
                     widget: list
+                    label_singular: "Topic"
                     fields:
-                      - {label: "Slug",  name: slug,  widget: string}
-                      - {label: "Title", name: title, widget: string}
-                      - label: "Steps"
+                      - label: "Title"
+                        name: title
+                        widget: string
+                        hint: "Plain-language title shown on the topic page and in the challenge Watch step."
+                      - label: "URL identifier"
+                        name: slug
+                        widget: string
+                        hint: "Do not change — this value is used in page links throughout the site."
+                      - label: "Step-by-step instructions"
                         name: steps
                         widget: list
-                        field: {label: "Step", name: step, widget: string}
-              - label: "Appointments (cat: appointments)"
-                name: appointments
+                        label_singular: "Step"
+                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
+                        field:
+                          label: "Step"
+                          name: step
+                          widget: string
+
+              - label: "Appointments"
+                name: "appointments"
                 widget: object
                 fields:
-                  - {label: "Category title key", name: titleKey, widget: string}
-                  - label: "Topics"
+                  - label: "Topics in this category"
                     name: topics
                     widget: list
+                    label_singular: "Topic"
                     fields:
-                      - {label: "Slug",  name: slug,  widget: string}
-                      - {label: "Title", name: title, widget: string}
-                      - label: "Steps"
+                      - label: "Title"
+                        name: title
+                        widget: string
+                        hint: "Plain-language title shown on the topic page and in the challenge Watch step."
+                      - label: "URL identifier"
+                        name: slug
+                        widget: string
+                        hint: "Do not change — this value is used in page links throughout the site."
+                      - label: "Step-by-step instructions"
                         name: steps
                         widget: list
-                        field: {label: "Step", name: step, widget: string}
-              - label: "Messages and records (cat: messages)"
-                name: messages
+                        label_singular: "Step"
+                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
+                        field:
+                          label: "Step"
+                          name: step
+                          widget: string
+
+              - label: "Messages and your records"
+                name: "messages"
                 widget: object
                 fields:
-                  - {label: "Category title key", name: titleKey, widget: string}
-                  - label: "Topics"
+                  - label: "Topics in this category"
                     name: topics
                     widget: list
+                    label_singular: "Topic"
                     fields:
-                      - {label: "Slug",  name: slug,  widget: string}
-                      - {label: "Title", name: title, widget: string}
-                      - label: "Steps"
+                      - label: "Title"
+                        name: title
+                        widget: string
+                        hint: "Plain-language title shown on the topic page and in the challenge Watch step."
+                      - label: "URL identifier"
+                        name: slug
+                        widget: string
+                        hint: "Do not change — this value is used in page links throughout the site."
+                      - label: "Step-by-step instructions"
                         name: steps
                         widget: list
-                        field: {label: "Step", name: step, widget: string}
-              - label: "Community resources (cat: community)"
-                name: community
+                        label_singular: "Step"
+                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
+                        field:
+                          label: "Step"
+                          name: step
+                          widget: string
+
+              - label: "Community resources"
+                name: "community"
                 widget: object
                 fields:
-                  - {label: "Category title key", name: titleKey, widget: string}
-                  - label: "Topics"
+                  - label: "Topics in this category"
                     name: topics
                     widget: list
+                    label_singular: "Topic"
                     fields:
-                      - {label: "Slug",  name: slug,  widget: string}
-                      - {label: "Title", name: title, widget: string}
-                      - label: "Steps"
+                      - label: "Title"
+                        name: title
+                        widget: string
+                        hint: "Plain-language title shown on the topic page and in the challenge Watch step."
+                      - label: "URL identifier"
+                        name: slug
+                        widget: string
+                        hint: "Do not change — this value is used in page links throughout the site."
+                      - label: "Step-by-step instructions"
                         name: steps
                         widget: list
-                        field: {label: "Step", name: step, widget: string}
+                        label_singular: "Step"
+                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
+                        field:
+                          label: "Step"
+                          name: step
+                          widget: string

@@ -1,0 +1,27 @@
+{
+  "en": {
+    "ch01PageTitle": "Challenge 01 â€” Set up MyChart",
+    "ch01Step1Label": "Step 1 of 3 â€” Watch",
+    "ch01Step1Heading": "How to set up your MyChart account",
+    "ch01Step1VideoPH": "How-to clips â€” Download MyChart, register, create a username and password, set up 2FA, log in, and set your language",
+    "ch01Step2Label": "Step 2 of 3 â€” Practice",
+    "ch01Step2Heading": "Help Rosa set up her language settings",
+    "ch01Step2Intro": "Rosa just registered for MyChart. She wants to make sure the app is in her preferred language.",
+    "ch01Step2Intro2": "Help her find the Settings menu and change her language and notification preferences.",
+    "ch01Step3Label": "Step 3 of 3 â€” Do it on your phone",
+    "ch01Step3Heading": "Now try it on your own MyChart",
+    "ch01Step3Intro": "Open MyChart on your phone and follow these steps:",
+    "ch01Check1": "Download the MyChart app or go to the BMC MyChart website.",
+    "ch01Check2": "Follow the prompts to register using your information or activation code.",
+    "ch01Check3": "Create your MyChart username and password.",
+    "ch01Check4": "Set up Two-Factor Authentication (2FA) using your phone number.",
+    "ch01Check5": "Log in to your new MyChart account.",
+    "ch01Check6": "Tap the Menu icon and go to \"Settings.\"",
+    "ch01Check7": "Tap \"Language\" and select your preferred language.",
+    "ch01Check8": "Tap \"Notifications\" and turn on the options you want (like text message reminders)."
+  },
+  "es": {},
+  "pt": {},
+  "ht": {},
+  "zh": {}
+}
