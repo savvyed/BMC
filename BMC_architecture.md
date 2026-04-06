@@ -24,108 +24,106 @@ flowchart TD
     %% ── CONTENT MANAGEMENT ──────────────────────────────────
     subgraph CMS_Layer["📝  Content Management"]
         direction TB
-        DecapCMS["Decap CMS\n─────────────\nBrowser-based editor\nLives at /admin/\nRequires Netlify Identity login\n~150 editable text fields"]
+        DecapCMS["Decap CMS\n─────────────\nBrowser-based editor\nLives at /admin/\nRequires Netlify Identity login"]
         GitHub["GitHub Repository\n─────────────\nsavvyed/BMC\nSource of truth for\nall content + code"]
     end
 
-    %% ── CONTENT LIBRARY ─────────────────────────────────────
-    subgraph ContentLib["🗂️  Content Library  (inside the repo)"]
+    %% ── SHARED CONTENT POOL ─────────────────────────────────
+    subgraph ContentPool["🗂️  Shared Content Pool  (single source of truth)"]
         direction TB
-        ChallengesJSON["content/challenges.json\n─────────────\nAll translatable strings\nfor Challenges 0–05\n~300 keys × 5 languages\nEditable via Decap CMS"]
-        TopicCatalog["shared/js/main.js  ← topicCatalog\n─────────────\nKnowledge Base structure\n7 categories · ~28 topics\n~200+ step-by-step items\nHardcoded — not yet CMS-editable"]
-        MainStrings["shared/js/main.js  ← strings{}\n─────────────\nUI labels, buttons, headings\nfor all 5 languages\nFallback if JSON unavailable\nOverridden by CMS JSON at runtime"]
+        HowToTopics["How-To Topics\n─────────────\n7 categories · ~28 topics\nEach topic:\n  • How-to video\n  • Step-by-step text\n  • Category tag\nEdited ONCE · used in both\nKnowledge Base AND Challenges"]
+        H5P["H5P Interactions\n─────────────\nCharacter scenario per challenge\n(Elena / Marcus / Rosa / Victor)\nEmbedded via iframe or JS\nHosted externally or in /media/"]
+        ChallengeText["Challenge Connecting Text\n─────────────\ncontent/challenges.json\nIntro text · scenario framing\nChecklist items · UI labels\n5 languages · CMS-editable"]
     end
 
     %% ── BUILD & HOSTING ─────────────────────────────────────
     subgraph Hosting["☁️  Build & Hosting  ┄┄ Netlify (configured) · Vercel (option)"]
         direction TB
-        CI["CI/CD Pipeline\n─────────────\nAuto-triggered on every\ngit push to main\nLive in ~30–60 seconds"]
-        CDN["CDN / Edge Network\n─────────────\nServes static HTML, CSS, JS, JSON\nGlobal edge locations · Free SSL"]
-        Identity["Identity / Auth\n─────────────\nNetlify Identity\nGates /admin/ only\n(no patient login)"]
+        CI["CI/CD Pipeline\n─────────────\nAuto-triggered on git push\nLive in ~30–60 seconds"]
+        CDN["CDN / Edge Network\n─────────────\nServes all static files\nFree SSL · Global edge"]
+        Identity["Netlify Identity\n─────────────\nGates /admin/ only\n(no patient login)"]
     end
 
     %% ── PATIENT-FACING SITE ─────────────────────────────────
-    subgraph Site["🌐  Patient-Facing Website  (static files, no server)"]
-        direction TB
-        LangSelector["Language Selector\nindex.html\n─────────────\nEn · Es · Pt · Ht · Zh"]
+    subgraph Site["🌐  Patient-Facing Website"]
+        direction LR
+
+        subgraph CoursePages["📘 Course  (content assembler pages)"]
+            Challenge["Challenge page\n─────────────\n① Intro text\n② ↓ How-to video + steps\n③ Scenario framing text\n④ ↓ H5P interaction\n⑤ Checklist\n\nPulls ②④ from shared pool\nWraps with ①③⑤ connecting text"]
+        end
+
+        subgraph KBPages["🔍 Knowledge Base  (direct topic access)"]
+            KBTopic["Topic page\n─────────────\n↓ Same how-to video\n↓ Same step-by-step text\n+ SMS 'need more help?' link\n\nSame content atom as ②\ndisplayed standalone"]
+        end
+
+        LangSelector["Language Selector\nindex.html"]
         Home["Home Screen\nhome.html"]
-        Course["📘 Course\n─────────────\nChallenge 0–05\n6 challenge pages\nWatch · Practice · Do it"]
-        KB["🔍 Knowledge Base\n─────────────\n7 categories · ~28 topics\n1 template page renders all"]
     end
 
     %% ── EXTERNAL SERVICES ───────────────────────────────────
-    subgraph External["🔗  External Services  (open in new tab)"]
+    subgraph External["🔗  External Services  (new tab)"]
         direction LR
-        MyChart["🏥 MyChart\nmychart.bmc.org"]
-        MassThrive["🌐 MassThrive\nmassthrive.org"]
+        MyChart["🏥 MyChart"]
+        MassThrive["🌐 MassThrive"]
     end
 
     %% ── ANALYTICS ───────────────────────────────────────────
     subgraph Analytics_Layer["📊  Analytics  ┄┄ decide: GA4 · Plausible · Netlify Analytics"]
-        Analytics["Analytics Platform\n─────────────\nTracks: page views,\nlanguage selected,\ntopic clicks, challenge starts\n\n⚠️ Privacy note: use cookie-free\noption (Plausible / Netlify)\nfor HIPAA alignment"]
+        Analytics["Analytics Platform\n─────────────\nPage views · language · topic clicks\nChallenge step completions\n⚠️ Use cookie-free for HIPAA"]
     end
 
     %% ── SMS SUPPORT ─────────────────────────────────────────
     subgraph SMS_Layer["💬  SMS Support  ┄┄ decide: Twilio · SimpleTexting · EZTexting"]
-        SMS_Platform["SMS Platform\n─────────────\nPatient texts shortcode\nfrom 'Need more help?'\nlink on every topic page\n(sms: protocol — no app needed)"]
-        SMS_Inbox["Navigator Inbox\n─────────────\nMessages route to\nDigital Health Navigator\nvia dashboard or email"]
+        SMS_Platform["SMS Platform\n─────────────\nsms: link on every topic page"]
+        SMS_Inbox["Navigator Inbox"]
     end
 
     %% ── CONNECTIONS ─────────────────────────────────────────
 
-    %% Content editing flow
-    Editor -->|"logs into /admin/ in browser"| DecapCMS
-    DecapCMS -->|"commits to Git\n(no coding needed)"| GitHub
-    GitHub -->|"auto-deploy webhook"| CI
-    CI -->|"publishes site"| CDN
-    Identity -..->|"protects /admin/ only"| DecapCMS
+    Editor -->|"edits via /admin/"| DecapCMS
+    DecapCMS -->|"commits to Git"| GitHub
+    GitHub -->|"auto-deploy"| CI
+    CI --> CDN
+    Identity -..->|"protects /admin/"| DecapCMS
 
-    %% Content library sits inside the repo
-    GitHub -..->|"contains"| ChallengesJSON
-    GitHub -..->|"contains"| TopicCatalog
-    GitHub -..->|"contains"| MainStrings
+    GitHub -..->|"contains"| HowToTopics
+    GitHub -..->|"contains"| ChallengeText
+    GitHub -..->|"contains or references"| H5P
 
-    %% Runtime content loading
-    CDN -->|"serves all pages"| LangSelector
-    ChallengesJSON -->|"XHR fetch at page load\nmerges over fallback strings"| Course
-    ChallengesJSON -->|"XHR fetch at page load"| Home
-    TopicCatalog -->|"JS renders page from\n?cat= and ?topic= URL params"| KB
-    MainStrings -->|"fallback if JSON unavailable\n(e.g. local dev)"| Course
+    HowToTopics -->|"rendered as standalone topic"| KBTopic
+    HowToTopics -->|"embedded as step ② in challenge"| Challenge
+    H5P -->|"embedded as step ④ in challenge"| Challenge
+    ChallengeText -->|"wraps content as ①③⑤"| Challenge
 
-    %% Patient browsing flow
-    Patient -->|"opens site on phone"| LangSelector
-    LangSelector -->|"?lang= URL param\ncarried on every link"| Home
-    Home --> Course
-    Home --> KB
+    CDN -->|"serves pages"| LangSelector
+    Patient --> LangSelector
+    LangSelector --> Home
+    Home --> Challenge
+    Home --> KBTopic
     Home -->|"new tab"| MyChart
     Home -->|"new tab"| MassThrive
 
-    %% Analytics
-    Course -->|"page events"| Analytics
-    KB -->|"page events"| Analytics
-    Home -->|"language chosen"| Analytics
-
-    %% SMS
-    KB -->|"'Text us for help'\nsms:+1XXXXXXXXXX"| SMS_Platform
+    Challenge -->|"events"| Analytics
+    KBTopic -->|"events"| Analytics
+    KBTopic -->|"sms: link"| SMS_Platform
     SMS_Platform --> SMS_Inbox
-    SMS_Inbox -->|"navigator responds\nto patient"| Navigator
-    Navigator -->|"can edit content\nvia CMS"| DecapCMS
+    SMS_Inbox --> Navigator
+    Navigator -->|"edits content"| DecapCMS
 
-    %% Styling
-    classDef person   fill:#1a5276,color:#fff,stroke:#0d2d47
-    classDef cms      fill:#148f77,color:#fff,stroke:#0a5c48
-    classDef content  fill:#1e8449,color:#fff,stroke:#145a32
-    classDef hosting  fill:#2e86c1,color:#fff,stroke:#1a5276
-    classDef site     fill:#1a5276,color:#fff,stroke:#0d2d47
-    classDef external fill:#784212,color:#fff,stroke:#4a2a0b
+    classDef person    fill:#1a5276,color:#fff,stroke:#0d2d47
+    classDef cms       fill:#148f77,color:#fff,stroke:#0a5c48
+    classDef pool      fill:#1e8449,color:#fff,stroke:#145a32
+    classDef hosting   fill:#2e86c1,color:#fff,stroke:#1a5276
+    classDef site      fill:#1a5276,color:#fff,stroke:#0d2d47
+    classDef external  fill:#784212,color:#fff,stroke:#4a2a0b
     classDef analytics fill:#6c3483,color:#fff,stroke:#4a2360
-    classDef sms      fill:#117a65,color:#fff,stroke:#0a5243
+    classDef sms       fill:#117a65,color:#fff,stroke:#0a5243
 
     class Editor,Navigator,Patient person
     class DecapCMS,GitHub cms
-    class ChallengesJSON,TopicCatalog,MainStrings content
+    class HowToTopics,H5P,ChallengeText pool
     class CI,CDN,Identity hosting
-    class LangSelector,Home,Course,KB site
+    class LangSelector,Home,Challenge,KBTopic site
     class MyChart,MassThrive external
     class Analytics analytics
     class SMS_Platform,SMS_Inbox sms
@@ -133,76 +131,137 @@ flowchart TD
 
 ---
 
-## Diagram 2 — Content Library Detail
-*How content gets from the file into the patient's browser*
+## Diagram 2 — Challenge Page Assembly Model
+*A challenge page is not a monolithic document — it's a series of content containers with connecting text woven between them*
 
 ```mermaid
-flowchart LR
+flowchart TD
 
-    subgraph Files["📁  Files in the Repo"]
-        JSON["content/challenges.json\n─────────────\nAll editable strings\nChallenges 0–05\n~300 keys × 5 languages\n\nExample key:\nch02Step1Heading:\n'How to join a video visit\non your phone'"]
-        JS_Strings["main.js → strings{}\n─────────────\nHardcoded fallback\nfor all UI labels\nand challenge text.\nUsed if JSON fails\n(e.g. offline / local dev)"]
-        JS_Catalog["main.js → topicCatalog{}\n─────────────\nKnowledge Base structure.\nAll 7 categories,\n~28 topics, ~200 steps.\nNot yet CMS-editable."]
+    subgraph Sources["🗂️  Content Sources"]
+        direction LR
+        TopicPool["Shared How-To Topic\n(from topic catalog)\n─────────────\n• How-to video\n• Step-by-step text\nSame content shown\nin Knowledge Base"]
+        H5PSource["H5P Interaction\n(external embed)\n─────────────\n• Character scenario\n• Elena / Marcus /\n  Rosa / Victor"]
+        ConnText["Connecting Text\n(from challenges.json)\n─────────────\n• Intro framing\n• Scenario setup\n• Checklist items\n• 5 languages"]
     end
 
-    subgraph Runtime["⚙️  Runtime (in the browser)"]
-        XHR["Synchronous XHR fetch\n/content/challenges.json\n─────────────\nRuns before page renders.\nMerges CMS data\nover JS fallback strings."]
-        T["t(key) function\n─────────────\nLooks up current language,\nreturns translated string.\nFalls back en → key name."]
-        ApplyStrings["applyStrings()\n─────────────\nScans DOM for\n[data-string-key] elements.\nReplaces text content\nwith translated value."]
-        InitTopic["initTopic() / initCategory()\n─────────────\nReads ?cat= and ?topic=\nURL params.\nBuilds topic page HTML\nfrom topicCatalog data."]
+    subgraph ChallengePage["📘  Challenge Page  (assembled at render time)"]
+        direction TB
+        A["① Intro text\n(connecting text — CMS-editable)"]
+        B["② How-to video + step-by-step text\n(pulled from shared topic catalog)\n↑ Same content atom as KB topic page"]
+        C["③ Scenario framing text\ncharacter intro · context\n(connecting text — CMS-editable)"]
+        D["④ H5P interaction\ncharacter scenario embed\n(iframe / JS — external host)"]
+        E["⑤ Instructional wrap-up text + self checklist\n(connecting text + checklist items — CMS-editable)"]
+
+        A --> B --> C --> D --> E
     end
 
-    subgraph DOM["🖥️  What the Patient Sees"]
-        HTML["HTML element\n─────────────\n&lt;h1 data-string-key=\n'ch02Step1Heading'&gt;\nHow to join a\nvideo visit...\n&lt;/h1&gt;"]
-        TopicPage["Rendered topic page\n─────────────\nHeading · Video placeholder\nNumbered steps · SMS link\nAll from topicCatalog"]
+    subgraph KBPage["🔍  Knowledge Base Topic Page\n(same content atom, displayed standalone)"]
+        KB_Vid["How-to video"]
+        KB_Steps["Step-by-step text"]
+        KB_SMS["'Text us for help' link"]
+        KB_Vid --> KB_Steps --> KB_SMS
     end
 
-    JSON -->|"fetched at page load"| XHR
-    JS_Strings -->|"loaded as fallback"| T
-    XHR -->|"Object.assign() merges\nCMS data over fallback"| T
-    T --> ApplyStrings
-    ApplyStrings -->|"updates text content"| HTML
+    TopicPool -->|"embedded in step ②"| B
+    TopicPool -->|"displayed directly"| KB_Vid
+    TopicPool -->|"displayed directly"| KB_Steps
+    H5PSource -->|"embedded in step ④"| D
+    ConnText -->|"rendered into ①③⑤"| A
+    ConnText -->|"rendered into ①③⑤"| C
+    ConnText -->|"rendered into ①③⑤"| E
 
-    JS_Catalog --> InitTopic
-    InitTopic -->|"builds page from URL params"| TopicPage
+    style B fill:#1e8449,color:#fff,stroke:#145a32
+    style D fill:#1e8449,color:#fff,stroke:#145a32
+    style A fill:#1a5276,color:#fff,stroke:#0d2d47
+    style C fill:#1a5276,color:#fff,stroke:#0d2d47
+    style E fill:#1a5276,color:#fff,stroke:#0d2d47
+```
+
+**Legend:**
+- 🟦 **Blue containers** — connecting text (unique to each challenge, CMS-editable, 5 languages)
+- 🟩 **Green containers** — shared content atoms (live once, referenced by both Challenge and KB pages)
+
+---
+
+## Diagram 3 — Content Flow at Runtime
+*How the browser assembles a challenge page from multiple sources*
+
+```mermaid
+sequenceDiagram
+    actor Patient as 📱 Patient
+    participant Browser as Browser
+    participant HTML as challenge-02.html
+    participant JS as main.js
+    participant JSON as content/challenges.json
+    participant Catalog as topicCatalog (in JS)
+    participant H5P as H5P Host
+
+    Patient->>Browser: Opens challenge-02.html?lang=es
+    Browser->>HTML: Loads HTML skeleton (content containers only)
+    Browser->>JS: Loads main.js
+    JS->>JSON: XHR fetch /content/challenges.json
+    JSON-->>JS: Returns CMS-edited strings (all languages)
+    JS->>JS: Merges CMS strings over JS fallback strings
+    JS->>HTML: applyStrings() fills [data-string-key] elements
+    Note over HTML: Intro text ①, scenario text ③,<br/>checklist items ⑤ now visible
+    JS->>Catalog: initChallenge() looks up topic reference
+    Catalog-->>HTML: Injects how-to video + steps into container ②
+    Note over HTML: How-to content ② now visible
+    Browser->>H5P: Loads iframe for H5P interaction ④
+    H5P-->>HTML: Interaction renders in container ④
+    Note over HTML: Full challenge page now assembled
+    Patient->>HTML: Reads intro → watches video → does scenario → checks off steps
 ```
 
 ---
 
-## How Each Layer Works
+## How the Content Model Works
 
-### 📝 Content Management (Decap CMS + GitHub)
-Editors log into `/admin/` in any browser — no coding or Git knowledge needed. Decap CMS saves changes directly to GitHub as commits. GitHub is the single source of truth for all content and code. Decap CMS on Netlify is already configured in this repo.
+### The Core Principle: Write Once, Appear Twice
+A how-to video and its accompanying step-by-step text live in **one place** — the shared topic catalog. That same content atom appears in two contexts:
+- **Knowledge Base:** displayed on its own topic page, with an SMS help link below it
+- **Challenge:** embedded as step ② inside a challenge page, with connecting text around it
 
-### 🗂️ Content Library — Two types of content
+An editor updates the video or steps once, and the change appears in both places automatically.
 
-| Content | Where it lives | Who edits it | How it loads |
+### Three Content Types
+
+| Type | What it is | Edited by | Exists in 5 languages? |
 |---|---|---|---|
-| **Challenge text** — titles, headings, step instructions, checklists, character names | `content/challenges.json` | Anyone via Decap CMS | Fetched by XHR at page load, merged over fallback |
-| **Knowledge Base** — 7 categories, ~28 topics, ~200 steps | `main.js → topicCatalog{}` | Developer only (for now) | JS reads URL params (`?cat=`, `?topic=`) and builds the page |
-| **UI labels & buttons** | `main.js → strings{}` | Developer, or CMS (overrides) | Hardcoded in JS; CMS JSON replaces at runtime |
+| **How-to topics** | Video + numbered steps for a specific task | Content editor via CMS | Yes (target) |
+| **H5P interactions** | Character scenario — interactive practice activity | Course designer in H5P tool | Yes (H5P handles internally) |
+| **Connecting text** | Intro framing, scenario setup, checklist items | Content editor via CMS | Yes |
 
-> **Phase 2 note:** The Knowledge Base (`topicCatalog`) is currently hardcoded in JavaScript. Moving it into editable JSON (like the challenges) is the natural next step once content is finalized.
+### What a Challenge Page Actually Contains
+A challenge is a **sequence of containers**, not a wall of content:
 
-### ⚙️ How Content Gets on Screen
-1. Patient loads a page (e.g. `course/challenge-02.html?lang=es`)
-2. `main.js` runs a **synchronous fetch** of `content/challenges.json`
-3. CMS-edited strings are **merged** over the JS fallback strings
-4. `applyStrings()` scans the DOM for every `data-string-key` attribute and swaps in the right translation
-5. All links with `data-lang-href` get `?lang=es` appended automatically
-6. For Knowledge Base pages: `initTopic()` reads `?cat=` and `?topic=` from the URL and **builds the entire page** from the `topicCatalog` object
+```
+┌─────────────────────────────────────┐
+│ ① Intro text           [connecting] │
+├─────────────────────────────────────┤
+│ ② How-to video                      │
+│    Step-by-step text   [shared atom]│
+├─────────────────────────────────────┤
+│ ③ Scenario framing     [connecting] │
+├─────────────────────────────────────┤
+│ ④ H5P interaction      [embedded]   │
+├─────────────────────────────────────┤
+│ ⑤ Wrap-up text                      │
+│    Self checklist      [connecting] │
+└─────────────────────────────────────┘
+```
 
-### ☁️ Build & Hosting (Netlify — already configured)
-Every git push to `main` auto-deploys. Site URL is `tiny-hamster-9bcc46.netlify.app`. Netlify Identity gates the `/admin/` CMS route — no patient login needed or used.
+### Current State vs. Target State
 
-### 🌐 Patient-Facing Site
-Pure HTML/CSS/JS. No login, no app install, no cookies. Language selection is preserved via `?lang=` URL parameters on every link throughout the site.
+| | Current prototype | Target |
+|---|---|---|
+| How-to topics | Hardcoded in `main.js → topicCatalog{}` | JSON file, CMS-editable |
+| Challenge content | `content/challenges.json` (connecting text only) | Same + topic references |
+| Challenge pages pull from topic catalog? | No — content is duplicated | Yes — one source, two surfaces |
+| H5P interactions | Placeholder `<div>` | Live H5P embed via iframe |
+| Languages | 5 (en full, others partial) | 5 (all complete) |
 
-### 📊 Analytics
-Tracking script on each page captures anonymous usage — language chosen, pages viewed, challenges started, topics clicked. **Privacy recommendation:** Use a cookie-free tool (Plausible or Netlify Analytics) to avoid HIPAA complications.
-
-### 💬 SMS Support
-Each Knowledge Base topic page has a "Text us for help" link using the `sms:` protocol — it opens the patient's native SMS app with the navigator's number pre-filled. No backend is required on the site side.
+> **Next step:** Convert `topicCatalog` from hardcoded JS into a JSON file managed by the CMS. Each challenge page config would then include a list of topic references (e.g. `"topicRefs": ["join-video-phone", "setup-camera"]`) that tell the page assembler which how-to atoms to pull in.
 
 ---
 
