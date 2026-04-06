@@ -2766,11 +2766,17 @@ collections:
                         name: steps
                         widget: list
                         label_singular: "Step"
-                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
-                        field:
-                          label: "Step"
-                          name: step
-                          widget: string
+                        summary: "{{fields.text}}"
+                        fields:
+                          - label: "Step instruction"
+                            name: text
+                            widget: string
+                            hint: "Start with a verb: Tap, Open, Enter, Find..."
+                          - label: "Video URL (optional)"
+                            name: video
+                            widget: string
+                            required: false
+                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
 
               - label: "Setting up MyChart"
                 name: "mychart-setup"
@@ -2793,11 +2799,17 @@ collections:
                         name: steps
                         widget: list
                         label_singular: "Step"
-                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
-                        field:
-                          label: "Step"
-                          name: step
-                          widget: string
+                        summary: "{{fields.text}}"
+                        fields:
+                          - label: "Step instruction"
+                            name: text
+                            widget: string
+                            hint: "Start with a verb: Tap, Open, Enter, Find..."
+                          - label: "Video URL (optional)"
+                            name: video
+                            widget: string
+                            required: false
+                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
 
               - label: "Video visits"
                 name: "video-visits"
@@ -2820,11 +2832,17 @@ collections:
                         name: steps
                         widget: list
                         label_singular: "Step"
-                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
-                        field:
-                          label: "Step"
-                          name: step
-                          widget: string
+                        summary: "{{fields.text}}"
+                        fields:
+                          - label: "Step instruction"
+                            name: text
+                            widget: string
+                            hint: "Start with a verb: Tap, Open, Enter, Find..."
+                          - label: "Video URL (optional)"
+                            name: video
+                            widget: string
+                            required: false
+                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
 
               - label: "Medications and refills"
                 name: "medications"
@@ -2847,11 +2865,17 @@ collections:
                         name: steps
                         widget: list
                         label_singular: "Step"
-                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
-                        field:
-                          label: "Step"
-                          name: step
-                          widget: string
+                        summary: "{{fields.text}}"
+                        fields:
+                          - label: "Step instruction"
+                            name: text
+                            widget: string
+                            hint: "Start with a verb: Tap, Open, Enter, Find..."
+                          - label: "Video URL (optional)"
+                            name: video
+                            widget: string
+                            required: false
+                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
 
               - label: "Appointments"
                 name: "appointments"
@@ -2874,11 +2898,17 @@ collections:
                         name: steps
                         widget: list
                         label_singular: "Step"
-                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
-                        field:
-                          label: "Step"
-                          name: step
-                          widget: string
+                        summary: "{{fields.text}}"
+                        fields:
+                          - label: "Step instruction"
+                            name: text
+                            widget: string
+                            hint: "Start with a verb: Tap, Open, Enter, Find..."
+                          - label: "Video URL (optional)"
+                            name: video
+                            widget: string
+                            required: false
+                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
 
               - label: "Messages and your records"
                 name: "messages"
@@ -2901,11 +2931,17 @@ collections:
                         name: steps
                         widget: list
                         label_singular: "Step"
-                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
-                        field:
-                          label: "Step"
-                          name: step
-                          widget: string
+                        summary: "{{fields.text}}"
+                        fields:
+                          - label: "Step instruction"
+                            name: text
+                            widget: string
+                            hint: "Start with a verb: Tap, Open, Enter, Find..."
+                          - label: "Video URL (optional)"
+                            name: video
+                            widget: string
+                            required: false
+                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
 
               - label: "Community resources"
                 name: "community"
@@ -2928,8 +2964,14 @@ collections:
                         name: steps
                         widget: list
                         label_singular: "Step"
-                        hint: "Each item is one instruction. Start with a verb: Tap, Open, Enter, Find..."
-                        field:
-                          label: "Step"
-                          name: step
-                          widget: string
+                        summary: "{{fields.text}}"
+                        fields:
+                          - label: "Step instruction"
+                            name: text
+                            widget: string
+                            hint: "Start with a verb: Tap, Open, Enter, Find..."
+                          - label: "Video URL (optional)"
+                            name: video
+                            widget: string
+                            required: false
+                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."

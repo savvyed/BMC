@@ -1,46 +1,119 @@
 {
   "challengeTopicRefs": {
     "ch0": [
-      {"cat": "email", "slug": "gmail-create-account"},
-      {"cat": "email", "slug": "gmail-password"},
-      {"cat": "email", "slug": "gmail-phone-verify"},
-      {"cat": "email", "slug": "gmail-record-info"}
+      {
+        "cat": "email",
+        "slug": "gmail-create-account"
+      },
+      {
+        "cat": "email",
+        "slug": "gmail-password"
+      },
+      {
+        "cat": "email",
+        "slug": "gmail-phone-verify"
+      },
+      {
+        "cat": "email",
+        "slug": "gmail-record-info"
+      }
     ],
     "ch01": [
-      {"cat": "mychart-setup", "slug": "mychart-download"},
-      {"cat": "mychart-setup", "slug": "mychart-register"},
-      {"cat": "mychart-setup", "slug": "mychart-activation-code"},
-      {"cat": "mychart-setup", "slug": "mychart-username-password"},
-      {"cat": "mychart-setup", "slug": "mychart-2fa"},
-      {"cat": "mychart-setup", "slug": "mychart-login"},
-      {"cat": "mychart-setup", "slug": "mychart-language"}
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-download"
+      },
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-register"
+      },
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-activation-code"
+      },
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-username-password"
+      },
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-2fa"
+      },
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-login"
+      },
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-language"
+      }
     ],
     "ch02": [
-      {"cat": "video-visits", "slug": "join-video-phone"},
-      {"cat": "video-visits", "slug": "camera-mic-setup"}
+      {
+        "cat": "video-visits",
+        "slug": "join-video-phone"
+      },
+      {
+        "cat": "video-visits",
+        "slug": "camera-mic-setup"
+      }
     ],
     "ch03": [
-      {"cat": "medications",   "slug": "request-refill"},
-      {"cat": "appointments",  "slug": "schedule-telehealth"},
-      {"cat": "messages",      "slug": "send-secure-message"},
-      {"cat": "messages",      "slug": "view-test-results"}
+      {
+        "cat": "medications",
+        "slug": "request-refill"
+      },
+      {
+        "cat": "appointments",
+        "slug": "schedule-telehealth"
+      },
+      {
+        "cat": "messages",
+        "slug": "send-secure-message"
+      },
+      {
+        "cat": "messages",
+        "slug": "view-test-results"
+      }
     ],
     "ch04": [
-      {"cat": "mychart-setup", "slug": "mychart-proxy"},
-      {"cat": "mychart-setup", "slug": "mychart-switch-accounts"},
-      {"cat": "mychart-setup", "slug": "mychart-notifications"}
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-proxy"
+      },
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-switch-accounts"
+      },
+      {
+        "cat": "mychart-setup",
+        "slug": "mychart-notifications"
+      }
     ],
     "ch05": [
-      {"cat": "community", "slug": "find-massthrive"},
-      {"cat": "community", "slug": "massthrive-language"},
-      {"cat": "community", "slug": "massthrive-search"},
-      {"cat": "community", "slug": "massthrive-program-card"},
-      {"cat": "community", "slug": "massthrive-contact"}
+      {
+        "cat": "community",
+        "slug": "find-massthrive"
+      },
+      {
+        "cat": "community",
+        "slug": "massthrive-language"
+      },
+      {
+        "cat": "community",
+        "slug": "massthrive-search"
+      },
+      {
+        "cat": "community",
+        "slug": "massthrive-program-card"
+      },
+      {
+        "cat": "community",
+        "slug": "massthrive-contact"
+      }
     ]
   },
-
   "catalog": {
-
     "email": {
       "titleKey": "cat1Label",
       "topics": [
@@ -48,45 +121,92 @@
           "slug": "gmail-create-account",
           "title": "Create a Gmail account",
           "steps": [
-            "Open a web browser on your phone.",
-            "Go to the Gmail website.",
-            "Tap \"Create account.\"",
-            "Enter your first name. Enter your last name.",
-            "Choose a new email address.",
-            "Tap \"Next.\""
+            {
+              "text": "Open a web browser on your phone.",
+              "video": ""
+            },
+            {
+              "text": "Go to the Gmail website.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Create account.\"",
+              "video": ""
+            },
+            {
+              "text": "Enter your first name. Enter your last name.",
+              "video": ""
+            },
+            {
+              "text": "Choose a new email address.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Next.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "gmail-password",
           "title": "Create and confirm your password",
           "steps": [
-            "Type your chosen password.",
-            "Type your password again to confirm.",
-            "Tap \"Next.\""
+            {
+              "text": "Type your chosen password.",
+              "video": ""
+            },
+            {
+              "text": "Type your password again to confirm.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Next.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "gmail-phone-verify",
           "title": "Complete phone verification",
           "steps": [
-            "Enter your phone number.",
-            "Tap \"Next.\"",
-            "Type the code you received in a text message.",
-            "Tap \"Verify.\""
+            {
+              "text": "Enter your phone number.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Next.\"",
+              "video": ""
+            },
+            {
+              "text": "Type the code you received in a text message.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Verify.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "gmail-record-info",
           "title": "Write down your email and password",
           "steps": [
-            "Write your email address on your card.",
-            "Write your password on your card.",
-            "Keep your card in a safe place."
+            {
+              "text": "Write your email address on your card.",
+              "video": ""
+            },
+            {
+              "text": "Write your password on your card.",
+              "video": ""
+            },
+            {
+              "text": "Keep your card in a safe place.",
+              "video": ""
+            }
           ]
         }
       ]
     },
-
     "mychart-setup": {
       "titleKey": "cat2Label",
       "topics": [
@@ -94,106 +214,228 @@
           "slug": "mychart-download",
           "title": "Download the MyChart app",
           "steps": [
-            "Open the App Store (iPhone) or Play Store (Android).",
-            "Search for \"MyChart.\"",
-            "Tap \"Get\" or \"Install.\"",
-            "Wait for the app to finish downloading.",
-            "Tap \"Open\" to launch MyChart."
+            {
+              "text": "Open the App Store (iPhone) or Play Store (Android).",
+              "video": ""
+            },
+            {
+              "text": "Search for \"MyChart.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Get\" or \"Install.\"",
+              "video": ""
+            },
+            {
+              "text": "Wait for the app to finish downloading.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Open\" to launch MyChart.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "mychart-register",
           "title": "Register with your personal information",
           "steps": [
-            "Open the MyChart app or go to the BMC MyChart website.",
-            "Tap \"Sign Up\" or \"Create Account.\"",
-            "Enter your full name.",
-            "Enter your birth date.",
-            "Enter your email address.",
-            "Tap \"Next.\""
+            {
+              "text": "Open the MyChart app or go to the BMC MyChart website.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Sign Up\" or \"Create Account.\"",
+              "video": ""
+            },
+            {
+              "text": "Enter your full name.",
+              "video": ""
+            },
+            {
+              "text": "Enter your birth date.",
+              "video": ""
+            },
+            {
+              "text": "Enter your email address.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Next.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "mychart-activation-code",
           "title": "Enter your activation code",
           "steps": [
-            "Find your activation code in the email or letter from BMC.",
-            "Type the code into the box.",
-            "Tap \"Submit.\""
+            {
+              "text": "Find your activation code in the email or letter from BMC.",
+              "video": ""
+            },
+            {
+              "text": "Type the code into the box.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Submit.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "mychart-username-password",
           "title": "Create your username and password",
           "steps": [
-            "Type your chosen username.",
-            "Type your chosen password.",
-            "Type your password again to confirm.",
-            "Tap \"Submit.\""
+            {
+              "text": "Type your chosen username.",
+              "video": ""
+            },
+            {
+              "text": "Type your chosen password.",
+              "video": ""
+            },
+            {
+              "text": "Type your password again to confirm.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Submit.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "mychart-2fa",
           "title": "Set up two-factor authentication (2FA)",
           "steps": [
-            "Enter your phone number.",
-            "Tap \"Send Code.\"",
-            "Type the code you received in a text message.",
-            "Tap \"Verify.\""
+            {
+              "text": "Enter your phone number.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Send Code.\"",
+              "video": ""
+            },
+            {
+              "text": "Type the code you received in a text message.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Verify.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "mychart-login",
           "title": "Log in to MyChart",
           "steps": [
-            "Open the MyChart app.",
-            "Enter your username.",
-            "Enter your password.",
-            "Tap the \"Sign In\" button."
+            {
+              "text": "Open the MyChart app.",
+              "video": ""
+            },
+            {
+              "text": "Enter your username.",
+              "video": ""
+            },
+            {
+              "text": "Enter your password.",
+              "video": ""
+            },
+            {
+              "text": "Tap the \"Sign In\" button.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "mychart-language",
           "title": "Set your language preference",
           "steps": [
-            "Tap the Menu icon.",
-            "Tap \"Settings.\"",
-            "Tap \"Language.\"",
-            "Select your preferred language."
+            {
+              "text": "Tap the Menu icon.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Settings.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Language.\"",
+              "video": ""
+            },
+            {
+              "text": "Select your preferred language.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "mychart-notifications",
           "title": "Set your notification preferences",
           "steps": [
-            "Tap the Menu icon.",
-            "Tap \"Settings.\"",
-            "Tap \"Notifications.\"",
-            "Turn on or off the notification options."
+            {
+              "text": "Tap the Menu icon.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Settings.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Notifications.\"",
+              "video": ""
+            },
+            {
+              "text": "Turn on or off the notification options.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "mychart-proxy",
           "title": "Set up access for a family member",
           "steps": [
-            "Tap the Menu icon.",
-            "Tap \"Sharing Hub.\"",
-            "Tap \"Invite Someone.\"",
-            "Enter the caregiver's email address.",
-            "Tap \"Confirm\" to send the invitation."
+            {
+              "text": "Tap the Menu icon.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Sharing Hub.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Invite Someone.\"",
+              "video": ""
+            },
+            {
+              "text": "Enter the caregiver's email address.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Confirm\" to send the invitation.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "mychart-switch-accounts",
           "title": "Switch between linked accounts",
           "steps": [
-            "Tap your name or the Account icon at the top of the screen.",
-            "Select the linked family member's name."
+            {
+              "text": "Tap your name or the Account icon at the top of the screen.",
+              "video": ""
+            },
+            {
+              "text": "Select the linked family member's name.",
+              "video": ""
+            }
           ]
         }
       ]
     },
-
     "video-visits": {
       "titleKey": "cat3Label",
       "topics": [
@@ -201,94 +443,216 @@
           "slug": "join-video-phone",
           "title": "Join a video visit on your phone",
           "steps": [
-            "Open the MyChart app on your phone.",
-            "Tap Appointments.",
-            "Find your video visit in the list.",
-            "Tap Begin Visit.",
-            "Allow the app to use your camera and microphone if asked.",
-            "Wait in the waiting room. Your provider will join you soon."
+            {
+              "text": "Open the MyChart app on your phone.",
+              "video": ""
+            },
+            {
+              "text": "Tap Appointments.",
+              "video": ""
+            },
+            {
+              "text": "Find your video visit in the list.",
+              "video": ""
+            },
+            {
+              "text": "Tap Begin Visit.",
+              "video": ""
+            },
+            {
+              "text": "Allow the app to use your camera and microphone if asked.",
+              "video": ""
+            },
+            {
+              "text": "Wait in the waiting room. Your provider will join you soon.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "join-video-computer",
           "title": "Join a video visit on a computer",
           "steps": [
-            "Open a recommended web browser (Chrome for Windows or Android; Safari for iPhone or iPad).",
-            "Navigate to the MyChart website.",
-            "Find your visit under \"Appointments.\"",
-            "Click \"Begin Visit.\""
+            {
+              "text": "Open a recommended web browser (Chrome for Windows or Android; Safari for iPhone or iPad).",
+              "video": ""
+            },
+            {
+              "text": "Navigate to the MyChart website.",
+              "video": ""
+            },
+            {
+              "text": "Find your visit under \"Appointments.\"",
+              "video": ""
+            },
+            {
+              "text": "Click \"Begin Visit.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "camera-mic-setup",
           "title": "Set up your camera and microphone",
           "steps": [
-            "When MyChart asks to use your camera, tap \"Allow.\"",
-            "When MyChart asks to use your microphone, tap \"Allow.\"",
-            "If you do not see the prompt, go to your phone's Settings.",
-            "Find MyChart in your list of apps.",
-            "Tap \"Permissions\" and make sure Camera and Microphone are turned on."
+            {
+              "text": "When MyChart asks to use your camera, tap \"Allow.\"",
+              "video": ""
+            },
+            {
+              "text": "When MyChart asks to use your microphone, tap \"Allow.\"",
+              "video": ""
+            },
+            {
+              "text": "If you do not see the prompt, go to your phone's Settings.",
+              "video": ""
+            },
+            {
+              "text": "Find MyChart in your list of apps.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Permissions\" and make sure Camera and Microphone are turned on.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "troubleshoot-camera",
           "title": "Troubleshoot: camera not working",
           "steps": [
-            "Close the MyChart app.",
-            "Go to your phone's Settings.",
-            "Find MyChart in your list of apps.",
-            "Tap \"Permissions.\"",
-            "Make sure the Camera toggle is turned On.",
-            "Re-open MyChart and try again."
+            {
+              "text": "Close the MyChart app.",
+              "video": ""
+            },
+            {
+              "text": "Go to your phone's Settings.",
+              "video": ""
+            },
+            {
+              "text": "Find MyChart in your list of apps.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Permissions.\"",
+              "video": ""
+            },
+            {
+              "text": "Make sure the Camera toggle is turned On.",
+              "video": ""
+            },
+            {
+              "text": "Re-open MyChart and try again.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "troubleshoot-connection",
           "title": "Troubleshoot: dropped connection",
           "steps": [
-            "Close the MyChart app.",
-            "Check your Wi-Fi or cellular connection.",
-            "Re-open MyChart.",
-            "Go to the \"Appointments\" tile.",
-            "Find your visit and tap to re-enter the waiting room."
+            {
+              "text": "Close the MyChart app.",
+              "video": ""
+            },
+            {
+              "text": "Check your Wi-Fi or cellular connection.",
+              "video": ""
+            },
+            {
+              "text": "Re-open MyChart.",
+              "video": ""
+            },
+            {
+              "text": "Go to the \"Appointments\" tile.",
+              "video": ""
+            },
+            {
+              "text": "Find your visit and tap to re-enter the waiting room.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "troubleshoot-waiting-room",
           "title": "Troubleshoot: wrong waiting room",
           "steps": [
-            "Check the name and time of your appointment.",
-            "Go to the \"Appointments\" tile.",
-            "Find the correct appointment.",
-            "Tap \"Begin Visit.\""
+            {
+              "text": "Check the name and time of your appointment.",
+              "video": ""
+            },
+            {
+              "text": "Go to the \"Appointments\" tile.",
+              "video": ""
+            },
+            {
+              "text": "Find the correct appointment.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Begin Visit.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "pexip-app",
           "title": "Join using the Pexip app (older phones)",
           "steps": [
-            "Open the App Store or Play Store.",
-            "Search for \"Pexip\" and install the app.",
-            "Go to the \"Appointments\" tile in MyChart.",
-            "Find your visit and tap the link to open Pexip.",
-            "Tap \"Join\" to enter your visit."
+            {
+              "text": "Open the App Store or Play Store.",
+              "video": ""
+            },
+            {
+              "text": "Search for \"Pexip\" and install the app.",
+              "video": ""
+            },
+            {
+              "text": "Go to the \"Appointments\" tile in MyChart.",
+              "video": ""
+            },
+            {
+              "text": "Find your visit and tap the link to open Pexip.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Join\" to enter your visit.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "schedule-video-visit",
           "title": "Schedule a video visit",
           "steps": [
-            "Tap \"Appointments.\"",
-            "Tap \"Schedule a New Appointment.\"",
-            "Select a provider.",
-            "Select \"Video Visit\" as the type.",
-            "Choose a date and time.",
-            "Tap \"Confirm.\""
+            {
+              "text": "Tap \"Appointments.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Schedule a New Appointment.\"",
+              "video": ""
+            },
+            {
+              "text": "Select a provider.",
+              "video": ""
+            },
+            {
+              "text": "Select \"Video Visit\" as the type.",
+              "video": ""
+            },
+            {
+              "text": "Choose a date and time.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Confirm.\"",
+              "video": ""
+            }
           ]
         }
       ]
     },
-
     "medications": {
       "titleKey": "cat4Label",
       "topics": [
@@ -296,15 +660,26 @@
           "slug": "request-refill",
           "title": "Request a medication refill",
           "steps": [
-            "Tap the \"Medications\" tile.",
-            "Select the medication you need.",
-            "Tap \"Request Refill.\"",
-            "Tap \"Confirm.\""
+            {
+              "text": "Tap the \"Medications\" tile.",
+              "video": ""
+            },
+            {
+              "text": "Select the medication you need.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Request Refill.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Confirm.\"",
+              "video": ""
+            }
           ]
         }
       ]
     },
-
     "appointments": {
       "titleKey": "cat5Label",
       "topics": [
@@ -312,51 +687,116 @@
           "slug": "schedule-telehealth",
           "title": "Schedule a telehealth appointment",
           "steps": [
-            "Tap \"Appointments.\"",
-            "Tap \"Schedule a New Appointment.\"",
-            "Select a provider.",
-            "Select \"Video Visit\" as the type.",
-            "Choose a date and time.",
-            "Tap \"Confirm.\""
+            {
+              "text": "Tap \"Appointments.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Schedule a New Appointment.\"",
+              "video": ""
+            },
+            {
+              "text": "Select a provider.",
+              "video": ""
+            },
+            {
+              "text": "Select \"Video Visit\" as the type.",
+              "video": ""
+            },
+            {
+              "text": "Choose a date and time.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Confirm.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "schedule-follow-up",
           "title": "Schedule a follow-up appointment",
           "steps": [
-            "Tap \"Appointments.\"",
-            "Tap \"Schedule a New Appointment.\"",
-            "Select your provider.",
-            "Select the reason for the visit.",
-            "Choose a date and time.",
-            "Tap \"Confirm.\""
+            {
+              "text": "Tap \"Appointments.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Schedule a New Appointment.\"",
+              "video": ""
+            },
+            {
+              "text": "Select your provider.",
+              "video": ""
+            },
+            {
+              "text": "Select the reason for the visit.",
+              "video": ""
+            },
+            {
+              "text": "Choose a date and time.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Confirm.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "schedule-new-provider",
           "title": "Schedule with a new provider",
           "steps": [
-            "Tap \"Appointments.\"",
-            "Tap \"Schedule a New Appointment.\"",
-            "Search for a provider by name or specialty.",
-            "Select the new provider.",
-            "Continue the scheduling steps."
+            {
+              "text": "Tap \"Appointments.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Schedule a New Appointment.\"",
+              "video": ""
+            },
+            {
+              "text": "Search for a provider by name or specialty.",
+              "video": ""
+            },
+            {
+              "text": "Select the new provider.",
+              "video": ""
+            },
+            {
+              "text": "Continue the scheduling steps.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "choose-appointment-type",
           "title": "Choose your appointment type",
           "steps": [
-            "During the scheduling process, look for the appointment type screen.",
-            "Select \"Video\" for a video visit.",
-            "Select \"Phone\" for a phone call.",
-            "Select \"In-Person\" for an office visit.",
-            "Tap \"Next\" to continue."
+            {
+              "text": "During the scheduling process, look for the appointment type screen.",
+              "video": ""
+            },
+            {
+              "text": "Select \"Video\" for a video visit.",
+              "video": ""
+            },
+            {
+              "text": "Select \"Phone\" for a phone call.",
+              "video": ""
+            },
+            {
+              "text": "Select \"In-Person\" for an office visit.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Next\" to continue.",
+              "video": ""
+            }
           ]
         }
       ]
     },
-
     "messages": {
       "titleKey": "cat6Label",
       "topics": [
@@ -364,62 +804,124 @@
           "slug": "send-secure-message",
           "title": "Send a secure message",
           "steps": [
-            "Tap the \"Messages\" tile.",
-            "Tap \"New Message.\"",
-            "Select your care team member.",
-            "Type your message in the box.",
-            "Tap \"Send.\""
+            {
+              "text": "Tap the \"Messages\" tile.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"New Message.\"",
+              "video": ""
+            },
+            {
+              "text": "Select your care team member.",
+              "video": ""
+            },
+            {
+              "text": "Type your message in the box.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Send.\"",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "view-visit-summary",
           "title": "View a past visit summary",
           "steps": [
-            "Tap the \"Visits\" tile.",
-            "Select the date of the past visit.",
-            "Scroll down to see the summary or notes."
+            {
+              "text": "Tap the \"Visits\" tile.",
+              "video": ""
+            },
+            {
+              "text": "Select the date of the past visit.",
+              "video": ""
+            },
+            {
+              "text": "Scroll down to see the summary or notes.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "view-after-visit-summary",
           "title": "Download your After Visit Summary",
           "steps": [
-            "Tap the \"Visits\" tile.",
-            "Select the date of the past visit.",
-            "Scroll to the \"After Visit Summary\" section.",
-            "Tap to open or download the file."
+            {
+              "text": "Tap the \"Visits\" tile.",
+              "video": ""
+            },
+            {
+              "text": "Select the date of the past visit.",
+              "video": ""
+            },
+            {
+              "text": "Scroll to the \"After Visit Summary\" section.",
+              "video": ""
+            },
+            {
+              "text": "Tap to open or download the file.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "view-test-results",
           "title": "View your test results",
           "steps": [
-            "Tap the \"Test Results\" tile.",
-            "Select the name of the test result you want to see.",
-            "Read the detail screen."
+            {
+              "text": "Tap the \"Test Results\" tile.",
+              "video": ""
+            },
+            {
+              "text": "Select the name of the test result you want to see.",
+              "video": ""
+            },
+            {
+              "text": "Read the detail screen.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "check-billing",
           "title": "Check your billing balance",
           "steps": [
-            "Tap the \"Billing\" tile.",
-            "Read the balance shown on the screen."
+            {
+              "text": "Tap the \"Billing\" tile.",
+              "video": ""
+            },
+            {
+              "text": "Read the balance shown on the screen.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "pay-bill",
           "title": "Pay a bill online",
           "steps": [
-            "Tap the \"Billing\" tile.",
-            "Tap \"Pay Now.\"",
-            "Enter your payment method information.",
-            "Tap \"Confirm Payment.\""
+            {
+              "text": "Tap the \"Billing\" tile.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Pay Now.\"",
+              "video": ""
+            },
+            {
+              "text": "Enter your payment method information.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Confirm Payment.\"",
+              "video": ""
+            }
           ]
         }
       ]
     },
-
     "community": {
       "titleKey": "cat7Label",
       "topics": [
@@ -427,68 +929,133 @@
           "slug": "find-massthrive",
           "title": "Find MassThrive through MyChart",
           "steps": [
-            "Tap the Menu icon.",
-            "Tap \"Community\" or \"Find Resources.\"",
-            "Tap the MassThrive link."
+            {
+              "text": "Tap the Menu icon.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Community\" or \"Find Resources.\"",
+              "video": ""
+            },
+            {
+              "text": "Tap the MassThrive link.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "massthrive-language",
           "title": "Change language on MassThrive",
           "steps": [
-            "Look for the language toggle in the header of the MassThrive website.",
-            "Tap the toggle.",
-            "Select your preferred language."
+            {
+              "text": "Look for the language toggle in the header of the MassThrive website.",
+              "video": ""
+            },
+            {
+              "text": "Tap the toggle.",
+              "video": ""
+            },
+            {
+              "text": "Select your preferred language.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "massthrive-search",
           "title": "Search for resources by ZIP code",
           "steps": [
-            "Type your ZIP code into the search bar.",
-            "Select a category from the dropdown menu (for example, Food or Housing).",
-            "Tap \"Search\" or press Enter to see results."
+            {
+              "text": "Type your ZIP code into the search bar.",
+              "video": ""
+            },
+            {
+              "text": "Select a category from the dropdown menu (for example, Food or Housing).",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Search\" or press Enter to see results.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "massthrive-program-card",
           "title": "Read a program card",
           "steps": [
-            "Tap on the program card.",
-            "Scroll down to the \"Contact\" section.",
-            "Read the organization's name, address, and phone number."
+            {
+              "text": "Tap on the program card.",
+              "video": ""
+            },
+            {
+              "text": "Scroll down to the \"Contact\" section.",
+              "video": ""
+            },
+            {
+              "text": "Read the organization's name, address, and phone number.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "massthrive-contact",
           "title": "Contact an organization",
           "steps": [
-            "Find the program card for the organization you want to contact.",
-            "Tap the phone number on the card.",
-            "Your phone will open the dialer automatically.",
-            "Tap \"Call\" to connect."
+            {
+              "text": "Find the program card for the organization you want to contact.",
+              "video": ""
+            },
+            {
+              "text": "Tap the phone number on the card.",
+              "video": ""
+            },
+            {
+              "text": "Your phone will open the dialer automatically.",
+              "video": ""
+            },
+            {
+              "text": "Tap \"Call\" to connect.",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "massthrive-share",
           "title": "Share a program card",
           "steps": [
-            "Tap on the program card.",
-            "Tap the \"Share\" icon.",
-            "Choose how you want to share the card (email, text message, etc.)."
+            {
+              "text": "Tap on the program card.",
+              "video": ""
+            },
+            {
+              "text": "Tap the \"Share\" icon.",
+              "video": ""
+            },
+            {
+              "text": "Choose how you want to share the card (email, text message, etc.).",
+              "video": ""
+            }
           ]
         },
         {
           "slug": "call-211",
           "title": "Use 2-1-1 for more resources",
           "steps": [
-            "Dial 2-1-1 on your phone.",
-            "Wait for a person to answer.",
-            "Ask for help finding resources in your area."
+            {
+              "text": "Dial 2-1-1 on your phone.",
+              "video": ""
+            },
+            {
+              "text": "Wait for a person to answer.",
+              "video": ""
+            },
+            {
+              "text": "Ask for help finding resources in your area.",
+              "video": ""
+            }
           ]
         }
       ]
     }
-
   }
 }

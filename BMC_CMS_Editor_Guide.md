@@ -122,15 +122,24 @@ Every challenge has the same set of fields, organised by step. The table below d
 
 | Field name | Where it appears | Notes |
 |---|---|---|
-| **Title** | Topic page heading in the Knowledge Base, and as the label on the video placeholder in the challenge Watch step | Plain language. Example: Join a video visit on your phone |
+| **Title** | Topic page heading in the Knowledge Base, and as the label in the challenge Watch step | Plain language. Example: Join a video visit on your phone |
 | ⚠️ **URL identifier** | Used in page links throughout the site | ⚠️ Do not change. Changing this will break links in the Knowledge Base and in challenge pages. |
-| **Step-by-step instructions** | Numbered list on the topic page and in the challenge Watch step | Each item is one instruction. Start with a verb: Tap, Open, Enter, Find... Add, remove, or reorder items using the list controls. |
+| **Step-by-step instructions** | Numbered list on the topic page and in the challenge Watch step | Each item has two sub-fields: a step instruction and an optional video URL (see below). |
+
+#### Step sub-fields
+
+Each step in the list has two fields:
+
+| Sub-field | Required | Notes |
+|---|---|---|
+| **Step instruction** | Yes | One instruction per step. Start with a verb: Tap, Open, Enter, Find... |
+| **Video URL (optional)** | No | Paste the full URL of the video that goes with this step. Leave blank if the step has no video. A video placeholder will appear on the page automatically when a URL is present. |
 
 ### 5.3  Adding and removing steps
 
 Each topic's step list has Add step and remove (×) controls in the CMS. Steps can also be dragged to reorder them.
 
-- Click **Add step** to add a new instruction at the bottom of the list.
+- Click **Add step** to add a new step at the bottom of the list. Each step shows a "Step instruction" field and a "Video URL (optional)" field.
 - Click the **×** icon next to any step to remove it.
 - Drag the handle (**⠿**) on any step to change its order.
 
@@ -346,25 +355,25 @@ There is no separate deploy step — publishing in the CMS and going live are th
 |---|---|---|
 | Setting up your email — Title | string | English only |
 | Setting up your email — URL identifier | ⚠️ Do not change | — |
-| Setting up your email — Step-by-step instructions | list of strings | English only |
+| Setting up your email — Steps (instruction + video URL per step) | list of objects (instruction + optional video URL per step) | English only |
 | Setting up MyChart — Title | string | English only |
 | Setting up MyChart — URL identifier | ⚠️ Do not change | — |
-| Setting up MyChart — Step-by-step instructions | list of strings | English only |
+| Setting up MyChart — Steps (instruction + video URL per step) | list of objects (instruction + optional video URL per step) | English only |
 | Video visits — Title | string | English only |
 | Video visits — URL identifier | ⚠️ Do not change | — |
-| Video visits — Step-by-step instructions | list of strings | English only |
+| Video visits — Steps (instruction + video URL per step) | list of objects (instruction + optional video URL per step) | English only |
 | Medications and refills — Title | string | English only |
 | Medications and refills — URL identifier | ⚠️ Do not change | — |
-| Medications and refills — Step-by-step instructions | list of strings | English only |
+| Medications and refills — Steps (instruction + video URL per step) | list of objects (instruction + optional video URL per step) | English only |
 | Appointments — Title | string | English only |
 | Appointments — URL identifier | ⚠️ Do not change | — |
-| Appointments — Step-by-step instructions | list of strings | English only |
+| Appointments — Steps (instruction + video URL per step) | list of objects (instruction + optional video URL per step) | English only |
 | Messages and your records — Title | string | English only |
 | Messages and your records — URL identifier | ⚠️ Do not change | — |
-| Messages and your records — Step-by-step instructions | list of strings | English only |
+| Messages and your records — Steps (instruction + video URL per step) | list of objects (instruction + optional video URL per step) | English only |
 | Community resources — Title | string | English only |
 | Community resources — URL identifier | ⚠️ Do not change | — |
-| Community resources — Step-by-step instructions | list of strings | English only |
+| Community resources — Steps (instruction + video URL per step) | list of objects (instruction + optional video URL per step) | English only |
 
 ---
 
