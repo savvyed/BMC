@@ -123,27 +123,33 @@
           "steps": [
             {
               "text": "Open a web browser on your phone.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Go to the Gmail website.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Create account.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Enter your first name. Enter your last name.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Choose a new email address.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Next.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -153,15 +159,18 @@
           "steps": [
             {
               "text": "Type your chosen password.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Type your password again to confirm.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Next.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -171,19 +180,23 @@
           "steps": [
             {
               "text": "Enter your phone number.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Next.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Type the code you received in a text message.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Verify.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -193,15 +206,18 @@
           "steps": [
             {
               "text": "Write your email address on your card.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Write your password on your card.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Keep your card in a safe place.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         }
@@ -216,23 +232,28 @@
           "steps": [
             {
               "text": "Open the App Store (iPhone) or Play Store (Android).",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Search for \"MyChart.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Get\" or \"Install.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Wait for the app to finish downloading.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Open\" to launch MyChart.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -242,27 +263,33 @@
           "steps": [
             {
               "text": "Open the MyChart app or go to the BMC MyChart website.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Sign Up\" or \"Create Account.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Enter your full name.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Enter your birth date.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Enter your email address.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Next.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -272,15 +299,18 @@
           "steps": [
             {
               "text": "Find your activation code in the email or letter from BMC.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Type the code into the box.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Submit.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -290,19 +320,23 @@
           "steps": [
             {
               "text": "Type your chosen username.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Type your chosen password.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Type your password again to confirm.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Submit.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -312,19 +346,23 @@
           "steps": [
             {
               "text": "Enter your phone number.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Send Code.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Type the code you received in a text message.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Verify.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -334,19 +372,23 @@
           "steps": [
             {
               "text": "Open the MyChart app.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Enter your username.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Enter your password.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap the \"Sign In\" button.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -356,19 +398,23 @@
           "steps": [
             {
               "text": "Tap the Menu icon.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Settings.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Language.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select your preferred language.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -378,19 +424,23 @@
           "steps": [
             {
               "text": "Tap the Menu icon.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Settings.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Notifications.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Turn on or off the notification options.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -400,23 +450,28 @@
           "steps": [
             {
               "text": "Tap the Menu icon.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Sharing Hub.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Invite Someone.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Enter the caregiver's email address.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Confirm\" to send the invitation.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -426,11 +481,13 @@
           "steps": [
             {
               "text": "Tap your name or the Account icon at the top of the screen.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select the linked family member's name.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         }
@@ -445,27 +502,33 @@
           "steps": [
             {
               "text": "Open the MyChart app on your phone.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap Appointments.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Find your video visit in the list.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap Begin Visit.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Allow the app to use your camera and microphone if asked.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Wait in the waiting room. Your provider will join you soon.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -475,19 +538,23 @@
           "steps": [
             {
               "text": "Open a recommended web browser (Chrome for Windows or Android; Safari for iPhone or iPad).",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Navigate to the MyChart website.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Find your visit under \"Appointments.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Click \"Begin Visit.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -497,23 +564,28 @@
           "steps": [
             {
               "text": "When MyChart asks to use your camera, tap \"Allow.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "When MyChart asks to use your microphone, tap \"Allow.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "If you do not see the prompt, go to your phone's Settings.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Find MyChart in your list of apps.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Permissions\" and make sure Camera and Microphone are turned on.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -523,27 +595,33 @@
           "steps": [
             {
               "text": "Close the MyChart app.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Go to your phone's Settings.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Find MyChart in your list of apps.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Permissions.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Make sure the Camera toggle is turned On.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Re-open MyChart and try again.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -553,23 +631,28 @@
           "steps": [
             {
               "text": "Close the MyChart app.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Check your Wi-Fi or cellular connection.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Re-open MyChart.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Go to the \"Appointments\" tile.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Find your visit and tap to re-enter the waiting room.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -579,19 +662,23 @@
           "steps": [
             {
               "text": "Check the name and time of your appointment.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Go to the \"Appointments\" tile.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Find the correct appointment.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Begin Visit.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -601,23 +688,28 @@
           "steps": [
             {
               "text": "Open the App Store or Play Store.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Search for \"Pexip\" and install the app.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Go to the \"Appointments\" tile in MyChart.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Find your visit and tap the link to open Pexip.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Join\" to enter your visit.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -627,27 +719,33 @@
           "steps": [
             {
               "text": "Tap \"Appointments.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Schedule a New Appointment.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select a provider.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select \"Video Visit\" as the type.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Choose a date and time.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Confirm.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         }
@@ -662,19 +760,23 @@
           "steps": [
             {
               "text": "Tap the \"Medications\" tile.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select the medication you need.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Request Refill.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Confirm.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         }
@@ -689,27 +791,33 @@
           "steps": [
             {
               "text": "Tap \"Appointments.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Schedule a New Appointment.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select a provider.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select \"Video Visit\" as the type.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Choose a date and time.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Confirm.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -719,27 +827,33 @@
           "steps": [
             {
               "text": "Tap \"Appointments.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Schedule a New Appointment.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select your provider.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select the reason for the visit.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Choose a date and time.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Confirm.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -749,23 +863,28 @@
           "steps": [
             {
               "text": "Tap \"Appointments.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Schedule a New Appointment.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Search for a provider by name or specialty.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select the new provider.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Continue the scheduling steps.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -775,23 +894,28 @@
           "steps": [
             {
               "text": "During the scheduling process, look for the appointment type screen.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select \"Video\" for a video visit.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select \"Phone\" for a phone call.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select \"In-Person\" for an office visit.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Next\" to continue.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         }
@@ -806,23 +930,28 @@
           "steps": [
             {
               "text": "Tap the \"Messages\" tile.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"New Message.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select your care team member.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Type your message in the box.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Send.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -832,15 +961,18 @@
           "steps": [
             {
               "text": "Tap the \"Visits\" tile.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select the date of the past visit.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Scroll down to see the summary or notes.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -850,19 +982,23 @@
           "steps": [
             {
               "text": "Tap the \"Visits\" tile.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select the date of the past visit.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Scroll to the \"After Visit Summary\" section.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap to open or download the file.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -872,15 +1008,18 @@
           "steps": [
             {
               "text": "Tap the \"Test Results\" tile.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select the name of the test result you want to see.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Read the detail screen.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -890,11 +1029,13 @@
           "steps": [
             {
               "text": "Tap the \"Billing\" tile.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Read the balance shown on the screen.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -904,19 +1045,23 @@
           "steps": [
             {
               "text": "Tap the \"Billing\" tile.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Pay Now.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Enter your payment method information.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Confirm Payment.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         }
@@ -931,15 +1076,18 @@
           "steps": [
             {
               "text": "Tap the Menu icon.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Community\" or \"Find Resources.\"",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap the MassThrive link.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -949,15 +1097,18 @@
           "steps": [
             {
               "text": "Look for the language toggle in the header of the MassThrive website.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap the toggle.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select your preferred language.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -967,15 +1118,18 @@
           "steps": [
             {
               "text": "Type your ZIP code into the search bar.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Select a category from the dropdown menu (for example, Food or Housing).",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Search\" or press Enter to see results.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -985,15 +1139,18 @@
           "steps": [
             {
               "text": "Tap on the program card.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Scroll down to the \"Contact\" section.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Read the organization's name, address, and phone number.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -1003,19 +1160,23 @@
           "steps": [
             {
               "text": "Find the program card for the organization you want to contact.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap the phone number on the card.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Your phone will open the dialer automatically.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap \"Call\" to connect.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -1025,15 +1186,18 @@
           "steps": [
             {
               "text": "Tap on the program card.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Tap the \"Share\" icon.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Choose how you want to share the card (email, text message, etc.).",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         },
@@ -1043,15 +1207,18 @@
           "steps": [
             {
               "text": "Dial 2-1-1 on your phone.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Wait for a person to answer.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             },
             {
               "text": "Ask for help finding resources in your area.",
-              "video": ""
+              "mediaType": "",
+              "mediaUrl": ""
             }
           ]
         }

@@ -133,7 +133,9 @@ Each step in the list has two fields:
 | Sub-field | Required | Notes |
 |---|---|---|
 | **Step instruction** | Yes | One instruction per step. Start with a verb: Tap, Open, Enter, Find... |
-| **Video URL (optional)** | No | Paste the full URL of the video that goes with this step. Leave blank if the step has no video. A video placeholder will appear on the page automatically when a URL is present. |
+
+| **Media (optional)** | No | Choose "Video", "Image", or "No media" from the dropdown. |
+| **Media URL** | No | Paste the URL of the video or image for this step. Leave blank if "No media" is selected above. |
 
 ### 5.3  Adding and removing steps
 

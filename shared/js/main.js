@@ -1863,23 +1863,38 @@ function initChallengeTopic() {
     var ol = document.createElement('ol');
     ol.className = 'task-steps-inline';
     topicItem.steps.forEach(function(step, idx) {
-      /* Normalise: JS fallback uses plain strings; CMS JSON uses {text, video} */
-      var stepText  = (typeof step === 'string') ? step : (step.text  || '');
-      var stepVideo = (typeof step === 'string') ? '' : (step.video || '');
+      /* Normalise across three historical step formats:
+         1. plain string         — original JS fallback
+         2. {text, video}        — first CMS schema
+         3. {text, mediaType, mediaUrl} — current schema          */
+      var stepText  = (typeof step === 'string') ? step : (step.text || '');
+      var mediaType = (typeof step === 'string') ? ''
+                    : (step.mediaType || (step.video ? 'video' : ''));
+      var mediaUrl  = (typeof step === 'string') ? ''
+                    : (step.mediaUrl  || step.video || '');
 
       var li = document.createElement('li');
       li.className = 'topic-step-item';
 
-      /* Per-step video placeholder — shown only when a URL is present */
-      if (stepVideo) {
-        var vDiv = document.createElement('div');
-        vDiv.className = 'video-placeholder video-placeholder--step';
-        vDiv.setAttribute('role', 'img');
-        vDiv.setAttribute('aria-label', 'Video for step ' + (idx + 1) + ' \u2014 ' + topicItem.title);
-        vDiv.innerHTML =
-          '<span class="video-placeholder-icon" aria-hidden="true">\u25B6</span>' +
-          '<span class="video-placeholder-label">Step ' + (idx + 1) + ' \u2014 video</span>';
-        li.appendChild(vDiv);
+      /* Per-step media — rendered only when both type and URL are present */
+      if (mediaType && mediaUrl) {
+        if (mediaType === 'video') {
+          var vDiv = document.createElement('div');
+          vDiv.className = 'video-placeholder video-placeholder--step';
+          vDiv.setAttribute('role', 'img');
+          vDiv.setAttribute('aria-label', 'Video for step ' + (idx + 1) + ' \u2014 ' + topicItem.title);
+          vDiv.innerHTML =
+            '<span class="video-placeholder-icon" aria-hidden="true">\u25B6</span>' +
+            '<span class="video-placeholder-label">Step ' + (idx + 1) + ' \u2014 video</span>';
+          li.appendChild(vDiv);
+        } else if (mediaType === 'image') {
+          var img = document.createElement('img');
+          img.className = 'step-image';
+          img.src = mediaUrl;
+          img.alt = 'Image for step ' + (idx + 1) + ' \u2014 ' + topicItem.title;
+          img.loading = 'lazy';
+          li.appendChild(img);
+        }
       }
 
       var textSpan = document.createElement('span');
@@ -1976,26 +1991,38 @@ function initTopic() {
     if (label) label.textContent = t(catData.titleKey);
   });
 
-  /* Render steps — each step may be a plain string (JS fallback) or
-     a {text, video} object (from CMS JSON). Both formats are handled. */
+  /* Render steps — normalises across all three historical step formats
+     (plain string / {text,video} / {text,mediaType,mediaUrl}).        */
   stepsList.innerHTML = '';
   topicItem.steps.forEach(function(step, idx) {
-    var stepText  = (typeof step === 'string') ? step : (step.text  || '');
-    var stepVideo = (typeof step === 'string') ? '' : (step.video || '');
+    var stepText  = (typeof step === 'string') ? step : (step.text || '');
+    var mediaType = (typeof step === 'string') ? ''
+                  : (step.mediaType || (step.video ? 'video' : ''));
+    var mediaUrl  = (typeof step === 'string') ? ''
+                  : (step.mediaUrl  || step.video || '');
 
     var li = document.createElement('li');
     li.className = 'topic-step-item';
 
-    /* Per-step video placeholder — shown only when a URL is present */
-    if (stepVideo) {
-      var vDiv = document.createElement('div');
-      vDiv.className = 'video-placeholder video-placeholder--step';
-      vDiv.setAttribute('role', 'img');
-      vDiv.setAttribute('aria-label', 'Video for step ' + (idx + 1));
-      vDiv.innerHTML =
-        '<span class="video-placeholder-icon" aria-hidden="true">\u25B6</span>' +
-        '<span class="video-placeholder-label">Step ' + (idx + 1) + ' \u2014 video</span>';
-      li.appendChild(vDiv);
+    /* Per-step media — rendered only when both type and URL are present */
+    if (mediaType && mediaUrl) {
+      if (mediaType === 'video') {
+        var vDiv = document.createElement('div');
+        vDiv.className = 'video-placeholder video-placeholder--step';
+        vDiv.setAttribute('role', 'img');
+        vDiv.setAttribute('aria-label', 'Video for step ' + (idx + 1));
+        vDiv.innerHTML =
+          '<span class="video-placeholder-icon" aria-hidden="true">\u25B6</span>' +
+          '<span class="video-placeholder-label">Step ' + (idx + 1) + ' \u2014 video</span>';
+        li.appendChild(vDiv);
+      } else if (mediaType === 'image') {
+        var img = document.createElement('img');
+        img.className = 'step-image';
+        img.src = mediaUrl;
+        img.alt = 'Image for step ' + (idx + 1);
+        img.loading = 'lazy';
+        li.appendChild(img);
+      }
     }
 
     var textSpan = document.createElement('span');
