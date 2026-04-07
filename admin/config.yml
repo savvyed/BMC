@@ -2772,11 +2772,24 @@ collections:
                             name: text
                             widget: string
                             hint: "Start with a verb: Tap, Open, Enter, Find..."
-                          - label: "Video URL (optional)"
-                            name: video
+                          - label: "Media (optional)"
+                            name: mediaType
+                            widget: select
+                            default: ""
+                            required: false
+                            hint: "Choose whether this step has a video, an image, or no media."
+                            options:
+                              - label: "No media"
+                                value: ""
+                              - label: "Video"
+                                value: "video"
+                              - label: "Image"
+                                value: "image"
+                          - label: "Media URL"
+                            name: mediaUrl
                             widget: string
                             required: false
-                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
+                            hint: "Paste the URL of the video or image. Leave blank if no media selected above."
 
               - label: "Setting up MyChart"
                 name: "mychart-setup"
@@ -2805,11 +2818,24 @@ collections:
                             name: text
                             widget: string
                             hint: "Start with a verb: Tap, Open, Enter, Find..."
-                          - label: "Video URL (optional)"
-                            name: video
+                          - label: "Media (optional)"
+                            name: mediaType
+                            widget: select
+                            default: ""
+                            required: false
+                            hint: "Choose whether this step has a video, an image, or no media."
+                            options:
+                              - label: "No media"
+                                value: ""
+                              - label: "Video"
+                                value: "video"
+                              - label: "Image"
+                                value: "image"
+                          - label: "Media URL"
+                            name: mediaUrl
                             widget: string
                             required: false
-                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
+                            hint: "Paste the URL of the video or image. Leave blank if no media selected above."
 
               - label: "Video visits"
                 name: "video-visits"
@@ -2838,11 +2864,24 @@ collections:
                             name: text
                             widget: string
                             hint: "Start with a verb: Tap, Open, Enter, Find..."
-                          - label: "Video URL (optional)"
-                            name: video
+                          - label: "Media (optional)"
+                            name: mediaType
+                            widget: select
+                            default: ""
+                            required: false
+                            hint: "Choose whether this step has a video, an image, or no media."
+                            options:
+                              - label: "No media"
+                                value: ""
+                              - label: "Video"
+                                value: "video"
+                              - label: "Image"
+                                value: "image"
+                          - label: "Media URL"
+                            name: mediaUrl
                             widget: string
                             required: false
-                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
+                            hint: "Paste the URL of the video or image. Leave blank if no media selected above."
 
               - label: "Medications and refills"
                 name: "medications"
@@ -2871,11 +2910,24 @@ collections:
                             name: text
                             widget: string
                             hint: "Start with a verb: Tap, Open, Enter, Find..."
-                          - label: "Video URL (optional)"
-                            name: video
+                          - label: "Media (optional)"
+                            name: mediaType
+                            widget: select
+                            default: ""
+                            required: false
+                            hint: "Choose whether this step has a video, an image, or no media."
+                            options:
+                              - label: "No media"
+                                value: ""
+                              - label: "Video"
+                                value: "video"
+                              - label: "Image"
+                                value: "image"
+                          - label: "Media URL"
+                            name: mediaUrl
                             widget: string
                             required: false
-                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
+                            hint: "Paste the URL of the video or image. Leave blank if no media selected above."
 
               - label: "Appointments"
                 name: "appointments"
@@ -2904,11 +2956,24 @@ collections:
                             name: text
                             widget: string
                             hint: "Start with a verb: Tap, Open, Enter, Find..."
-                          - label: "Video URL (optional)"
-                            name: video
+                          - label: "Media (optional)"
+                            name: mediaType
+                            widget: select
+                            default: ""
+                            required: false
+                            hint: "Choose whether this step has a video, an image, or no media."
+                            options:
+                              - label: "No media"
+                                value: ""
+                              - label: "Video"
+                                value: "video"
+                              - label: "Image"
+                                value: "image"
+                          - label: "Media URL"
+                            name: mediaUrl
                             widget: string
                             required: false
-                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
+                            hint: "Paste the URL of the video or image. Leave blank if no media selected above."
 
               - label: "Messages and your records"
                 name: "messages"
@@ -2937,11 +3002,24 @@ collections:
                             name: text
                             widget: string
                             hint: "Start with a verb: Tap, Open, Enter, Find..."
-                          - label: "Video URL (optional)"
-                            name: video
+                          - label: "Media (optional)"
+                            name: mediaType
+                            widget: select
+                            default: ""
+                            required: false
+                            hint: "Choose whether this step has a video, an image, or no media."
+                            options:
+                              - label: "No media"
+                                value: ""
+                              - label: "Video"
+                                value: "video"
+                              - label: "Image"
+                                value: "image"
+                          - label: "Media URL"
+                            name: mediaUrl
                             widget: string
                             required: false
-                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
+                            hint: "Paste the URL of the video or image. Leave blank if no media selected above."
 
               - label: "Community resources"
                 name: "community"
@@ -2970,8 +3048,21 @@ collections:
                             name: text
                             widget: string
                             hint: "Start with a verb: Tap, Open, Enter, Find..."
-                          - label: "Video URL (optional)"
-                            name: video
+                          - label: "Media (optional)"
+                            name: mediaType
+                            widget: select
+                            default: ""
+                            required: false
+                            hint: "Choose whether this step has a video, an image, or no media."
+                            options:
+                              - label: "No media"
+                                value: ""
+                              - label: "Video"
+                                value: "video"
+                              - label: "Image"
+                                value: "image"
+                          - label: "Media URL"
+                            name: mediaUrl
                             widget: string
                             required: false
-                            hint: "Paste the full URL of the video for this step. Leave blank if this step has no video."
+                            hint: "Paste the URL of the video or image. Leave blank if no media selected above."
