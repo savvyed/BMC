@@ -1103,3 +1103,101 @@ button { font-family: var(--font-family); cursor: pointer; }
 
 
 }
+
+/* ============================================================
+   WELCOME — Mode chooser (index.html)
+   ============================================================ */
+
+/* Two stacked mode-choice cards */
+.mode-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 480px;
+  margin-top: var(--space-lg);
+}
+
+.mode-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  width: 100%;
+  min-height: 80px;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-button);
+  font-size: var(--font-size-md);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.mode-option:hover,
+.mode-option:focus-visible {
+  background: #d6eaf8;
+  transform: translateY(-1px);
+}
+
+.mode-option:active { transform: translateY(0); }
+
+.mode-option-icon { font-size: 1.5rem; line-height: 1; }
+
+.mode-option-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.mode-option-sub {
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   GTRANSLATE — Prominent translate bar (home.html)
+   Hidden in manual mode via translation-switcher.js CSS.
+   ============================================================ */
+
+.translate-bar {
+  background: var(--color-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.translate-bar-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+.translate-bar-label {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  flex: 1;
+  min-width: 140px;
+}
+
+.translate-bar-select {
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.5);
+  color: #ffffff;
+  border-radius: var(--radius-button);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  min-height: var(--tap-target-min);
+  cursor: pointer;
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 180px;
+}
+
+.translate-bar-select option { color: #1c2833; background: #ffffff; }
+.translate-bar-select:focus  { outline: 3px solid rgba(255,255,255,0.7); }

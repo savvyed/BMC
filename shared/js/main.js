@@ -1679,26 +1679,43 @@ function applyStrings() {
 }
 
 /* ============================================================
-   LANGUAGE SELECTOR PAGE (index.html)
+   LANGUAGE SELECTOR (lang-select.html) + MODE CHOOSER (index.html)
    ============================================================ */
 
 /**
- * Attaches click handlers to all .lang-option buttons.
- * Clicking a language button navigates to home.html?lang=xx.
+ * lang-select.html — 5 manual language buttons.
+ * Each navigates to home.html?lang=xx.
  */
 function initLangSelector() {
   document.querySelectorAll('.lang-option').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var lang = btn.getAttribute('data-lang');
-      if (window.BMC_TRANSLATION_MODE === 'gtranslate') {
-        /* GTranslate mode: all buttons go straight to home — the widget
-           picks up the patient's chosen language automatically. */
-        window.location.href = 'home.html';
-      } else {
-        window.location.href = 'home.html?lang=' + lang;
-      }
+      window.location.href = 'home.html?lang=' + lang;
     });
   });
+}
+
+/**
+ * index.html — Two mode-chooser buttons.
+ * Sets localStorage and routes to the appropriate next screen.
+ */
+function initModeChooser() {
+  var btnGT = document.getElementById('btn-gtranslate');
+  var btnMn = document.getElementById('btn-manual');
+  if (!btnGT && !btnMn) return;
+
+  if (btnGT) {
+    btnGT.addEventListener('click', function() {
+      localStorage.setItem('bmc-translation-mode', 'gtranslate');
+      window.location.href = 'home.html';
+    });
+  }
+  if (btnMn) {
+    btnMn.addEventListener('click', function() {
+      localStorage.setItem('bmc-translation-mode', 'manual');
+      window.location.href = 'lang-select.html';
+    });
+  }
 }
 
 /* ============================================================
@@ -2069,6 +2086,7 @@ function initTopic() {
 
 document.addEventListener('DOMContentLoaded', function() {
   applyStrings();
+  initModeChooser();     /* no-op if mode-chooser buttons are not present */
   initLangSelector();    /* no-op if .lang-option buttons are not present */
   initSteps();           /* no-op if .challenge-step panels are not present */
   initChecklist();       /* no-op if .checklist-item elements are not present */

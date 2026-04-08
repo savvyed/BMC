@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMC Digital Health — Choose your language</title>
+  <link rel="stylesheet" href="shared/css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       MANUAL LANGUAGE SELECTOR
+       Shown when the patient chooses "Choose my language" on the
+       welcome screen. Each button navigates to home.html?lang=xx.
+       ============================================================ -->
+
+  <main class="lang-selector-page" role="main">
+
+    <div class="logo-placeholder" aria-label="BMC Logo placeholder">BMC Logo</div>
+
+    <h1 class="welcome-heading">
+      Welcome<br>
+      Bienvenido<br>
+      Bem-vindo<br>
+      Byenveni<br>
+      欢迎
+    </h1>
+
+    <p class="lang-prompt" aria-label="Please select your language to continue">
+      Please select your language<br>
+      Por favor, seleccione su idioma<br>
+      Por favor, selecione seu idioma<br>
+      Tanpri chwazi lang ou<br>
+      请选择您的语言
+    </p>
+
+    <div class="lang-prompt-arrow" aria-hidden="true">▼</div>
+
+    <nav class="lang-options" aria-label="Language selection">
+
+      <button class="lang-option" data-lang="en" type="button"
+              aria-label="Select English">
+        English
+      </button>
+
+      <button class="lang-option" data-lang="es" type="button"
+              aria-label="Seleccionar Español">
+        Español
+      </button>
+
+      <button class="lang-option" data-lang="pt" type="button"
+              aria-label="Selecionar Português">
+        Português
+      </button>
+
+      <button class="lang-option" data-lang="ht" type="button"
+              aria-label="Chwazi Kreyòl ayisyen">
+        Kreyòl ayisyen
+      </button>
+
+      <button class="lang-option" data-lang="zh" type="button"
+              aria-label="选择中文">
+        中文
+      </button>
+
+    </nav>
+
+  </main>
+
+  <script src="shared/js/translation-switcher.js"></script>
+  <script src="shared/js/main.js"></script>
+</body>
+</html>

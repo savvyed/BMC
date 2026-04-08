@@ -19,9 +19,18 @@
     <span class="header-title" data-string-key="ch05PageTitle" aria-hidden="true">
       Challenge 05 — Find community resources
     </span>
-    <a href="../index.html" class="header-lang-btn" aria-label="Change language">
+    <a href="../lang-select.html" class="header-lang-btn" aria-label="Change language">
       🌐 <span data-string-key="langIndicator">English</span>
     </a>
+    <!-- GTranslate mode: custom language select calls doGTranslate() -->
+    <select class="header-gt-select" aria-label="Choose language"
+            onchange="if(window.doGTranslate)doGTranslate(this.value); this.selectedIndex=0;">
+      <option value="">🌐 Language</option>
+      <option value="en|es">Español</option>
+      <option value="en|pt">Português</option>
+      <option value="en|ht">Kreyòl ayisyen</option>
+      <option value="en|zh-CN">中文</option>
+    </select>
   </header>
 
   <main class="page-content" id="main" role="main" data-challenge-id="ch05">
