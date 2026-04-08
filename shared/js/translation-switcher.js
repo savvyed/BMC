@@ -24,12 +24,17 @@
   /* ── Mode-specific CSS ──────────────────────────────────── */
   var style = document.createElement('style');
   style.textContent = [
-    /* GTranslate mode: hide manual lang button; hide the float bubble
-       (we use our own select instead) but keep it in the DOM so the
-       translation engine initialises correctly */
+    /* GTranslate mode: hide the manual lang button */
     '[data-translation-mode="gtranslate"] .header-lang-btn { display: none !important; }',
-    '[data-translation-mode="gtranslate"] .gtranslate_wrapper {',
-    '  position: fixed; top: -9999px; left: -9999px; }',
+
+    /* Hide the GTranslate float bubble entirely — we use our own select.
+       The wrapper is kept in the DOM so the engine initialises correctly.
+       .gt_float_wrapper is the bubble container injected by float.js.
+       The iframe and Google toolbar banner are also suppressed. */
+    '[data-translation-mode="gtranslate"] .gtranslate_wrapper { position:fixed;top:-9999px;left:-9999px; }',
+    '.gt_float_wrapper                    { display: none !important; }',
+    '.goog-te-banner-frame                { display: none !important; }',
+    'body { top: 0 !important; }',
 
     /* Manual mode: hide GTranslate controls */
     '[data-translation-mode="manual"] .header-gt-select { display: none !important; }',

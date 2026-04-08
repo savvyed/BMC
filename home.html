@@ -35,10 +35,12 @@
   <!-- GTranslate mode: prominent language bar above the tiles -->
   <div class="translate-bar" role="region" aria-label="Language selection">
     <span class="translate-bar-icon" aria-hidden="true">🌐</span>
-    <span class="translate-bar-label">Choose your language:</span>
+    <span class="translate-bar-label">
+      Language · Idioma · Idioma · Lang · 语言
+    </span>
     <select class="translate-bar-select" aria-label="Choose language"
             onchange="if(window.doGTranslate)doGTranslate(this.value); this.selectedIndex=0;">
-      <option value="">Select / Seleccionar</option>
+      <option value="">— Select —</option>
       <option value="en|es">Español</option>
       <option value="en|pt">Português</option>
       <option value="en|ht">Kreyòl ayisyen</option>
