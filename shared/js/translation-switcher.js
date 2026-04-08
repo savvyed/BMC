@@ -65,13 +65,27 @@
     window.gtranslateSettings = {
       default_language: 'en',
       native_language_names: true,
-      detect_browser_language: false,   /* stop the browser from asking */
+      detect_browser_language: false,
       wrapper_selector: '.gtranslate_wrapper'
     };
     var s = document.createElement('script');
     s.src = 'https://cdn.gtranslate.net/widgets/latest/float.js';
     s.defer = true;
     document.head.appendChild(s);
+
+    /* float.js injects its bubble widget asynchronously into the DOM
+       after the page loads. Use a MutationObserver to catch it and
+       hide it as soon as it appears — CSS alone isn't fast enough. */
+    var observer = new MutationObserver(function () {
+      var bubble = document.querySelector('.gt_float_wrapper');
+      if (bubble) {
+        bubble.style.cssText = 'display:none!important';
+        observer.disconnect();
+      }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
   }
 
 })();
