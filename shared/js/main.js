@@ -2084,10 +2084,46 @@ function initTopic() {
    INIT — runs on every page
    ============================================================ */
 
+/* ============================================================
+   TRANSLATE BAR (home.html)
+   Always visible. Behaviour depends on translation mode:
+     GTranslate — calls doGTranslate() to translate page in place
+     Manual     — navigates to home.html?lang=xx
+   ============================================================ */
+
+/**
+ * Wires the #translate-bar-select dropdown on home.html.
+ * The option values are plain lang codes (en, es, pt, ht, zh)
+ * so this function can map them correctly for both modes.
+ */
+function initTranslateBar() {
+  var sel = document.getElementById('translate-bar-select');
+  if (!sel) return;
+
+  /* GTranslate lang code map — GT uses different codes for some langs */
+  var gtMap = { en: 'en', es: 'es', pt: 'pt', ht: 'ht', zh: 'zh-CN' };
+
+  sel.addEventListener('change', function () {
+    var lang = sel.value;
+    if (!lang) return;
+    sel.selectedIndex = 0; /* reset visually */
+
+    if (window.BMC_TRANSLATION_MODE === 'gtranslate') {
+      var gtLang = gtMap[lang] || lang;
+      if (window.doGTranslate) window.doGTranslate('en|' + gtLang);
+    } else {
+      window.location.href = lang === 'en'
+        ? 'home.html'
+        : 'home.html?lang=' + lang;
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   applyStrings();
   initModeChooser();     /* no-op if mode-chooser buttons are not present */
   initLangSelector();    /* no-op if .lang-option buttons are not present */
+  initTranslateBar();    /* no-op if #translate-bar-select is not present */
   initSteps();           /* no-op if .challenge-step panels are not present */
   initChecklist();       /* no-op if .checklist-item elements are not present */
   initCharSelector();    /* no-op if .char-btn buttons are not present */

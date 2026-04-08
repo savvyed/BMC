@@ -36,9 +36,9 @@
     '.goog-te-banner-frame                { display: none !important; }',
     'body { top: 0 !important; }',
 
-    /* Manual mode: hide GTranslate controls */
+    /* Manual mode: hide GTranslate header select (not used on home;
+       kept on other pages but hidden in manual mode) */
     '[data-translation-mode="manual"] .header-gt-select { display: none !important; }',
-    '[data-translation-mode="manual"] .translate-bar    { display: none !important; }',
 
     /* Custom GTranslate select — in the sticky header */
     '.header-gt-select {',

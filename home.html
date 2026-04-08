@@ -10,41 +10,32 @@
 
   <!-- ============================================================
        HOME SCREEN
-       Two option cards (course + knowledge base).
-       Language handling depends on mode set on index.html:
-         GTranslate — translate-bar shown; header-gt-select active
-         Manual     — header lang button shown; translate-bar hidden
+       Translate-bar is always visible. Its behaviour is set by JS:
+         GTranslate mode — calls doGTranslate() to translate in place
+         Manual mode     — navigates to home.html?lang=xx
        ============================================================ -->
 
   <header class="site-header" role="banner">
-
     <a href="index.html" class="header-logo-placeholder" aria-label="BMC — return to welcome screen">
       BMC
     </a>
-
     <span class="header-title" aria-hidden="true">BMC Digital Health</span>
-
-    <!-- Manual mode: tapping returns to language selector -->
-    <!-- GTranslate mode: language is handled by the translate-bar below, not here -->
-    <a href="lang-select.html" class="header-lang-btn" aria-label="Change language">
-      🌐 <span data-string-key="langIndicator">English</span>
-    </a>
-
+    <!-- No lang button here — the translate-bar below covers both modes -->
   </header>
 
-  <!-- GTranslate mode: prominent language bar above the tiles -->
+  <!-- Always-visible language bar — behaviour wired by main.js -->
   <div class="translate-bar" role="region" aria-label="Language selection">
     <span class="translate-bar-icon" aria-hidden="true">🌐</span>
     <span class="translate-bar-label">
       Language · Idioma · Idioma · Lang · 语言
     </span>
-    <select class="translate-bar-select" aria-label="Choose language"
-            onchange="if(window.doGTranslate)doGTranslate(this.value); this.selectedIndex=0;">
+    <select id="translate-bar-select" class="translate-bar-select" aria-label="Choose language">
       <option value="">— Select —</option>
-      <option value="en|es">Español</option>
-      <option value="en|pt">Português</option>
-      <option value="en|ht">Kreyòl ayisyen</option>
-      <option value="en|zh-CN">中文</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+      <option value="ht">Kreyòl ayisyen</option>
+      <option value="zh">中文</option>
     </select>
   </div>
 
@@ -56,7 +47,6 @@
 
     <div class="option-grid" role="list">
 
-      <!-- Card 1 — Learn MyChart (internal) -->
       <a class="option-card"
          role="listitem"
          data-lang-href="course/index.html"
@@ -68,7 +58,6 @@
         </span>
       </a>
 
-      <!-- Card 2 — Find help (internal) -->
       <a class="option-card"
          role="listitem"
          data-lang-href="help/index.html"
@@ -101,7 +90,7 @@
     </a>
   </footer>
 
-  <!-- GTranslate engine mount point (hidden via CSS in GTranslate mode) -->
+  <!-- GTranslate engine mount point -->
   <div class="gtranslate_wrapper"></div>
 
   <script src="shared/js/translation-switcher.js"></script>
