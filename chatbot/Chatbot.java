@@ -1,13 +1,18 @@
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 /**
- * A small console chatbot. On startup it picks a name and an age at random
- * from fixed pools and uses them as its identity for the rest of the chat.
+ * A small console chatbot. On startup it picks a name and an age independently
+ * at random from two pools and uses them as its identity for the rest of the chat.
  *
  * Run:  javac Chatbot.java && java Chatbot
- * Pass a number as the first argument to seed the random choice (repeatable runs).
+ *
+ * Options (all optional):
+ *   --names Ada,Milo,Zara   replace the default name pool with any names
+ *   --ages 20,35,70         replace the default age pool with any ages
+ *   --seed 42               make the random pick repeatable
  */
 public class Chatbot {
 
@@ -21,10 +26,10 @@ public class Chatbot {
     private final int age;
     private final Random random;
 
-    public Chatbot(Random random) {
+    public Chatbot(List<String> names, List<Integer> ages, Random random) {
         this.random = random;
-        this.name = NAMES.get(random.nextInt(NAMES.size()));
-        this.age = AGES.get(random.nextInt(AGES.size()));
+        this.name = names.get(random.nextInt(names.size()));
+        this.age = ages.get(random.nextInt(ages.size()));
     }
 
     public String greeting() {
@@ -71,8 +76,30 @@ public class Chatbot {
     }
 
     public static void main(String[] args) {
-        Random random = args.length > 0 ? new Random(Long.parseLong(args[0])) : new Random();
-        Chatbot bot = new Chatbot(random);
+        List<String> names = NAMES;
+        List<Integer> ages = AGES;
+        Random random = new Random();
+
+        try {
+            for (int i = 0; i < args.length; i += 2) {
+                if (i + 1 >= args.length) {
+                    throw new IllegalArgumentException("Missing value for " + args[i]);
+                }
+                String value = args[i + 1];
+                switch (args[i]) {
+                    case "--names" -> names = parseNames(value);
+                    case "--ages" -> ages = parseAges(value);
+                    case "--seed" -> random = new Random(Long.parseLong(value.trim()));
+                    default -> throw new IllegalArgumentException("Unknown option " + args[i]);
+                }
+            }
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            System.err.println("Usage: java Chatbot [--names A,B,C] [--ages 20,30] [--seed N]");
+            System.exit(2);
+        }
+
+        Chatbot bot = new Chatbot(names, ages, random);
 
         System.out.println(bot.greeting());
         System.out.println("(type 'bye' to leave)");
@@ -91,5 +118,33 @@ public class Chatbot {
                 System.out.println(response);
             }
         }
+    }
+
+    private static List<String> parseNames(String csv) {
+        List<String> names = Arrays.stream(csv.split(","))
+                .map(String::trim)
+                .filter(n -> !n.isEmpty())
+                .toList();
+        if (names.isEmpty()) {
+            throw new IllegalArgumentException("--names needs at least one name");
+        }
+        return names;
+    }
+
+    private static List<Integer> parseAges(String csv) {
+        List<Integer> ages;
+        try {
+            ages = Arrays.stream(csv.split(","))
+                    .map(String::trim)
+                    .filter(a -> !a.isEmpty())
+                    .map(Integer::parseInt)
+                    .toList();
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("--ages must be whole numbers, e.g. 20,35,70");
+        }
+        if (ages.isEmpty() || ages.stream().anyMatch(a -> a < 0)) {
+            throw new IllegalArgumentException("--ages needs one or more non-negative numbers");
+        }
+        return ages;
     }
 }
