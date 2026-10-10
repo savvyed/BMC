@@ -28,13 +28,17 @@ import java.util.stream.Collectors;
  *   - variety: many phrasings per intent, never the same reply twice in a row,
  *     random openers/follow-ups, and a short "typing" pause
  *
- * Run:  javac Chatbot.java && java Chatbot   (works on Java 8 and newer)
+ * Run:  mvn compile exec:java        (Java 8 or newer, Maven installed)
+ *       mvn compile exec:java -Dexec.args="--ai"     to chat with Claude
  *
  * Options (all optional):
  *   --names Ada,Milo,Zara   replace the default name pool with any names
  *   --ages 20,35,70         replace the default age pool with any ages
  *   --seed 42               make the random choices repeatable
  *   --no-delay              skip the typing pause
+ *   --ai                    answer with Claude instead of the built-in rules
+ *                           (needs the ANTHROPIC_API_KEY environment variable)
+ *   --model claude-haiku-5-5   which Claude model --ai uses (default claude-opus-5-5)
  */
 public class Chatbot {
 
@@ -279,6 +283,22 @@ public class Chatbot {
 
     public String farewell() {
         return fill(any(FAREWELLS));
+    }
+
+    /** True if the user typed bye/quit/exit (or similar). */
+    public boolean isQuit(String input) {
+        return QUIT.matcher(normalize(input)).matches();
+    }
+
+    /** Describes this bot's randomly chosen identity so Claude can play it. */
+    public String systemPrompt() {
+        return "You are " + name + ", a friendly conversational character. "
+                + "Your persona: " + age + " years old, from " + city + ", you enjoy " + hobby
+                + ", your favorite food is " + food + " and your favorite color is " + color + ". "
+                + "Stay in this persona and use exactly these details when asked about yourself. "
+                + "Keep replies short and natural: one to three sentences of plain text, no markdown. "
+                + "Ask a follow-up question now and then. "
+                + "You are an AI chatbot; if the user sincerely asks whether you are human or an AI, say you are an AI.";
     }
 
     private void buildRules() {
@@ -629,12 +649,18 @@ public class Chatbot {
         List<Integer> ages = AGES;
         Random random = new Random();
         boolean delay = true;
+        boolean ai = false;
+        String model = ClaudeBrain.DEFAULT_MODEL;
 
         try {
             for (int i = 0; i < args.length; i++) {
                 String option = args[i];
                 if (option.equals("--no-delay")) {
                     delay = false;
+                    continue;
+                }
+                if (option.equals("--ai")) {
+                    ai = true;
                     continue;
                 }
                 if (i + 1 >= args.length) {
@@ -651,6 +677,9 @@ public class Chatbot {
                     case "--seed":
                         random = new Random(Long.parseLong(value.trim()));
                         break;
+                    case "--model":
+                        model = value.trim();
+                        break;
                     default:
                         throw new IllegalArgumentException("Unknown option " + option);
                 }
@@ -658,12 +687,25 @@ public class Chatbot {
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
             System.err.println(
-                    "Usage: java Chatbot [--names A,B,C] [--ages 20,30] [--seed N] [--no-delay]");
+                    "Usage: Chatbot [--names A,B,C] [--ages 20,30] [--seed N] [--no-delay] [--ai] [--model ID]");
             System.exit(2);
         }
 
         Chatbot bot = new Chatbot(names, ages, random);
         Random pause = new Random();
+
+        ClaudeBrain brain = null;
+        if (ai) {
+            try {
+                brain = new ClaudeBrain(model, bot.systemPrompt());
+            } catch (ClaudeBrain.BrainException e) {
+                System.err.println(e.getMessage());
+                System.err.println("Get a key at https://console.anthropic.com, then in your terminal run:");
+                System.err.println("  export ANTHROPIC_API_KEY=your-key-here      (Mac/Linux)");
+                System.err.println("  set ANTHROPIC_API_KEY=your-key-here         (Windows cmd)");
+                System.exit(2);
+            }
+        }
 
         System.out.println(bot.getName() + ": " + bot.greeting());
         System.out.println("(type 'bye' to leave)");
@@ -674,8 +716,25 @@ public class Chatbot {
                 if (!in.hasNextLine()) {
                     break;
                 }
-                String response = bot.reply(in.nextLine());
-                if (delay) {
+                String line = in.nextLine();
+                String response;
+                if (bot.isQuit(line)) {
+                    response = null;
+                } else if (brain != null) {
+                    try {
+                        response = brain.reply(line);
+                    } catch (ClaudeBrain.BrainException e) {
+                        System.err.println("(" + e.getMessage() + " Using built-in reply instead.)");
+                        if (e.fatal) {
+                            System.err.println("(AI mode is off for the rest of this chat.)");
+                            brain = null;
+                        }
+                        response = bot.reply(line);
+                    }
+                } else {
+                    response = bot.reply(line);
+                }
+                if (delay && brain == null) {
                     sleep(300 + pause.nextInt(600));
                 }
                 if (response == null) {
