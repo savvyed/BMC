@@ -3,4 +3,5 @@ Thumbs.db
 .DS_Store
 BMC/
 styles.css
-chatbot/target/
+chatbot/exe-build/build/
+chatbot/exe-build/classes/

@@ -1,29 +1,34 @@
 # Chatbot
 
-A console chatbot with a random name and age. It answers with built-in rules by default,
-or with Claude when you pass `--ai`.
+A console chatbot with a random name and age. It answers with built-in rules, or with
+Claude when you give it an API key.
 
-## Setup
+## Easiest: the Windows app
 
-1. Install Java 8 or newer and [Maven](https://maven.apache.org/install.html).
-2. For AI mode, create an API key at https://console.anthropic.com and put it in an
-   environment variable. Never paste the key into the code or commit it.
+Double-click `dist/Chatbot.exe`.
 
-   Mac/Linux:  `export ANTHROPIC_API_KEY=your-key-here`
-   Windows:    `set ANTHROPIC_API_KEY=your-key-here`
+- It needs Java 8 or newer installed on the PC (the .exe is a launcher with the program inside).
+- It asks for an API key. Paste one to chat with Claude, or press Enter to use the built-in
+  rules. The key is used for that chat only and is never saved.
+- The window waits for Enter at the end so you can read the last message.
 
-## Run
-
-From this folder:
+## Run from source (no Maven, no libraries)
 
 ```
-mvn compile exec:java                                    # built-in rules, no key needed
-mvn compile exec:java -Dexec.args="--ai"                 # chat with Claude
-mvn compile exec:java -Dexec.args="--ai --model claude-haiku-5-5"   # cheaper, faster model
-mvn compile exec:java -Dexec.args="--names Ada,Sam --ages 20,40"
+cd chatbot
+javac Chatbot.java
+java Chatbot
 ```
 
-Add `-q` after `mvn` to hide Maven's own log lines.
+## Getting an API key
+
+1. Sign in at https://console.anthropic.com and add credits under billing.
+2. Create a key on the API keys page and copy it (it is shown once).
+3. Either paste it when the bot asks, or set it before starting:
+   - Windows: `set ANTHROPIC_API_KEY=your-key-here`
+   - Mac/Linux: `export ANTHROPIC_API_KEY=your-key-here`
+
+Never paste a key into the code or commit it to git.
 
 ## Options
 
@@ -33,9 +38,21 @@ Add `-q` after `mvn` to hide Maven's own log lines.
 | `--ages 20,35,70` | pool of ages to pick from |
 | `--seed N` | repeatable random choices |
 | `--no-delay` | skip the fake typing pause (rules mode) |
-| `--ai` | answer with Claude (needs `ANTHROPIC_API_KEY`) |
-| `--model ID` | Claude model for `--ai` (default `claude-opus-5-5`) |
+| `--rules` | never call the API |
+| `--ai` | require Claude; exit with instructions if there is no key |
+| `--model ID` | Claude model (default `claude-opus-5-5`; `claude-haiku-5-5` is cheaper) |
+| `--pause` | wait for Enter before closing (the .exe uses this) |
 
-In AI mode the bot's random name, age, hometown, hobby, favorite food and color are given
+In Claude mode the bot's random name, age, hometown, hobby, favorite food and color are given
 to Claude as its persona. If an API call fails, that message is answered by the built-in
-rules instead, and a rejected key turns AI mode off for the rest of the chat.
+rules instead, and a rejected key turns Claude off for the rest of the chat.
+
+## Rebuilding the .exe
+
+Only needed after you change `Chatbot.java`. Needs a JDK and Maven:
+
+```
+sh exe-build/build-exe.sh
+```
+
+This compiles the code, packs it into a jar, and wraps it in `dist/Chatbot.exe` with Launch4j.

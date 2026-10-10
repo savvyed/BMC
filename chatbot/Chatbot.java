@@ -1,3 +1,10 @@
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -28,17 +35,20 @@ import java.util.stream.Collectors;
  *   - variety: many phrasings per intent, never the same reply twice in a row,
  *     random openers/follow-ups, and a short "typing" pause
  *
- * Run:  mvn compile exec:java        (Java 8 or newer, Maven installed)
- *       mvn compile exec:java -Dexec.args="--ai"     to chat with Claude
+ * Run:  javac Chatbot.java && java Chatbot      (Java 8 or newer, no other installs)
+ *
+ * Talking to Claude: set the ANTHROPIC_API_KEY environment variable (or paste the
+ * key when the bot asks for it). The key is only used for this chat, never saved.
  *
  * Options (all optional):
  *   --names Ada,Milo,Zara   replace the default name pool with any names
  *   --ages 20,35,70         replace the default age pool with any ages
  *   --seed 42               make the random choices repeatable
  *   --no-delay              skip the typing pause
- *   --ai                    answer with Claude instead of the built-in rules
- *                           (needs the ANTHROPIC_API_KEY environment variable)
- *   --model claude-haiku-5-5   which Claude model --ai uses (default claude-opus-5-5)
+ *   --rules                 use only the built-in rules, never call the API
+ *   --ai                    require Claude (exit if no key is available)
+ *   --model claude-haiku-5-5   which Claude model to use (default claude-opus-5-5)
+ *   --pause                 wait for Enter before closing (for double-clicked .exe)
  */
 public class Chatbot {
 
@@ -650,6 +660,8 @@ public class Chatbot {
         Random random = new Random();
         boolean delay = true;
         boolean ai = false;
+        boolean rulesOnly = false;
+        boolean pauseAtEnd = false;
         String model = ClaudeBrain.DEFAULT_MODEL;
 
         try {
@@ -661,6 +673,14 @@ public class Chatbot {
                 }
                 if (option.equals("--ai")) {
                     ai = true;
+                    continue;
+                }
+                if (option.equals("--rules")) {
+                    rulesOnly = true;
+                    continue;
+                }
+                if (option.equals("--pause")) {
+                    pauseAtEnd = true;
                     continue;
                 }
                 if (i + 1 >= args.length) {
@@ -684,66 +704,92 @@ public class Chatbot {
                         throw new IllegalArgumentException("Unknown option " + option);
                 }
             }
+            if (ai && rulesOnly) {
+                throw new IllegalArgumentException("Use either --ai or --rules, not both");
+            }
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
-            System.err.println(
-                    "Usage: Chatbot [--names A,B,C] [--ages 20,30] [--seed N] [--no-delay] [--ai] [--model ID]");
-            System.exit(2);
+            System.err.println("Usage: Chatbot [--names A,B,C] [--ages 20,30] [--seed N] [--no-delay]"
+                    + " [--rules | --ai] [--model ID] [--pause]");
+            exit(2, pauseAtEnd);
         }
 
         Chatbot bot = new Chatbot(names, ages, random);
         Random pause = new Random();
 
         ClaudeBrain brain = null;
-        if (ai) {
-            try {
-                brain = new ClaudeBrain(model, bot.systemPrompt());
-            } catch (ClaudeBrain.BrainException e) {
-                System.err.println(e.getMessage());
-                System.err.println("Get a key at https://console.anthropic.com, then in your terminal run:");
-                System.err.println("  export ANTHROPIC_API_KEY=your-key-here      (Mac/Linux)");
-                System.err.println("  set ANTHROPIC_API_KEY=your-key-here         (Windows cmd)");
-                System.exit(2);
+        if (!rulesOnly) {
+            String key = System.getenv("ANTHROPIC_API_KEY");
+            boolean haveKey = key != null && !key.trim().isEmpty();
+            if (!haveKey && System.console() != null) {
+                // Interactive terminal and no key in the environment: offer to paste one.
+                System.out.println("To chat with Claude, paste your API key (get one at https://console.anthropic.com).");
+                System.out.println("It is used for this chat only and is never saved. Press Enter to skip.");
+                char[] typed = System.console().readPassword("API key: ");
+                key = typed == null ? "" : new String(typed).trim();
+                haveKey = !key.isEmpty();
+            }
+            if (haveKey) {
+                brain = new ClaudeBrain(key.trim(), model, bot.systemPrompt());
+                System.out.println("(Chatting with Claude, model " + model + ". Use --rules to stay offline.)");
+            } else if (ai) {
+                System.err.println("No API key found. Set the ANTHROPIC_API_KEY environment variable, then try again.");
+                System.err.println("  Mac/Linux:  export ANTHROPIC_API_KEY=your-key-here");
+                System.err.println("  Windows:    set ANTHROPIC_API_KEY=your-key-here");
+                exit(2, pauseAtEnd);
             }
         }
 
         System.out.println(bot.getName() + ": " + bot.greeting());
         System.out.println("(type 'bye' to leave)");
 
-        try (Scanner in = new Scanner(System.in)) {
-            while (true) {
-                System.out.print("You: ");
-                if (!in.hasNextLine()) {
-                    break;
-                }
-                String line = in.nextLine();
-                String response;
-                if (bot.isQuit(line)) {
-                    response = null;
-                } else if (brain != null) {
-                    try {
-                        response = brain.reply(line);
-                    } catch (ClaudeBrain.BrainException e) {
-                        System.err.println("(" + e.getMessage() + " Using built-in reply instead.)");
-                        if (e.fatal) {
-                            System.err.println("(AI mode is off for the rest of this chat.)");
-                            brain = null;
-                        }
-                        response = bot.reply(line);
+        // Not closed on purpose: closing it would close System.in, and exit() may still read the console.
+        Scanner in = new Scanner(System.in);
+        while (true) {
+            System.out.print("You: ");
+            if (!in.hasNextLine()) {
+                break;
+            }
+            String line = in.nextLine();
+            String response;
+            if (bot.isQuit(line)) {
+                response = null;
+            } else if (brain != null) {
+                try {
+                    response = brain.reply(line);
+                } catch (ClaudeBrain.BrainException e) {
+                    System.err.println("(" + e.getMessage() + " Using built-in reply instead.)");
+                    if (e.fatal) {
+                        System.err.println("(Claude is off for the rest of this chat.)");
+                        brain = null;
                     }
-                } else {
                     response = bot.reply(line);
                 }
-                if (delay && brain == null) {
-                    sleep(300 + pause.nextInt(600));
-                }
-                if (response == null) {
-                    System.out.println(bot.getName() + ": " + bot.farewell());
-                    break;
-                }
-                System.out.println(bot.getName() + ": " + response);
+            } else {
+                response = bot.reply(line);
+            }
+            if (delay && brain == null) {
+                sleep(300 + pause.nextInt(600));
+            }
+            if (response == null) {
+                System.out.println(bot.getName() + ": " + bot.farewell());
+                break;
+            }
+            System.out.println(bot.getName() + ": " + response);
+        }
+        exit(0, pauseAtEnd);
+    }
+
+    /** Exits, first waiting for Enter if asked, so a double-clicked window doesn't vanish. */
+    private static void exit(int code, boolean waitForEnter) {
+        if (waitForEnter && System.console() != null) {
+            try {
+                System.console().readLine("%nPress Enter to close...");
+            } catch (RuntimeException ignored) {
+                // input already closed; just exit
             }
         }
+        System.exit(code);
     }
 
     private static void sleep(int millis) {
@@ -780,5 +826,368 @@ public class Chatbot {
             throw new IllegalArgumentException("--ages needs one or more non-negative numbers");
         }
         return ages;
+    }
+
+    // ---- Claude API (plain HTTPS, JDK only) ---------------------------------
+
+    /**
+     * Sends the conversation to the Claude Messages API with HttpURLConnection.
+     * No libraries needed. The key comes from the caller and is only sent in the
+     * x-api-key header; it is never printed or written anywhere.
+     */
+    static final class ClaudeBrain {
+
+        static final String DEFAULT_MODEL = "claude-opus-5-5";
+
+        /** A failure the chat loop can show to the user and recover from. */
+        static final class BrainException extends RuntimeException {
+            /** True when retrying can't help (for example a rejected API key). */
+            final boolean fatal;
+
+            BrainException(String message, boolean fatal) {
+                super(message);
+                this.fatal = fatal;
+            }
+        }
+
+        private final String apiKey;
+        private final String model;
+        private final String systemPrompt;
+        private final String endpoint;
+        private final List<String[]> history = new ArrayList<String[]>(); // {"user"|"assistant", text}
+
+        ClaudeBrain(String apiKey, String model, String systemPrompt) {
+            this.apiKey = apiKey;
+            this.model = model;
+            this.systemPrompt = systemPrompt;
+            String base = System.getenv("ANTHROPIC_BASE_URL");
+            if (base == null || base.trim().isEmpty()) {
+                base = "https://api.anthropic.com";
+            }
+            this.endpoint = base.trim().replaceAll("/+$", "") + "/v1/messages";
+        }
+
+        /** Sends one user message (plus the earlier conversation) and returns Claude's reply. */
+        String reply(String userText) {
+            String body = buildBody(userText);
+            String text = extractText(post(body));
+            // Only remember turns that succeeded, so a failed call can't corrupt the history.
+            history.add(new String[]{"user", userText});
+            history.add(new String[]{"assistant", text});
+            return text;
+        }
+
+        private String buildBody(String userText) {
+            StringBuilder b = new StringBuilder();
+            b.append("{\"model\":").append(Json.quote(model));
+            b.append(",\"max_tokens\":16000");
+            b.append(",\"system\":").append(Json.quote(systemPrompt));
+            // Chat doesn't need deep reasoning; low effort keeps replies fast and cheap.
+            b.append(",\"output_config\":{\"effort\":\"low\"}");
+            b.append(",\"messages\":[");
+            for (String[] turn : history) {
+                b.append("{\"role\":\"").append(turn[0]).append("\",\"content\":")
+                        .append(Json.quote(turn[1])).append("},");
+            }
+            b.append("{\"role\":\"user\",\"content\":").append(Json.quote(userText)).append("}]}");
+            return b.toString();
+        }
+
+        /** POSTs the body, retrying briefly on rate limits and server errors. */
+        private String post(String body) {
+            byte[] payload = body.getBytes(StandardCharsets.UTF_8);
+            int attempts = 3;
+            for (int attempt = 1; ; attempt++) {
+                int status;
+                String response;
+                try {
+                    HttpURLConnection c = (HttpURLConnection) new URL(endpoint).openConnection();
+                    c.setRequestMethod("POST");
+                    c.setConnectTimeout(15000);
+                    c.setReadTimeout(120000);
+                    c.setDoOutput(true);
+                    c.setRequestProperty("content-type", "application/json");
+                    c.setRequestProperty("x-api-key", apiKey);
+                    c.setRequestProperty("anthropic-version", "2023-06-01");
+                    OutputStream out = c.getOutputStream();
+                    out.write(payload);
+                    out.close();
+                    status = c.getResponseCode();
+                    InputStream in = status >= 400 ? c.getErrorStream() : c.getInputStream();
+                    response = in == null ? "" : readAll(in);
+                } catch (IOException e) {
+                    if (attempt < attempts) {
+                        sleep(1000 * attempt);
+                        continue;
+                    }
+                    throw new BrainException("Could not reach the API (" + e.getMessage() + ").", false);
+                }
+
+                if (status >= 200 && status < 300) {
+                    return response;
+                }
+                boolean retryable = status == 429 || status >= 500;
+                if (retryable && attempt < attempts) {
+                    sleep(1000 * attempt);
+                    continue;
+                }
+                if (status == 401 || status == 403) {
+                    throw new BrainException("The API key was rejected.", true);
+                }
+                if (status == 429) {
+                    throw new BrainException("Rate limited. Wait a moment and try again.", false);
+                }
+                String detail = errorMessage(response);
+                throw new BrainException("API error (HTTP " + status + "): " + detail
+                        + (detail.endsWith(".") ? "" : "."), false);
+            }
+        }
+
+        private static String errorMessage(String response) {
+            try {
+                Object error = Json.get(Json.parse(response), "error");
+                Object message = Json.get(error, "message");
+                if (message instanceof String) {
+                    return (String) message;
+                }
+            } catch (RuntimeException ignored) {
+                // fall through to the generic text
+            }
+            return "no details";
+        }
+
+        private static String extractText(String response) {
+            Object root;
+            try {
+                root = Json.parse(response);
+            } catch (RuntimeException e) {
+                throw new BrainException("Got an unreadable reply from the API.", false);
+            }
+            if ("refusal".equals(Json.get(root, "stop_reason"))) {
+                throw new BrainException("Claude declined to answer that.", false);
+            }
+            StringBuilder text = new StringBuilder();
+            Object content = Json.get(root, "content");
+            if (content instanceof List) {
+                for (Object block : (List<?>) content) {
+                    if ("text".equals(Json.get(block, "type")) && Json.get(block, "text") instanceof String) {
+                        text.append((String) Json.get(block, "text"));
+                    }
+                }
+            }
+            if (text.length() == 0) {
+                throw new BrainException("Claude returned an empty reply.", false);
+            }
+            return text.toString();
+        }
+
+        private static String readAll(InputStream in) throws IOException {
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            byte[] chunk = new byte[4096];
+            int n;
+            while ((n = in.read(chunk)) != -1) {
+                buffer.write(chunk, 0, n);
+            }
+            in.close();
+            return new String(buffer.toByteArray(), StandardCharsets.UTF_8);
+        }
+    }
+
+    // ---- minimal JSON reader/writer ----------------------------------------
+
+    /** Just enough JSON for the API: objects, arrays, strings, numbers, booleans, null. */
+    static final class Json {
+        private final String s;
+        private int i;
+
+        private Json(String s) {
+            this.s = s;
+        }
+
+        /** Wraps text in quotes and escapes it for JSON. */
+        static String quote(String text) {
+            StringBuilder b = new StringBuilder("\"");
+            for (int k = 0; k < text.length(); k++) {
+                char c = text.charAt(k);
+                switch (c) {
+                    case '"':
+                        b.append("\\\"");
+                        break;
+                    case '\\':
+                        b.append("\\\\");
+                        break;
+                    case '\n':
+                        b.append("\\n");
+                        break;
+                    case '\r':
+                        b.append("\\r");
+                        break;
+                    case '\t':
+                        b.append("\\t");
+                        break;
+                    default:
+                        if (c < 0x20) {
+                            b.append(String.format("\\u%04x", (int) c));
+                        } else {
+                            b.append(c);
+                        }
+                }
+            }
+            return b.append('"').toString();
+        }
+
+        /** Returns a Map, List, String, Double, Boolean or null. */
+        static Object parse(String text) {
+            Json p = new Json(text);
+            p.skipSpace();
+            Object value = p.value();
+            p.skipSpace();
+            if (p.i != p.s.length()) {
+                throw new IllegalArgumentException("Unexpected data after JSON value");
+            }
+            return value;
+        }
+
+        /** Looks up a key if the node is an object, otherwise returns null. */
+        static Object get(Object node, String key) {
+            return node instanceof Map ? ((Map<?, ?>) node).get(key) : null;
+        }
+
+        private Object value() {
+            if (i >= s.length()) {
+                throw new IllegalArgumentException("Unexpected end of JSON");
+            }
+            char c = s.charAt(i);
+            if (c == '{') {
+                return object();
+            }
+            if (c == '[') {
+                return array();
+            }
+            if (c == '"') {
+                return string();
+            }
+            if (s.startsWith("true", i)) {
+                i += 4;
+                return Boolean.TRUE;
+            }
+            if (s.startsWith("false", i)) {
+                i += 5;
+                return Boolean.FALSE;
+            }
+            if (s.startsWith("null", i)) {
+                i += 4;
+                return null;
+            }
+            int start = i;
+            while (i < s.length() && "+-0123456789.eE".indexOf(s.charAt(i)) >= 0) {
+                i++;
+            }
+            if (start == i) {
+                throw new IllegalArgumentException("Unexpected character at " + i);
+            }
+            return Double.valueOf(s.substring(start, i));
+        }
+
+        private Map<String, Object> object() {
+            Map<String, Object> map = new HashMap<String, Object>();
+            i++; // {
+            skipSpace();
+            if (s.charAt(i) == '}') {
+                i++;
+                return map;
+            }
+            while (true) {
+                skipSpace();
+                String key = string();
+                skipSpace();
+                expect(':');
+                skipSpace();
+                map.put(key, value());
+                skipSpace();
+                if (s.charAt(i) == ',') {
+                    i++;
+                } else {
+                    expect('}');
+                    return map;
+                }
+            }
+        }
+
+        private List<Object> array() {
+            List<Object> list = new ArrayList<Object>();
+            i++; // [
+            skipSpace();
+            if (s.charAt(i) == ']') {
+                i++;
+                return list;
+            }
+            while (true) {
+                skipSpace();
+                list.add(value());
+                skipSpace();
+                if (s.charAt(i) == ',') {
+                    i++;
+                } else {
+                    expect(']');
+                    return list;
+                }
+            }
+        }
+
+        private String string() {
+            expect('"');
+            StringBuilder b = new StringBuilder();
+            while (true) {
+                if (i >= s.length()) {
+                    throw new IllegalArgumentException("Unterminated string");
+                }
+                char c = s.charAt(i++);
+                if (c == '"') {
+                    return b.toString();
+                }
+                if (c != '\\') {
+                    b.append(c);
+                    continue;
+                }
+                char e = s.charAt(i++);
+                switch (e) {
+                    case 'n':
+                        b.append('\n');
+                        break;
+                    case 'r':
+                        b.append('\r');
+                        break;
+                    case 't':
+                        b.append('\t');
+                        break;
+                    case 'b':
+                        b.append('\b');
+                        break;
+                    case 'f':
+                        b.append('\f');
+                        break;
+                    case 'u':
+                        b.append((char) Integer.parseInt(s.substring(i, i + 4), 16));
+                        i += 4;
+                        break;
+                    default:
+                        b.append(e); // covers \" \\ and \/
+                }
+            }
+        }
+
+        private void expect(char c) {
+            if (i >= s.length() || s.charAt(i) != c) {
+                throw new IllegalArgumentException("Expected '" + c + "' at " + i);
+            }
+            i++;
+        }
+
+        private void skipSpace() {
+            while (i < s.length() && Character.isWhitespace(s.charAt(i))) {
+                i++;
+            }
+        }
     }
 }

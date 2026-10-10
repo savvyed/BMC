@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Only needed to REBUILD Chatbot.exe. Running the chatbot does not need Maven. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>chatbot-exe</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.akathist.maven.plugins.launch4j</groupId>
+        <artifactId>launch4j-maven-plugin</artifactId>
+        <version>2.5.2</version>
+        <executions>
+          <execution>
+            <id>make-exe</id>
+            <phase>package</phase>
+            <goals><goal>launch4j</goal></goals>
+            <configuration>
+              <headerType>console</headerType>
+              <jar>${project.basedir}/build/Chatbot.jar</jar>
+              <outfile>${project.basedir}/build/Chatbot.exe</outfile>
+              <dontWrapJar>false</dontWrapJar>
+              <errTitle>Chatbot</errTitle>
+              <!-- Keeps the window open at the end when the .exe is double-clicked. -->
+              <cmdLine>--pause</cmdLine>
+              <classPath>
+                <mainClass>Chatbot</mainClass>
+              </classPath>
+              <jre>
+                <minVersion>1.8.0</minVersion>
+                <jdkPreference>preferJre</jdkPreference>
+              </jre>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
