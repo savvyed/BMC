@@ -608,7 +608,7 @@ public class Chatbot {
 
     /** Lowercases, expands contractions, turns "plus" into "+", and strips punctuation. */
     private static String normalize(String input) {
-        String t = input.toLowerCase().replace('’', '\'').trim();
+        String t = input.toLowerCase().replace('\\u2019', '\'').trim();
         for (String[] c : CONTRACTIONS) {
             t = t.replaceAll("\\b" + c[0] + "\\b", c[1]);
         }
