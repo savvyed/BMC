@@ -2,12 +2,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * A small console chatbot. On startup it picks a name and an age independently
  * at random from two pools and uses them as its identity for the rest of the chat.
  *
- * Run:  javac Chatbot.java && java Chatbot
+ * Run:  javac Chatbot.java && java Chatbot   (works on Java 8 and newer)
  *
  * Options (all optional):
  *   --names Ada,Milo,Zara   replace the default name pool with any names
@@ -17,10 +18,10 @@ import java.util.Scanner;
 public class Chatbot {
 
     private static final List<String> NAMES =
-            List.of("Ada", "Milo", "Zara", "Theo", "Luna", "Felix", "Nova", "Otis");
+            Arrays.asList("Ada", "Milo", "Zara", "Theo", "Luna", "Felix", "Nova", "Otis");
 
     private static final List<Integer> AGES =
-            List.of(19, 24, 27, 31, 38, 45, 52, 67);
+            Arrays.asList(19, 24, 27, 31, 38, 45, 52, 67);
 
     private final String name;
     private final int age;
@@ -87,10 +88,17 @@ public class Chatbot {
                 }
                 String value = args[i + 1];
                 switch (args[i]) {
-                    case "--names" -> names = parseNames(value);
-                    case "--ages" -> ages = parseAges(value);
-                    case "--seed" -> random = new Random(Long.parseLong(value.trim()));
-                    default -> throw new IllegalArgumentException("Unknown option " + args[i]);
+                    case "--names":
+                        names = parseNames(value);
+                        break;
+                    case "--ages":
+                        ages = parseAges(value);
+                        break;
+                    case "--seed":
+                        random = new Random(Long.parseLong(value.trim()));
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unknown option " + args[i]);
                 }
             }
         } catch (IllegalArgumentException e) {
@@ -124,7 +132,7 @@ public class Chatbot {
         List<String> names = Arrays.stream(csv.split(","))
                 .map(String::trim)
                 .filter(n -> !n.isEmpty())
-                .toList();
+                .collect(Collectors.toList());
         if (names.isEmpty()) {
             throw new IllegalArgumentException("--names needs at least one name");
         }
@@ -138,7 +146,7 @@ public class Chatbot {
                     .map(String::trim)
                     .filter(a -> !a.isEmpty())
                     .map(Integer::parseInt)
-                    .toList();
+                    .collect(Collectors.toList());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("--ages must be whole numbers, e.g. 20,35,70");
         }
